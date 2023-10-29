@@ -1,0 +1,7 @@
+tap 'homebrew/cask'
+tap 'homebrew/core'
+tap "homebrew/cask-fonts"
+tap "ktr0731/evans"
+
+# Neovim
+brew "ripgrep"
