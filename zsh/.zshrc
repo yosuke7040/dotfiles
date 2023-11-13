@@ -8,50 +8,15 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-# 直前のコマンドの重複を削除
-setopt hist_ignore_dups
-
-# 同じコマンドをヒストリに残さない
-setopt hist_ignore_all_dups
-
-# 同時に起動したzshの間でヒストリを共有
-setopt share_history
-
-# # 補完機能を有効にする
-# autoload -Uz compinit
-# compinit -u
-# if [ -e /usr/local/share/zsh-completions ]; then
-#   fpath=(/usr/local/share/zsh-completions $fpath)
-# fi
-
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# 補完候補を詰めて表示
-setopt list_packed
-
-# 補完候補一覧をカラー表示
-autoload colors
-zstyle ':completion:*' list-colors ''
-
-# コマンドのスペルを訂正
-setopt correct
-# ビープ音を鳴らさない
-setopt no_beep
-
-# ディレクトリスタック
-DIRSTACKSIZE=100
-setopt AUTO_PUSHD
-
-# git
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{magenta}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}+"
-zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
+# # git
+# autoload -Uz vcs_info
+# setopt prompt_subst
+# zstyle ':vcs_info:git:*' check-for-changes true
+# zstyle ':vcs_info:git:*' stagedstr "%F{magenta}!"
+# zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}+"
+# zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f"
+# zstyle ':vcs_info:*' actionformats '[%b|%a]'
+# precmd () { vcs_info }
 
 # プロンプトカスタマイズ
 #PROMPT='
@@ -104,13 +69,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 
 export CR_PAT="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"
 
-
-# HSTR configuration - add this to ~/.zshrc
-#alias hh=hstr                    # hh to be alias for hstr
-#setopt histignorespace           # skip cmds w/ leading space from history
-#export HSTR_CONFIG=hicolor       # get more colors
-#bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
-
 # direnv
 export EDITOR=vim
 eval "$(direnv hook zsh)"
@@ -137,34 +95,39 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 ## 最後に記述
 # starship
 eval "$(starship init zsh)"
-#bindkey -v
-autoload -U compinit
-compinit -u
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# ----------------- zplug --------------------------
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# export ZPLUG_HOME=/opt/homebrew/opt/zplug
+# source $ZPLUG_HOME/init.zsh
 
-zplug "nvbn/thefuck"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "sunlei/zsh-ssh"
-zplug "junegunn/fzf"
-zplug load
+# zplug "nvbn/thefuck"
+# zplug "zsh-users/zsh-history-substring-search"
+# zplug "zsh-users/zsh-autosuggestions"
+# zplug "zsh-users/zsh-completions"
+# zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# zplug "sunlei/zsh-ssh"
+# zplug "junegunn/fzf"
+# zplug load
 
+
+# 補完候補を詰めて表示
+setopt list_packed
+# 補完候補一覧をカラー表示
+autoload colors
+zstyle ':completion:*' list-colors ''
+# ビープ音を鳴らさない
+setopt no_beep
+# ディレクトリスタック
+DIRSTACKSIZE=100
+setopt AUTO_PUSHD
 ## historyコマンドをヒストリリストから取り除く。
 setopt hist_no_store
 ## すぐにヒストリファイルに追記する。
 setopt inc_append_history
-## 直前と同じコマンドをヒストリに追加しない
-setopt hist_ignore_dups
 ## ヒストリを呼び出してから実行する間に一旦編集
 setopt hist_verify
 ## コマンドラインの先頭がスペースで始まる場合ヒストリに追加しない
@@ -173,10 +136,6 @@ setopt hist_ignore_space
 setopt share_history
 ## zsh の開始, 終了時刻をヒストリファイルに書き込む
 setopt extended_history
-
-# 補完
-autoload -Uz compinit
-compinit
 ## The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 ## 補完候補を一覧表示
@@ -194,15 +153,12 @@ zstyle ':completion:*:default' menu select=1
 ## 補完候補の色づけ
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-## 補完候補を詰めて表示
-setopt list_packed
 ## スペルチェック
 setopt correct
 ## ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
 setopt mark_dirs
 ## 最後のスラッシュを自動的に削除しない
 setopt noautoremoveslash
-
 ## コアダンプサイズを制限
 limit coredumpsize 102400
 ## 出力の文字列末尾に改行コードが無い場合でも表示
@@ -213,8 +169,6 @@ setopt nobeep
 setopt long_list_jobs
 ## サスペンド中のプロセスと同じコマンド名を実行した場合はリジューム
 setopt auto_resume
-## cd 時に自動で push
-setopt auto_pushd
 ## 同じディレクトリを pushd しない
 setopt pushd_ignore_dups
 ## ファイル名で #, ~, ^ の 3 文字を正規表現として扱う
@@ -227,8 +181,6 @@ setopt magic_equal_subst
 setopt numeric_glob_sort
 ## 出力時8ビットを通す
 setopt print_eight_bit
-## ディレクトリ名だけで cd
-setopt auto_cd
 ## ドットなしでもドットファイルにマッチ
 setopt globdots
 ## {a-c} を a b c に展開する機能を使えるようにする
@@ -321,3 +273,45 @@ fi
 # zsh-completions入れた時に実行する
 # chmod go-w '/opt/homebrew/share'
 # chmod -R go-w '/opt/homebrew/share/zsh'
+
+## カレントディレクトリ以下のディレクトリ検索・移動
+function find_cd() {
+  local selected_dir=$(find . -type d | peco)
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+}
+zle -N find_cd
+bindkey '^X' find_cd
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+
+# シンタックスハイライト
+zinit ice wait'0'; zinit light zsh-users/zsh-syntax-highlighting
+# 入力補完
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+# zinit ice wait'0'; zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'0'; zinit light zsh-users/zsh-completions
