@@ -29,17 +29,20 @@ return {
     local keymap = vim.keymap
     keymap.set(
       "n",  -- Normal mode
-      "<Space>m",
+      -- "<Space>m",
+      "<A-m>",
       '<Plug>(quickhl-manual-this)'
     )
     keymap.set(
       "n",  -- Normal mode
-      "<Space>c",
+      -- "<Space>c",
+      "<A-c>",
       '<Plug>(quickhl-manual-clear)'
     )
     keymap.set(
       "n",  -- Normal mode
-      "<Space>M",
+      -- "<Space>M",
+      "<A-M>",
       '<Plug>(quickhl-manual-reset)'
     )
   end,
