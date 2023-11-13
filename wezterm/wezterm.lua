@@ -11,6 +11,8 @@ local keys = {
   -- ALt + wで現在のペインを閉じる
   { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane { confirm = true } },
   -- { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane "Close" },
+  { key = "LeftArrow", mods = "ALT", action = wezterm.action.SendKey { key = "b", mods = "META" } },
+  { key = "RightArrow", mods = "ALT", action = wezterm.action.SendKey { key = "f", mods = "META" } },
 }
 
 for i = 1, 9 do
