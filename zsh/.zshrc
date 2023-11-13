@@ -17,12 +17,12 @@ setopt hist_ignore_all_dups
 # 同時に起動したzshの間でヒストリを共有
 setopt share_history
 
-# 補完機能を有効にする
-autoload -Uz compinit
-compinit -u
-if [ -e /usr/local/share/zsh-completions ]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+# # 補完機能を有効にする
+# autoload -Uz compinit
+# compinit -u
+# if [ -e /usr/local/share/zsh-completions ]; then
+#   fpath=(/usr/local/share/zsh-completions $fpath)
+# fi
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -309,3 +309,15 @@ bindkey "^g" select-git-switch # 「control + G」で実行
 
 eval "$(rbenv init - zsh)"
 
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+# zsh-completions入れた時に実行する
+# chmod go-w '/opt/homebrew/share'
+# chmod -R go-w '/opt/homebrew/share/zsh'
