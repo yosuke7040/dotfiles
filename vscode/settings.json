@@ -1,11 +1,14 @@
 {
+  "recommendations":[
+    "vscode-icons-team.vscode-icons",
+    "vscode-neovim.neovim"
+  ],
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "$HOME/.vimrc",
   // "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.vim",
   // "workbench.list.automaticKeyboardNavigation": false,
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
-  "editor.minimap.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
   "editor.wordWrap": "on",
   "hadolint.hadolintPath": "/opt/homebrew/bin/hadolint",
@@ -26,6 +29,19 @@
   // ファイル保存時、末尾の空白をトリミングする
   "files.trimTrailingWhitespace": true,
   // ====================================
+  // エディタ全体のUIに関する設定
+  // ====================================
+  // テーマカラー
+  "workbench.colorTheme": "GitHub Dark Default",
+  // ミニマップを表示する
+  "editor.minimap.enabled": false,
+  // ファイルのパンくずリストを表示する
+  "breadcrumbs.enabled": false,
+  // メニューバーを表示する (toggle: Altキーで上部に表示する)
+  "window.menuBarVisibility": "toggle",
+  // アクティビティーバーの表示設定
+  "workbench.activityBar.visible": false,
+  // ====================================
   // エディタのUIに関する詳細設定
   // ====================================
   // タブサイズ
@@ -43,16 +59,72 @@
   // 左端の行番号にカーソル位置からの距離を表示
   "editor.lineNumbers": "relative",
   // ====================================
+  // ワークベンチの設定
+  // ====================================
+  // アイコンテーマ
+  // "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
+  // ツリーのインデント
+  "workbench.tree.indent": 12,
+  // ツリーのインデントガイドを表示する
+  "workbench.tree.renderIndentGuides": "always",
+  // アニメーションを減らす
+  "workbench.reduceMotion": "on",
+  // ====================================
   // エディタのタイポグラフィーに関する設定
   // ====================================
   // フォント
   "editor.fontFamily": "Hack, 'Noto Sans JP', monospace",
   // 文字サイズ
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   // 文字間隔
-  "editor.letterSpacing": -0.4,
+  "editor.letterSpacing": -0.1,
   // 行間
   "editor.lineHeight": 1.35,
+  // ====================================
+  // キャレットの設定
+  // ====================================
+  // エディタのキャレットの幅
+  "editor.cursorWidth": 3,
+  // エディタのキャレットアニメーション
+  "editor.cursorBlinking": "phase",
+  // ターミナルのキャレットのスタイル
+  "terminal.integrated.cursorStyle": "block",
+  // ターミナルのキャレットアニメーション
+  "terminal.integrated.cursorBlinking": true,
+  // テーマカラーの配色を上書きする
+  "workbench.colorCustomizations": {
+    // エディタのキャレットカラー
+    "editorCursor.foreground": "#f00058",
+    // ターミナルのキャレットカラー
+    "terminalCursor.foreground": "#efff0b"
+  },
+  // ====================================
+  // 拡張機能の個別設定
+  // ====================================
+  // ------------------------------------
+  // indent-rainbow
+  // ------------------------------------
+  // インデントカラー
+  "indentRainbow.colors": ["rgba(153, 40, 57, 0.24)", "rgba(111, 115, 30, 0.24)", "rgba(30, 115, 102, 0.24)", "rgba(85, 30, 115, 0.24)"],
+  // ------------------------------------
+  // Live Server
+  // ------------------------------------
+  // 起動時、IPアドレスをローカルIP形式に変更する
+  "liveServer.settings.useLocalIp": true,
+  // 起動できなかった場合、ポップアップメッセージを非表示にする
+  "liveServer.settings.donotShowInfoMsg": true,
+  // 起動時、HTMLファイル上にタグがない場合のエラーメッセージを非表示にする
+  "liveServer.settings.donotVerifyTags": true,
+  // ------------------------------------
+  // CodeSnap
+  // ------------------------------------
+  // 背景色
+  "codesnap.backgroundColor": "#70cdc9",
+  // エディタの影
+  "codesnap.boxShadow": "rgba(0, 0, 0, 0.2) 0px 20px 100px",
+  // エディタの行番号表示
+  "codesnap.showLineNumbers": false,
   "better-comments.tags": [
     {
       "tag": "!",
@@ -109,7 +181,6 @@
       "italic": false
     }
   ],
-  "workbench.iconTheme": "vscode-icons",
   "prettier.printWidth": 120,
   "yaml.format.printWidth": 120,
   "[json]": {
