@@ -21,11 +21,6 @@
       "key": "shift+n",
       "command": "explorer.newFile"
   },
-  // 新規フォルダ作成
-  {
-      "key": "shift+m",
-      "command": "explorer.newFolder"
-  },
   // dでファイルを削除
   {
       "key": "d",

@@ -39,8 +39,6 @@
   "breadcrumbs.enabled": false,
   // メニューバーを表示する (toggle: Altキーで上部に表示する)
   "window.menuBarVisibility": "toggle",
-  // アクティビティーバーの表示設定
-  "workbench.activityBar.visible": false,
   // ====================================
   // エディタのUIに関する詳細設定
   // ====================================
@@ -107,15 +105,6 @@
   // ------------------------------------
   // インデントカラー
   "indentRainbow.colors": ["rgba(153, 40, 57, 0.24)", "rgba(111, 115, 30, 0.24)", "rgba(30, 115, 102, 0.24)", "rgba(85, 30, 115, 0.24)"],
-  // ------------------------------------
-  // Live Server
-  // ------------------------------------
-  // 起動時、IPアドレスをローカルIP形式に変更する
-  "liveServer.settings.useLocalIp": true,
-  // 起動できなかった場合、ポップアップメッセージを非表示にする
-  "liveServer.settings.donotShowInfoMsg": true,
-  // 起動時、HTMLファイル上にタグがない場合のエラーメッセージを非表示にする
-  "liveServer.settings.donotVerifyTags": true,
   // ------------------------------------
   // CodeSnap
   // ------------------------------------
