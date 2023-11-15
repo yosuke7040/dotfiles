@@ -1,0 +1,81 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
+[
+  {
+      "key": "cmd+w cmd+r",
+      "command": "workbench.action.splitEditorToRightGroup"
+  },
+  {
+      "key": "cmd+w cmd+l",
+      "command": "workbench.action.splitEditorToLeftGroup"
+  },
+  {
+      "key": "cmd+l",
+      "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "cmd+h",
+    "command": "workbench.action.previousEditor"
+  },
+    // 新規ファイル作成
+  {
+      "key": "shift+n",
+      "command": "explorer.newFile"
+  },
+  // 新規フォルダ作成
+  {
+      "key": "shift+m",
+      "command": "explorer.newFolder"
+  },
+  // dでファイルを削除
+  {
+      "key": "d",
+      "command": "deleteFile",
+      "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  // rでファイルのリネーム
+  {
+      "key": "r",
+      "command": "renameFile",
+      "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+      "key": "enter",
+      "command": "-renameFile",
+      "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // vで分割して開く
+  {
+      "key": "v",
+      "command": "explorer.openToSide",
+      "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // ファイルのコピー
+  {
+      "key": "y",
+      "command": "filesExplorer.copy",
+      "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // ファイルのペースト
+  {
+      "key": "p",
+      "command": "filesExplorer.paste",
+      "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // explorer: toggle
+  {
+      "key": "ctrl+o",
+      "command": "workbench.explorer.fileView.focus",
+      "when": "!filesExplorerFocus"
+  },
+  {
+      "key": "ctrl+o",
+      "command": "workbench.action.toggleSidebarVisibility",
+      "when": "filesExplorerFocus"
+  },
+  {
+      "command": "vscode-neovim.compositeEscape1",
+      "key": "j",
+      "when": "neovim.mode == insert && editorTextFocus",
+      "args": "j"
+  },
+]

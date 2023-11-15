@@ -1,0 +1,131 @@
+{
+  "terminal.integrated.scrollback": 30000,
+  "debug.allowBreakpointsEverywhere": true,
+  "editor.minimap.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.wordWrap": "on",
+  "hadolint.hadolintPath": "/opt/homebrew/bin/hadolint",
+  // ====================================
+  // ファイル保存時に行われるアクション
+  // ====================================
+  // ファイル保存時、コードを整形する
+  "editor.formatOnSave": true,
+  // ファイル保存時、同時に行われるアクション
+  "editor.codeActionsOnSave": {
+    // 拡張機能Prettierのチェックを走らせる
+    "source.fixAll.prettier": true
+  },
+  // ファイル保存時、最終行に改行を挿入する
+  "files.insertFinalNewline": true,
+  // ファイル保存時、最終行以降の空行を削除する
+  "files.trimFinalNewlines": true,
+  // ファイル保存時、末尾の空白をトリミングする
+  "files.trimTrailingWhitespace": true,
+  // ====================================
+  // エディタのUIに関する詳細設定
+  // ====================================
+  // タブサイズ
+  "editor.tabSize": 2,
+  // インデントガイドを表示する
+  "editor.guides.indentation": false,
+  // 括弧（ブラケット）のペアガイドを表示する
+  "editor.guides.bracketPairs": true,
+  // 括弧（ブラケット）の水平方向のペアガイドを表示する
+  "editor.guides.bracketPairsHorizontal": true,
+  // 括弧（ブラケット）のペアごとに色を分ける
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  // 選択範囲のハイライトに角丸を適用する
+  "editor.roundedSelection": false,
+  // ====================================
+  // エディタのタイポグラフィーに関する設定
+  // ====================================
+  // フォント
+  "editor.fontFamily": "Hack, 'Noto Sans JP', monospace",
+  // 文字サイズ
+  "editor.fontSize": 14,
+  // 文字間隔
+  "editor.letterSpacing": -0.4,
+  // 行間
+  "editor.lineHeight": 1.35,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "note",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "workbench.iconTheme": "vscode-icons",
+  "prettier.printWidth": 120,
+  "yaml.format.printWidth": 120,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    }
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    }
+  }
+}
