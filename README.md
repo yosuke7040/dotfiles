@@ -3,6 +3,8 @@
 以下の感じでdotfileの実態をリポジトリにおいて、読み取りディレクトリにはシンボリックリンクを配置
 
 ```zsh
+ln -s "$HOME/src/dotfiles/vim/.vimrc" "$HOME/.vimrc"
+
 ln -s "$HOME/src/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 ln -s "$HOME/src/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/src/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
