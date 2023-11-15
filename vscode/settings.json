@@ -1,4 +1,8 @@
 {
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.vimrc",
+  // "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.vim",
+  // "workbench.list.automaticKeyboardNavigation": false,
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
   "editor.minimap.enabled": false,
@@ -36,6 +40,8 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   // 選択範囲のハイライトに角丸を適用する
   "editor.roundedSelection": false,
+  // 左端の行番号にカーソル位置からの距離を表示
+  "editor.lineNumbers": "relative",
   // ====================================
   // エディタのタイポグラフィーに関する設定
   // ====================================
