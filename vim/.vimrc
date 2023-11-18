@@ -1,17 +1,25 @@
-// " Your .vimrc
+" Plugin manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    \ >/dev/null 2>&1
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-// Plug 'unblevable/quick-scope'       " Plug
+" Plugin install
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
 
-// " Your .vimrc
+call plug#begin('~/.vim/plugged')
 
-// " Trigger a highlight in the appropriate direction when pressing these keys:
-// let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+Plug 'unblevable/quick-scope'       " Plug
 
-// " Trigger a highlight only when pressing f and F.
-// let g:qs_highlight_on_keys = ['f', 'F']
+" Trigger a highlight only when pressing f and F.
+let g:qs_highlight_on_keys = ['f', 'F']
 
-// " Your .vimrc
-// highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-// highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+call plug#end()
 
-// inoremap jk <Esc>
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+inoremap jk <Esc>
