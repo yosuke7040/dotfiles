@@ -16,11 +16,6 @@
     "key": "cmd+h",
     "command": "workbench.action.previousEditor"
   },
-    // 新規ファイル作成
-  {
-      "key": "shift+n",
-      "command": "explorer.newFile"
-  },
   // dでファイルを削除
   {
       "key": "d",

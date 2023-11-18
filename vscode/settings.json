@@ -1,12 +1,18 @@
 {
   "recommendations":[
     "vscode-icons-team.vscode-icons",
-    "vscode-neovim.neovim"
+    "vscode-neovim.neovim",
+    "skattyadz.vscode-quick-scope"
   ],
-  "vim.vimrc.enable": true,
-  "vim.vimrc.path": "$HOME/.vimrc",
-  // "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.vim",
+  // "vim.vimrc.enable": true,
+  // "vim.vimrc.path": "$HOME/.vimrc",
+  // "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.vimrc",
+  // "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.vimrc",
+  "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.config/nvim/init.lua",
+  "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
   // "workbench.list.automaticKeyboardNavigation": false,
+  "vscode-neovim.highlightGroups.highlights": "QuickScopePrimary",
+  // "vscode-neovim.highlightGroups.highlights": "Visual",
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -72,7 +78,7 @@
   // エディタのタイポグラフィーに関する設定
   // ====================================
   // フォント
-  "editor.fontFamily": "Hack, 'Noto Sans JP', monospace",
+  "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
   "editor.fontSize": 15,
   // 文字間隔
@@ -88,6 +94,10 @@
   "editor.cursorBlinking": "phase",
   // ターミナルのキャレットのスタイル
   "terminal.integrated.cursorStyle": "block",
+  //ターミナルのフォント
+  "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
+  // ターミナルの文字サイズ
+  "terminal.integrated.fontSize": 14,
   // ターミナルのキャレットアニメーション
   "terminal.integrated.cursorBlinking": true,
   // テーマカラーの配色を上書きする
@@ -172,24 +182,45 @@
   ],
   "prettier.printWidth": 120,
   "yaml.format.printWidth": 120,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true
   },
   "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": true
     }
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": false,
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": true
     }
