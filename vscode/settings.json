@@ -1,9 +1,5 @@
 {
-  "recommendations":[
-    "vscode-icons-team.vscode-icons",
-    "vscode-neovim.neovim",
-    "skattyadz.vscode-quick-scope"
-  ],
+  "recommendations": ["vscode-icons-team.vscode-icons", "vscode-neovim.neovim", "skattyadz.vscode-quick-scope"],
   // "vim.vimrc.enable": true,
   // "vim.vimrc.path": "$HOME/.vimrc",
   // "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.vimrc",
@@ -114,7 +110,12 @@
   // indent-rainbow
   // ------------------------------------
   // インデントカラー
-  "indentRainbow.colors": ["rgba(153, 40, 57, 0.24)", "rgba(111, 115, 30, 0.24)", "rgba(30, 115, 102, 0.24)", "rgba(85, 30, 115, 0.24)"],
+  "indentRainbow.colors": [
+    "rgba(153, 40, 57, 0.24)",
+    "rgba(111, 115, 30, 0.24)",
+    "rgba(30, 115, 102, 0.24)",
+    "rgba(85, 30, 115, 0.24)"
+  ],
   // ------------------------------------
   // CodeSnap
   // ------------------------------------
@@ -124,6 +125,14 @@
   "codesnap.boxShadow": "rgba(0, 0, 0, 0.2) 0px 20px 100px",
   // エディタの行番号表示
   "codesnap.showLineNumbers": false,
+  // https://help.gitkraken.com/gitlens/gitlens-settings/
+  "gitlens.codeLens.codeLens.enabled": false,
+  "gitlens.codeLens.currentLine.enabled": false,
+  "gitlens.codeLens.hovers.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.toggleLineBlame.enabled": false,
   "better-comments.tags": [
     {
       "tag": "!",
@@ -224,5 +233,6 @@
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": true
     }
-  }
+  },
+  "gitlens.hovers.currentLine.over": "line"
 }
