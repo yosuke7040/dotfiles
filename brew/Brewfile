@@ -8,3 +8,6 @@ brew "ripgrep"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+
+brew "bat"
+brew "exa"

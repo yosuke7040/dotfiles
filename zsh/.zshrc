@@ -24,19 +24,11 @@ SAVEHIST=100000
 #%F{yellow}$%f '
 
 # エイリアス
-alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
-alias ls='ls -CF --color=auto'
-alias lt='ls -CFltr --color=auto'
-alias tl='cd ~/src/job/tl'
-alias dep='cd ~/src/job/enabler'
-alias ide='cd ~/src/job/idemitsu'
-alias yec='cd ~/src/job/yec'
-alias dar='cd ~/src/job/darts'
-alias dai='cd ~/src/job/daikin'
-alias jem='cd ~/src/job/jems'
-alias itn='cd ~/src/job/itn'
+alias l='ls -l'
+alias ls='exa --icons'
+alias la='exa --icons -l -a -s name'
+alias ll='exa --icons -l -s time'
+alias lt='exa --icons -l -s time --reverse'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -61,12 +53,12 @@ alias kg='kubectl get'
 alias kd='kubectl describe'
 alias tf='terraform'
 alias tfmt='terraform fmt -recursive'
+# alias cat='bat'
+alias batp='bat -p'
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-
 export CR_PAT="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"
 
 # direnv
@@ -202,10 +194,10 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
- 
+
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
- 
+
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
