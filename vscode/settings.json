@@ -194,8 +194,7 @@
       "italic": false
     }
   ],
-  "prettier.printWidth": 120,
-  "yaml.format.printWidth": 120,
+  "prettier.printWidth": 80,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // "editor.defaultFormatter": "dprint.dprint",
   "[javascript]": {
@@ -222,7 +221,8 @@
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "yaml.format.printWidth": 120
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
