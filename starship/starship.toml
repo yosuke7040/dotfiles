@@ -1,63 +1,124 @@
-# [prompt]
-# prompt_order = [
-#   "username",
-#   "directory",
-#   "git_branch",
-#   "git_status",
-#   "aws",
-#   "azure",
-#   "kubernetes",
-# ]
+# https://zenn.dev/monicle/articles/59ff479ae51c66
+format = """
+$directory\
+[](fg:#88C0D0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260)\
+$fill\
+[](fg:#2d2230)\
+$aws\
+$azure\
+[](fg:#1d2230 bg:#2d2230)\
+$kubernetes\
+[](fg:#100230 bg:#1d2230)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#100230)\
+\n$character"""
+
+# format = """
+# $directory\
+# [](fg:#88C0D0 bg:#394260)\
+# $git_branch\
+# $git_status\
+# [](fg:#394260)\
+# $fill\
+# [](fg:#212736)\
+# $nodejs\
+# $rust\
+# $golang\
+# $php\
+# [](fg:#1d2230 bg:#212736)\
+# $time\
+# [](fg:#88C0D0 bg:#1d2230)\
+# $os\
+# [](fg:#88C0D0)\
+# \n$character"""
+
+# コマンドラインに1行分のスペースを入れない
 add_newline = false
 
-[aws]
-format = 'AWS: [$profile]($style) '
-style = "bold blue"
-# format='AWS [$symbol($profile)(\($region\) )(\[$duration\])]($style)'
-# format = 'AWS [$symbol($profile )(\($region\) )]($style)'
-#symbol="🌥  "
-disabled = false
-[aws.region_aliases]
-ap-northeast-1 = "jp"
+# left_promptとright_promptの間を何で埋めるか設定
+[fill]
+symbol = ' '
 
-[azure]
+[os]
+format = "[$symbol]($style)"
+style = "fg:#2E3440 bg:#88C0D0 bold"
 disabled = false
-format = 'Azure: [$subscription]($style) '
-# symbol = '󰠅 '
-style = 'blue bold'
 
-#[character]
-#error_symbol = "[✗](bold red)"
-#success_symbol = "[❯](bold green)"
-#vimcmd_symbol = "[<<](bold green)"
+[os.symbols]
+Macos = "  " # nf-fa-apple
+Ubuntu = "  " # nf-linux-ubuntu
+Debian = "  " # nf-linux-debian
 
 [directory]
-truncation_length = 100
+style = "fg:#2E3440 bg:#88C0D0 bold"
+format = "[ $path ]($style)"
+truncation_length = 5
 truncate_to_repo = false
 truncation_symbol = "…/"
 
-[docker_context]
-symbol="🐳 "
-format = "$symbol $context(blue bold)"
-#format = "via [🐋 $context](blue bold)"
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
-[package]
+[aws]
+disabled = false
+style = "bg:#2d2230"
+format = '[ AWS:[ $profile ](fg:#e0a9cb bg:#2d2230)]($style)'
+[azure]
+disabled = false
+style = "bg:#2d2230"
+format = '[Azure:[ $subscription ](fg:#e0a9cb bg:#2d2230)]($style)'
+# style = 'blue bold'
+[gcloud]
 disabled = true
 
 [git_branch]
-#style_success = "#ff69b4"
-#format="git $symbol\\[[$branch]($style)\\] "
-style = "#ff69b4"
-format="git $symbol[$branch]($style) "
 symbol = ""
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
+style = "bg:#394260"
+format = '[[(\[$all_status$ahead_behind)\]](fg:#769ff0 bg:#394260)]($style)'
 modified = "*"
 ahead = ">"
 behind = "<"
 diverged = "<>"
 renamed = "r"
 deleted = "x"
+
+[nodejs]
+symbol = ""
+style = "bg:#100230"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#100230)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#100230"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#100230)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#100230"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#100230)]($style)'
+
+[docker_context]
+symbol="🐳 "
+format = "$symbol $context(blue bold)"
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [username]
 show_always = true
@@ -66,24 +127,14 @@ style_root = "red bold"
 format = "[$user]($style) "
 disabled = false
 
-[nodejs]
-format="Node [$symbol($version )]($style) "
-symbol="🍀"
-disabled = false
-
 [kubernetes]
-format = '[⛵ $context]($style) '
+# format = '[⛵ $context]($style) '
 disabled = false
-style = "green"
-#format = '[⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+style = "bg:#1d2230"
+format = '[⛵[ $context ](fg:#669ff0 bg:#1d2230)]($style)'
 [kubernetes.context_aliases]
 "arn:aws:eks:ap-northeast-1:929216733061:cluster/prd-dep-cluster" = "prod"
 "arn:aws:eks:ap-northeast-1:778054767249:cluster/dev-dep-cluster" = "dev"
 "arn:aws:eks:ap-northeast-1:832786650310:cluster/jems-poc-cluster" = "jems-poc-cluster"
 "arn:aws:eks:ap-northeast-1:600289880475:cluster/tl-dev-test" = "tl-dev-test"
 "arn:aws:eks:ap-northeast-1:058945674830:cluster/itn-test-net-cluster" = "itn-test-net-cluster"
-#".*/openshift-cluster/.*" = "openshift"
-#"gke_.*_(?P<var_cluster>[\\w-]+)" = "gke-$var_cluster"
-#[kubernetes.user_aliases]
-#"dev.local.cluster.k8s" = "dev"
-#"root/.*" = "root"
