@@ -78,10 +78,10 @@
   // ====================================
   // エディタのタイポグラフィーに関する設定
   // ====================================
-  // フォント
-  "editor.fontFamily": "\"Source Han Code JP\", monospace",
+  // // フォント
+  // "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
-  "editor.fontSize": 15,
+  "editor.fontSize": 12,
   // 文字間隔
   "editor.letterSpacing": -0.1,
   // 行間
@@ -96,9 +96,10 @@
   // ターミナルのキャレットのスタイル
   "terminal.integrated.cursorStyle": "block",
   //ターミナルのフォント
-  "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
+  // "terminal.integrated.fontFamily": "monospace",
+  // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
   // ターミナルの文字サイズ
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 12,
   // ターミナルのキャレットアニメーション
   "terminal.integrated.cursorBlinking": true,
   // テーマカラーの配色を上書きする
