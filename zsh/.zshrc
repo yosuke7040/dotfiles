@@ -205,6 +205,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
+# kubectlコマンドのシェル補完
+source <(kubectl completion zsh)
+
 # wezterm
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
