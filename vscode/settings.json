@@ -151,7 +151,7 @@
     },
     {
       "tag": "?",
-      "color": "#3498DB",
+      "color": "#C77EB5",
       "strikethrough": false,
       "underline": false,
       "backgroundColor": "transparent",
@@ -206,7 +206,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[json]": {
@@ -249,12 +249,17 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.organizeImports": true
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
     }
   },
   "gitlens.hovers.currentLine.over": "line",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
+  },
+  "[terraform][terraform-vars]": {
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": "explicit"
+    }
   }
 }

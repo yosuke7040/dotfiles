@@ -62,6 +62,11 @@
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "filesExplorerFocus"
   },
+  // ファイルを閉じる
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
   // vim escape用キーバインド
   {
     "command": "vscode-neovim.compositeEscape1",
