@@ -11,3 +11,5 @@ brew "zsh-syntax-highlighting"
 
 brew "bat"
 brew "exa"
+
+brew "go-to-k/tap/cls3"
