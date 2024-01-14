@@ -257,9 +257,15 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "[terraform][terraform-vars]": {
-    "editor.codeActionsOnSave": {
-      "source.formatAll.terraform": "explicit"
-    }
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "vs-kubernetes": {
+    "vs-kubernetes.minikube-show-information-expiration": "2024-07-10T11:05:38.328Z"
   }
 }

@@ -17,6 +17,7 @@ $rust\
 $golang\
 $php\
 [](fg:#100230)\
+$time\
 \n$character"""
 
 # コマンドラインに1行分のスペースを入れない
@@ -91,7 +92,7 @@ format = "$symbol $context(blue bold)"
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%T" # Hour-minute-second format. Same to %H:%M:%S.
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
