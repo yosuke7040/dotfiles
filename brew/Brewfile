@@ -17,3 +17,7 @@ brew "go-to-k/tap/cls3"
 # brew --caskいる系？
 brew "hiddenbar"
 brew "raycast"
+
+# windowマネジャー
+brew "yabai"
+brew "skhd"
