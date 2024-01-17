@@ -267,5 +267,13 @@
   },
   "vs-kubernetes": {
     "vs-kubernetes.minikube-show-information-expiration": "2024-07-10T11:05:38.328Z"
+  },
+  "files.associations": {
+    ".skhdrc": "plaintext"
+  },
+  "[terraform][terraform-vars]": {
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": "explicit"
+    }
   }
 }
