@@ -15,7 +15,7 @@
 
 # global settings
 yabai -m config                                 \
-    mouse_follows_focus          on             \
+    mouse_follows_focus          off            \
     focus_follows_mouse          autoraise      \
     window_origin_display        default        \
     window_placement             second_child   \
@@ -36,7 +36,7 @@ yabai -m config                                 \
     left_padding                 2              \
     right_padding                2              \
     window_gap                   06             \
-    layout                       bsp            \
+    layout                       float          \
     mouse_modifier               ctrl           \
     mouse_drop_action            swap
 
