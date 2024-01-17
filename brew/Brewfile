@@ -18,6 +18,7 @@ brew "go-to-k/tap/cls3"
 brew "hiddenbar"
 brew "raycast"
 
-# windowマネジャー
-brew "yabai"
-brew "skhd"
+# # windowマネジャー
+# brew "yabai"
+# brew "skhd"
+brew "terragrunt"
