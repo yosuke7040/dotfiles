@@ -53,6 +53,7 @@ alias kg='kubectl get'
 alias kd='kubectl describe'
 alias tf='terraform'
 alias tfmt='terraform fmt -recursive'
+alias tg='terragrunt'
 # alias cat='bat'
 alias batp='bat -p'
 

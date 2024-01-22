@@ -195,8 +195,8 @@
       "italic": false
     }
   ],
-  "prettier.printWidth": 80,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "prettier.printWidth": 80,
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   // "editor.defaultFormatter": "dprint.dprint",
   "[javascript]": {
     // "editor.defaultFormatter": "dprint.dprint",
@@ -227,6 +227,7 @@
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSaveMode": "file",
     "editor.tabSize": 2,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
@@ -237,13 +238,18 @@
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
     "editor.tabSize": 2,
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": true
     }
+  },
+  "files.exclude": {
+    "**/_*.tf": true,
+  //   "**/.terraform": true
   },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
@@ -271,6 +277,7 @@
   "files.associations": {
     ".skhdrc": "plaintext"
   },
+  "vsicons.dontShowNewVersionMessage": true,
   "[terraform][terraform-vars]": {
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": "explicit"

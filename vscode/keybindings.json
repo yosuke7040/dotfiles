@@ -16,14 +16,14 @@
     "key": "cmd+h",
     "command": "workbench.action.previousEditor"
   },
-  // dでファイルを削除
   {
+    // dでファイルを削除
     "key": "d",
     "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
   },
-  // rでファイルのリネーム
   {
+    // rでファイルのリネーム
     "key": "r",
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -33,20 +33,20 @@
     "command": "-renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  // vで分割して開く
   {
+    // vで分割して開く
     "key": "v",
     "command": "explorer.openToSide",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  // ファイルのコピー
   {
+    // ファイルのコピー
     "key": "y",
     "command": "filesExplorer.copy",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  // ファイルのペースト
   {
+    // ファイルのペースト
     "key": "p",
     "command": "filesExplorer.paste",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -62,13 +62,14 @@
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "filesExplorerFocus"
   },
-  // ファイルを閉じる
   {
+    // ファイルを閉じる
     "key": "cmd+w",
     "command": "workbench.action.closeActiveEditor"
   },
-  // vim escape用キーバインド
+// vneoim関連！！！！！
   {
+    // vim escape用キーバインド
     "command": "vscode-neovim.compositeEscape1",
     "key": "j",
     "when": "neovim.mode == insert && editorTextFocus",
@@ -79,5 +80,35 @@
     "key": "k",
     "when": "neovim.mode == insert && editorTextFocus",
     "args": "k"
+  },
+  {
+      // 定義ジャンプ
+      "key": "space d",
+      "command": "editor.action.goToDeclaration",
+      "when": "neovim.mode == normal && editorTextFocus",
+  },
+  {
+      // 戻る
+      "key": "space b",
+      "command": "workbench.action.navigateBack",
+      "when": "neovim.mode == normal && editorTextFocus",
+  },
+  {
+      // 進む
+      "key": "space f",
+      "command": "workbench.action.navigateForward",
+      "when": "neovim.mode == normal && editorTextFocus",
+  },
+  {
+      // ホバー
+      "key": "space h",
+      "command": "editor.action.showHover",
+      "when": "neovim.mode == normal && editorTextFocus",
+  },
+  {
+      // ターミナルにフォーカス
+      "key": "space t",
+      "command": "terminal.focus",
+      "when": "neovim.mode == normal && editorTextFocus",
   }
 ]
