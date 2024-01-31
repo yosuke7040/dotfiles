@@ -9,11 +9,13 @@
     "command": "workbench.action.splitEditorToLeftGroup"
   },
   {
-    "key": "cmd+l",
+    // 右のtabに移動
+    "key": "ctrl+d",
     "command": "workbench.action.nextEditor"
   },
   {
-    "key": "cmd+h",
+    // 左のtabに移動
+    "key": "ctrl+a",
     "command": "workbench.action.previousEditor"
   },
   {
@@ -50,17 +52,6 @@
     "key": "p",
     "command": "filesExplorer.paste",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  // explorer: toggle
-  {
-    "key": "ctrl+o",
-    "command": "workbench.explorer.fileView.focus",
-    "when": "!filesExplorerFocus"
-  },
-  {
-    "key": "ctrl+o",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "filesExplorerFocus"
   },
   {
     // ファイルを閉じる
@@ -110,5 +101,16 @@
       "key": "space t",
       "command": "terminal.focus",
       "when": "neovim.mode == normal && editorTextFocus",
-  }
+  },
+   // explorer: toggle
+   {
+    "key": "space o",
+    "command": "workbench.explorer.fileView.focus",
+    "when": "neovim.mode == normal && !filesExplorerFocus"
+  },
+  {
+    "key": "space o",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "neovim.mode == normal && filesExplorerFocus"
+  },
 ]

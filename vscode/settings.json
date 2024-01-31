@@ -17,7 +17,8 @@
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "editor.wordWrap": "on",
+  // 行の折返し
+  "editor.wordWrap": "off",
   "hadolint.hadolintPath": "/opt/homebrew/bin/hadolint",
   // ====================================
   // ファイル保存時に行われるアクション
@@ -62,7 +63,7 @@
   // 選択範囲のハイライトに角丸を適用する
   "editor.roundedSelection": false,
   // 左端の行番号にカーソル位置からの距離を表示
-  "editor.lineNumbers": "relative",
+  // "editor.lineNumbers": "relative",
   // ====================================
   // ワークベンチの設定
   // ====================================
@@ -81,7 +82,7 @@
   // // フォント
   // "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
-  "editor.fontSize": 12,
+  "editor.fontSize": 12.5,
   // 文字間隔
   "editor.letterSpacing": -0.1,
   // 行間
@@ -99,7 +100,7 @@
   // "terminal.integrated.fontFamily": "monospace",
   // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
   // ターミナルの文字サイズ
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 13,
   // ターミナルのキャレットアニメーション
   "terminal.integrated.cursorBlinking": true,
   // テーマカラーの配色を上書きする
@@ -282,5 +283,6 @@
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": "explicit"
     }
-  }
+  },
+  "window.zoomLevel": -1
 }
