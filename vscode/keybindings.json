@@ -76,31 +76,31 @@
       // 定義ジャンプ
       "key": "space d",
       "command": "editor.action.goToDeclaration",
-      "when": "neovim.mode == normal && editorTextFocus",
+      "when": "neovim.mode == normal && editorTextFocus"
   },
   {
       // 戻る
       "key": "space b",
       "command": "workbench.action.navigateBack",
-      "when": "neovim.mode == normal && editorTextFocus",
+      "when": "neovim.mode == normal && editorTextFocus"
   },
   {
       // 進む
       "key": "space f",
       "command": "workbench.action.navigateForward",
-      "when": "neovim.mode == normal && editorTextFocus",
+      "when": "neovim.mode == normal && editorTextFocus"
   },
   {
       // ホバー
       "key": "space h",
       "command": "editor.action.showHover",
-      "when": "neovim.mode == normal && editorTextFocus",
+      "when": "neovim.mode == normal && editorTextFocus"
   },
   {
       // ターミナルにフォーカス
       "key": "space t",
       "command": "terminal.focus",
-      "when": "neovim.mode == normal && editorTextFocus",
+      "when": "neovim.mode == normal && editorTextFocus"
   },
    // explorer: toggle
    {
@@ -113,4 +113,15 @@
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "neovim.mode == normal && filesExplorerFocus"
   },
+  {
+    "key": "shift+cmd+space",
+    "command": "github.copilot.generate",
+    "when": "neovim.mode == insert && editorTextFocus"
+    // "when": "neovim.mode == insert && editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+  }
+  // {
+  //   "key": "ctrl+enter",
+  //   "command": "-github.copilot.generate",
+  //   "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+  // }
 ]

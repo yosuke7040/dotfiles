@@ -311,3 +311,5 @@ zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 # zinit ice wait'0'; zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'0'; zinit light zsh-users/zsh-completions
+
+eval "$(zoxide init zsh)"

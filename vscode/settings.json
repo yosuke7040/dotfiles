@@ -18,7 +18,7 @@
   "debug.allowBreakpointsEverywhere": true,
   "security.workspace.trust.untrustedFiles": "open",
   // 行の折返し
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "hadolint.hadolintPath": "/opt/homebrew/bin/hadolint",
   // ====================================
   // ファイル保存時に行われるアクション
@@ -82,7 +82,7 @@
   // // フォント
   // "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
-  "editor.fontSize": 12.5,
+  "editor.fontSize": 14,
   // 文字間隔
   "editor.letterSpacing": -0.1,
   // 行間
@@ -284,5 +284,6 @@
       "source.formatAll.terraform": "explicit"
     }
   },
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "github.copilot.advanced": {}
 }
