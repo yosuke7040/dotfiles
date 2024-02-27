@@ -8,21 +8,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-# # git
-# autoload -Uz vcs_info
-# setopt prompt_subst
-# zstyle ':vcs_info:git:*' check-for-changes true
-# zstyle ':vcs_info:git:*' stagedstr "%F{magenta}!"
-# zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}+"
-# zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f"
-# zstyle ':vcs_info:*' actionformats '[%b|%a]'
-# precmd () { vcs_info }
-
-# プロンプトカスタマイズ
-#PROMPT='
-#[%B%F{red}%n@%f%b:%F{green}%~%f]%F{cyan}$vcs_info_msg_0_%f
-#%F{yellow}$%f '
-
 # エイリアス
 alias l='ls -l'
 alias ls='exa --icons'
@@ -82,8 +67,11 @@ export KUBECONFIG=/Users/abe/.kube/config
 export PATH=/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
 
-# go
-export PATH="$PATH:$(go env GOPATH)/bin"
+# # go
+# export PATH="$PATH:$(go env GOPATH)/bin"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
 
 ## 最後に記述
 # starship
@@ -92,20 +80,6 @@ eval "$(starship init zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# export ZPLUG_HOME=/opt/homebrew/opt/zplug
-# source $ZPLUG_HOME/init.zsh
-
-# zplug "nvbn/thefuck"
-# zplug "zsh-users/zsh-history-substring-search"
-# zplug "zsh-users/zsh-autosuggestions"
-# zplug "zsh-users/zsh-completions"
-# zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# zplug "sunlei/zsh-ssh"
-# zplug "junegunn/fzf"
-# zplug load
-
 
 # 補完候補を詰めて表示
 setopt list_packed

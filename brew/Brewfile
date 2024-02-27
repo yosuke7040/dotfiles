@@ -15,6 +15,7 @@ brew "exa"
 brew "go-to-k/tap/cls3"
 brew "fujiwara/tap/tracer"
 brew "zoxide"
+brew "goenv"
 
 # brew --caskいる系？
 brew "hiddenbar"

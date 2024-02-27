@@ -1,5 +1,7 @@
 # dotfiles
 
+## Usage
+
 以下の感じで dotfile の実態をリポジトリにおいて、読み取りディレクトリにはシンボリックリンクを配置
 
 ```zsh
@@ -18,3 +20,11 @@ ln -s "$HOME/src/dotfiles/skhdrc/.skhdrc" "$HOME/.skhdrc"
 ```
 
 この管理だと、ファイル修正後に source で何故か反映されないのでログインしなおすこと
+
+### goenv
+
+```bash
+goenv install -l
+goenv install <version>
+go version
+```
