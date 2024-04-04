@@ -234,7 +234,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
-      "source.formatAll.terraform": true
+      "source.formatAll.terraform": "explicit"
     }
   },
   "[terraform-vars]": {
@@ -245,12 +245,12 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
-      "source.formatAll.terraform": true
+      "source.formatAll.terraform": "explicit"
     }
   },
   "files.exclude": {
-    "**/_*.tf": true,
-  //   "**/.terraform": true
+    "**/_*.tf": true
+    //   "**/.terraform": true
   },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
@@ -285,5 +285,6 @@
     }
   },
   "window.zoomLevel": -1,
-  "github.copilot.advanced": {}
+  "github.copilot.advanced": {},
+  "git.openRepositoryInParentFolders": "never"
 }

@@ -10,12 +10,21 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 brew "bat"
-brew "exa"
+brew "eza"
+# コマンド検索
+brew "atuin"
+
+brew "jq"
+brew "ynqa/tap/jnv"
+brew "yq"
+brew "fzf"
 
 brew "go-to-k/tap/cls3"
 brew "fujiwara/tap/tracer"
+# 移動コマンド
 brew "zoxide"
 brew "goenv"
+brew "pyenv"
 
 # brew --caskいる系？
 brew "hiddenbar"

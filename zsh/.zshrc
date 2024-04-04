@@ -9,11 +9,11 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # エイリアス
-alias l='ls -l'
-alias ls='exa --icons'
-alias la='exa --icons -l -a -s name'
-alias ll='exa --icons -l -s time'
-alias lt='exa --icons -l -s time --reverse'
+alias l='eza --icons -l'
+alias ls='eza --icons'
+alias la='eza --icons -l -a -s name'
+alias ll='eza --icons -l -s time'
+# alias lt='exa --icons -l -s time --reverse'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -202,17 +202,17 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-# commandの履歴検索。ctrl - rにバインド
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
-setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
-setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
-setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
-setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
+# # commandの履歴検索。ctrl - rにバインド
+# function select-history() {
+#   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+#   CURSOR=$#BUFFER
+# }
+# zle -N select-history
+# bindkey '^r' select-history
+# setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
+# setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
+# setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
+# setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
 
 function select-git-switch() {
   target_br=$(
@@ -287,3 +287,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'0'; zinit light zsh-users/zsh-completions
 
 eval "$(zoxide init zsh)"
+# 矢印キーが上の挙動は下のほうが好みなので無効化
+eval "$(atuin init zsh --disable-up-arrow)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
