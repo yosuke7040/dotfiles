@@ -9,11 +9,49 @@
   // "vim.vimrc.path": "$HOME/.vimrc",
   // "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.vimrc",
   // "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.vimrc",
-  "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.config/nvim/init.lua",
-  "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
+  // "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.config/nvim/init.lua",
+  // "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
   // "workbench.list.automaticKeyboardNavigation": false,
-  "vscode-neovim.highlightGroups.highlights": "QuickScopePrimary",
+  // "vscode-neovim.highlightGroups.highlights": "QuickScopePrimary",
   // "vscode-neovim.highlightGroups.highlights": "Visual",
+  // quick-scope の設定
+  // !!! 全然有効化されない！！こまった !!!
+  "vscode-neovim.highlightGroups.highlights": {
+    "QuickScopePrimary": [
+      {
+        "foreground": "#ff9d00",
+        "background": "",
+        "bold": true,
+        "italic": false,
+        "underline": true
+      },
+      {
+        "foreground": "#af87d7",
+        "background": "",
+        "bold": true,
+        "italic": false,
+        "underline": true
+      }
+    ],
+    "QuickScopeSecondary": [
+      {
+        "foreground": "#ffff87",
+        "background": "",
+        "bold": true,
+        "italic": false,
+        "underline": false
+      },
+      {
+        "foreground": "#87d7ff",
+        "background": "",
+        "bold": true,
+        "italic": false,
+        "underline": false
+      }
+    ]
+  },
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -108,7 +146,25 @@
     // エディタのキャレットカラー
     "editorCursor.foreground": "#f00058",
     // ターミナルのキャレットカラー
-    "terminalCursor.foreground": "#efff0b"
+    "terminalCursor.foreground": "#efff0b",
+    "editor.background": "#000000",
+    "terminal.background": "#000000",
+    // カーソル行の背景色
+    // "editor.lineHighlightBackground": "#1a1a1a",
+    "editor.lineHighlightBackground": "#000000",
+    // "editorLineNumber.activeForeground": "#ff9d00",
+    "editor.lineHighlightBorder": "#ff9d00",
+    // サイドバーの色
+    "sideBar.background": "#0d0d0d",
+    "sideBarTitle.foreground": "#a0a0a0",
+    "sideBarSectionHeader.background": "#0d0d0d",
+    "sideBarSectionHeader.foreground": "#a0a0a0"
+    // "[High Contrast Dark]": {
+    //   "editor.background": "#1e1e1e",
+    //   "editor.foreground": "#d4d4d4",
+    //   "activityBarBadge.background": "#007acc",
+    //   "sideBarTitle.foreground": "#bbbbbb"
+    // }
   },
   // ====================================
   // 拡張機能の個別設定
