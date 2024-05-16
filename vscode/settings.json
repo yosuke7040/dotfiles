@@ -120,7 +120,7 @@
   // // フォント
   // "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
-  "editor.fontSize": 14,
+  "editor.fontSize": 14.5,
   // 文字間隔
   "editor.letterSpacing": -0.1,
   // 行間
@@ -153,7 +153,7 @@
     // "editor.lineHighlightBackground": "#1a1a1a",
     "editor.lineHighlightBackground": "#000000",
     // "editorLineNumber.activeForeground": "#ff9d00",
-    "editor.lineHighlightBorder": "#ff9d00",
+    "editor.lineHighlightBorder": "#555555",
     // サイドバーの色
     "sideBar.background": "#0d0d0d",
     "sideBarTitle.foreground": "#a0a0a0",
@@ -305,7 +305,9 @@
     }
   },
   "files.exclude": {
-    "**/_*.tf": true
+    "**/_provider.tf": true,
+    "**/_version.tf": true,
+    "**/_backend.tf": true
     //   "**/.terraform": true
   },
   "[python]": {
@@ -342,5 +344,15 @@
   },
   "window.zoomLevel": -1,
   "github.copilot.advanced": {},
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "leetcode.workspaceFolder": "/Users/abe/src/private/leetcode/easy",
+  "leetcode.defaultLanguage": "python3",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commentDescription": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
