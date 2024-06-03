@@ -354,5 +354,10 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false
-  }
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.venvPath": "/Users/abe/.pyenv",
+  "github.copilot.editor.enableAutoCompletions": true
 }

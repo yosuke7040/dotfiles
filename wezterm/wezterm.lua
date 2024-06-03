@@ -1,17 +1,17 @@
 local wezterm = require "wezterm";
 
 local keys = {
-  { key = "n", mods = "ALT", action = "ShowLauncher" },
-  { key = "s", mods = "ALT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
-  { key = "v", mods = "ALT", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
-  { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection "Left" },
-  { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection "Right" },
-  { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection "Up" },
-  { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection "Down" },
+  { key = "n",          mods = "ALT", action = "ShowLauncher" },
+  { key = "s",          mods = "ALT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
+  { key = "v",          mods = "ALT", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  { key = "h",          mods = "ALT", action = wezterm.action.ActivatePaneDirection "Left" },
+  { key = "l",          mods = "ALT", action = wezterm.action.ActivatePaneDirection "Right" },
+  { key = "k",          mods = "ALT", action = wezterm.action.ActivatePaneDirection "Up" },
+  { key = "j",          mods = "ALT", action = wezterm.action.ActivatePaneDirection "Down" },
   -- ALt + wで現在のペインを閉じる
-  { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane { confirm = true } },
+  { key = "w",          mods = "ALT", action = wezterm.action.CloseCurrentPane { confirm = true } },
   -- { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane "Close" },
-  { key = "LeftArrow", mods = "ALT", action = wezterm.action.SendKey { key = "b", mods = "META" } },
+  { key = "LeftArrow",  mods = "ALT", action = wezterm.action.SendKey { key = "b", mods = "META" } },
   { key = "RightArrow", mods = "ALT", action = wezterm.action.SendKey { key = "f", mods = "META" } },
 }
 
@@ -27,44 +27,43 @@ end
 -- Given "/foo/bar" returns "bar"
 -- Given "c:\\foo\\bar" returns "bar"
 local function basename(s)
-	return string.gsub(s, "(.*[/\\])(.*)", "%2")
+  return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
 
 -- タブのカスタマイズ
 wezterm.on(
-  
-  "format-tab-title", 
-  function(tab, tabs, panes, config, hover, max_width)
 
+  "format-tab-title",
+  function(tab, tabs, panes, config, hover, max_width)
     -- プロセスに合わせてアイコン表示
-	local nerd_icons = {
-		nvim = wezterm.nerdfonts.custom_vim,
-		vim = wezterm.nerdfonts.custom_vim,
-		bash = wezterm.nerdfonts.dev_terminal,
-		zsh = wezterm.nerdfonts.dev_terminal,
-		ssh = wezterm.nerdfonts.mdi_server,
-		top = wezterm.nerdfonts.mdi_monitor,
-    docker = wezterm.nerdfonts.dev_docker,
-    node = wezterm.nerdfonts.dev_nodejs_small,
-	}
+    local nerd_icons = {
+      nvim = wezterm.nerdfonts.custom_vim,
+      vim = wezterm.nerdfonts.custom_vim,
+      bash = wezterm.nerdfonts.dev_terminal,
+      zsh = wezterm.nerdfonts.dev_terminal,
+      ssh = wezterm.nerdfonts.mdi_server,
+      top = wezterm.nerdfonts.mdi_monitor,
+      docker = wezterm.nerdfonts.dev_docker,
+      node = wezterm.nerdfonts.dev_nodejs_small,
+    }
     local zoomed = ""
     if tab.active_pane.is_zoomed then
       zoomed = "[Z] "
     end
-	local pane = tab.active_pane
-	local process_name = basename(pane.foreground_process_name)
-	local icon = nerd_icons[process_name]
-	local index = tab.tab_index + 1
-	local cwd = basename(pane.current_working_dir)
-    
+    local pane = tab.active_pane
+    local process_name = basename(pane.foreground_process_name)
+    local icon = nerd_icons[process_name]
+    local index = tab.tab_index + 1
+    local cwd = basename(pane.current_working_dir)
+
     -- 例) 1:project_dir | zsh
-	local title = index .. ": " .. cwd .. "  | " .. process_name
-	if icon ~= nil then
-    title = icon .. "  " .. zoomed .. title
-	end
-	return {
-		{ Text = " " .. title .. " " },
-	}
+    local title = index .. ": " .. cwd .. "  | " .. process_name
+    if icon ~= nil then
+      title = icon .. "  " .. zoomed .. title
+    end
+    return {
+      { Text = " " .. title .. " " },
+    }
   end
 )
 
@@ -85,10 +84,10 @@ wezterm.on("update-right-status", function(window, pane)
     -- paneの累計IDを取得
     local pane_id = pane:pane_id()
     if slash then
-      hostname = cwd_uri:sub(1, slash-1)
+      hostname = cwd_uri:sub(1, slash - 1)
       local dot = hostname:find("[.]")
       if dot then
-        hostname = hostname:sub(1, dot-1)
+        hostname = hostname:sub(1, dot - 1)
       end
       cwd = cwd_uri:sub(slash)
 
@@ -132,12 +131,12 @@ wezterm.on("update-right-status", function(window, pane)
   -- Translate a cell into elements
   function push(text, is_last)
     local cell_no = num_cells + 1
-    table.insert(elements, {Foreground={Color=text_fg}})
-    table.insert(elements, {Background={Color=colors[cell_no]}})
-    table.insert(elements, {Text=" "..text.." "})
+    table.insert(elements, { Foreground = { Color = text_fg } })
+    table.insert(elements, { Background = { Color = colors[cell_no] } })
+    table.insert(elements, { Text = " " .. text .. " " })
     if not is_last then
-      table.insert(elements, {Foreground={Color=colors[cell_no+1]}})
-      table.insert(elements, {Text=SOLID_LEFT_ARROW})
+      table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
+      table.insert(elements, { Text = SOLID_LEFT_ARROW })
     end
     num_cells = num_cells + 1
   end
@@ -163,7 +162,16 @@ return {
     bottom = 0,
   },
   keys = keys,
-  window_background_opacity = 0.9,
+  window_background_opacity = 0.80,
   -- front_end = "WebGpu",
+  tab_bar_at_bottom = true,
+  -- マウス操作の挙動設定
+  mouse_bindings = {
+    -- 右クリックでクリップボードから貼り付け
+    {
+      event = { Down = { streak = 1, button = 'Right' } },
+      mods = 'NONE',
+      action = wezterm.action.PasteFrom 'Clipboard',
+    },
+  }
 }
-
