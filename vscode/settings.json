@@ -17,6 +17,7 @@
   // "vscode-neovim.highlightGroups.highlights": "QuickScopePrimary",
   // "vscode-neovim.highlightGroups.highlights": "Visual",
   // quick-scope の設定
+  // "vim.enbleNeovim": true,
   // !!! 全然有効化されない！！こまった !!!
   "vscode-neovim.highlightGroups.highlights": {
     "QuickScopePrimary": [

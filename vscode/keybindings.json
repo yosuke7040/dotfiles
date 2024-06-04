@@ -58,81 +58,81 @@
     "key": "cmd+w",
     "command": "workbench.action.closeActiveEditor"
   },
-// neovim関連！！！！！
+  // neovim関連！！！！！
   {
     // vim escape用キーバインド
     // "command": "vscode-neovim.compositeEscape1",
     "vscode-neovim.compositeKeys": {
       "jj": {
-          "command": "vscode-neovim.escape",
-      },
-    },
+        "command": "vscode-neovim.escape"
+      }
+    }
   },
   {
-      "vscode-neovim.compositeKeys": {
-          "jk": {
-              // Use lua to execute any logic
-              "command": "vscode-neovim.lua",
-              "args": [
-                  [
-                      "local code = require('vscode-neovim')",
-                      "code.action('vscode-neovim.escape')",
-                      "code.action('workbench.action.files.save')",
-                  ],
-              ],
-          },
-      },
-  },
-  {
-      // 定義ジャンプ
-      "key": "space d",
-      "command": "editor.action.goToDeclaration",
-      "when": "neovim.mode == normal && editorTextFocus"
-  },
-  {
-      // 戻る
-      "key": "space b",
-      "command": "workbench.action.navigateBack",
-      "when": "neovim.mode == normal && editorTextFocus"
-  },
-  {
-      // 進む
-      "key": "space f",
-      "command": "workbench.action.navigateForward",
-      "when": "neovim.mode == normal && editorTextFocus"
-  },
-  {
-      // ホバー
-      "key": "space h",
-      "command": "editor.action.showHover",
-      "when": "neovim.mode == normal && editorTextFocus"
-  },
-  {
-      // ターミナルにフォーカス
-      "key": "space t",
-      "command": "terminal.focus",
-      "when": "neovim.mode == normal && editorTextFocus"
-  },
-   // explorer: toggle
-   {
-    "key": "space o",
-    "command": "workbench.explorer.fileView.focus",
-    "when": "neovim.mode == normal && !filesExplorerFocus"
-  },
-  {
-    "key": "space o",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "neovim.mode == normal && filesExplorerFocus"
-  },
-  {
-    "key": "shift+cmd+space",
-    "command": "github.copilot.generate",
-    "when": "neovim.mode == insert && editorTextFocus"
-    // "when": "neovim.mode == insert && editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+    "vscode-neovim.compositeKeys": {
+      "jk": {
+        // Use lua to execute any logic
+        "command": "vscode-neovim.lua",
+        "args": [
+          [
+            "local code = require('vscode-neovim')",
+            "code.action('vscode-neovim.escape')",
+            "code.action('workbench.action.files.save')"
+          ]
+        ]
+      }
+    }
   }
   // {
-  //   "key": "ctrl+enter",
-  //   "command": "-github.copilot.generate",
-  //   "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+  //   // 定義ジャンプ
+  //   "key": "space d",
+  //   "command": "editor.action.goToDeclaration",
+  //   "when": "neovim.mode == normal && editorTextFocus"
+  // },
+  // {
+  //   // 戻る
+  //   "key": "space b",
+  //   "command": "workbench.action.navigateBack",
+  //   "when": "neovim.mode == normal && editorTextFocus"
+  // },
+  // {
+  //   // 進む
+  //   "key": "space f",
+  //   "command": "workbench.action.navigateForward",
+  //   "when": "neovim.mode == normal && editorTextFocus"
+  // },
+  // {
+  //   // ホバー
+  //   "key": "space h",
+  //   "command": "editor.action.showHover",
+  //   "when": "neovim.mode == normal && editorTextFocus"
+  // },
+  // {
+  //   // ターミナルにフォーカス
+  //   "key": "space t",
+  //   "command": "terminal.focus",
+  //   "when": "neovim.mode == normal && editorTextFocus"
+  // },
+  // // explorer: toggle
+  // {
+  //   "key": "space o",
+  //   "command": "workbench.explorer.fileView.focus",
+  //   "when": "neovim.mode == normal && !filesExplorerFocus"
+  // },
+  // {
+  //   "key": "space o",
+  //   "command": "workbench.action.toggleSidebarVisibility",
+  //   "when": "neovim.mode == normal && filesExplorerFocus"
+  // },
+  // {
+  //   "key": "shift+cmd+space",
+  //   "command": "github.copilot.generate",
+  //   "when": "neovim.mode == insert && editorTextFocus"
+  //   // "when": "neovim.mode == insert && editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
   // }
+  // // {
+  // //   "key": "ctrl+enter",
+  // //   "command": "-github.copilot.generate",
+  // //   "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+  // // }
 ]
