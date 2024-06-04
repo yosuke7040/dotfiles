@@ -34,3 +34,6 @@ brew "raycast"
 # brew "yabai"
 # brew "skhd"
 brew "terragrunt"
+
+# protocol buffers
+brew "bufbuild/buf/buf"
