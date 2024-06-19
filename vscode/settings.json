@@ -305,12 +305,12 @@
       "source.formatAll.terraform": "explicit"
     }
   },
-  "files.exclude": {
-    "**/_provider.tf": true,
-    "**/_version.tf": true,
-    "**/_backend.tf": true
-    //   "**/.terraform": true
-  },
+  // "files.exclude": {
+  //   "**/_provider.tf": true,
+  //   "**/_version.tf": true,
+  //   "**/_backend.tf": true
+  //   //   "**/.terraform": true
+  // },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
