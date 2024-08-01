@@ -180,9 +180,6 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
-# kubectlコマンドのシェル補完
-source <(kubectl completion zsh)
-
 # wezterm
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
@@ -234,12 +231,13 @@ eval "$(rbenv init - zsh)"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-  autoload -Uz compinit
-  compinit
-fi
+#   autoload -Uz compinit
+#   compinit
+# fi
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # zsh-completions入れた時に実行する
 # chmod go-w '/opt/homebrew/share'
 # chmod -R go-w '/opt/homebrew/share/zsh'

@@ -22,6 +22,10 @@ ln -s "$HOME/src/dotfiles/yabai/.yabairc" "$HOME/.yabairc"
 ln -s "$HOME/src/dotfiles/skhdrc/.skhdrc" "$HOME/.skhdrc"
 ```
 
+```zsh
+sudo chmod -R 755 /opt/homebrew/share
+```
+
 この管理だと、ファイル修正後に source で何故か反映されないのでログインしなおすこと
 
 ### goenv

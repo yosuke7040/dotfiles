@@ -2,12 +2,15 @@ tap 'homebrew/cask'
 tap 'homebrew/core'
 tap "homebrew/cask-fonts"
 tap "ktr0731/evans"
-
-# Neovim
 brew "ripgrep"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+brew "npm"
+brew "nvm"
+brew "kubectl"
+brew "ghq"
+brew "peco"
 
 brew "bat"
 brew "eza"
