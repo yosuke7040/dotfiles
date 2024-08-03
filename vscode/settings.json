@@ -121,9 +121,9 @@
   // // フォント
   // "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
-  "editor.fontSize": 14.5,
+  "editor.fontSize": 13.5,
   // 文字間隔
-  "editor.letterSpacing": -0.1,
+  "editor.letterSpacing": 0,
   // 行間
   "editor.lineHeight": 1.35,
   // ====================================
@@ -139,7 +139,7 @@
   // "terminal.integrated.fontFamily": "monospace",
   // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
   // ターミナルの文字サイズ
-  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontSize": 13.5,
   // ターミナルのキャレットアニメーション
   "terminal.integrated.cursorBlinking": true,
   // テーマカラーの配色を上書きする

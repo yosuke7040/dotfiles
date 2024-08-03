@@ -153,7 +153,7 @@ return {
   color_scheme = 'Grubvox Dark',
   -- color_scheme = 'One Dark (Gogh)',
   use_ime = true,
-  -- font = wezterm.font "Hack Nerd Font",
+  font = wezterm.font "Hack Nerd Font",
   font_size = 15.0,
   window_padding = {
     left = 0,

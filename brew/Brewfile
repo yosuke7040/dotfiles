@@ -2,6 +2,8 @@ tap 'homebrew/cask'
 tap 'homebrew/core'
 tap "homebrew/cask-fonts"
 tap "ktr0731/evans"
+# wezterm font
+brew "font-hack-nerd-font"
 brew "ripgrep"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
@@ -26,6 +28,7 @@ brew "go-to-k/tap/cls3"
 brew "fujiwara/tap/tracer"
 # 移動コマンド
 brew "zoxide"
+brew "peco"
 brew "goenv"
 brew "pyenv"
 

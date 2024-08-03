@@ -11,6 +11,7 @@ ln -s "$HOME/src/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 ln -s "$HOME/src/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/src/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$HOME/src/dotfiles/wezterm" "$HOME/.config/wezterm"
+ln -s "$HOME/src/dotfiles/jetbrains/.ideavimrc" "$HOME/.ideavimrc"
 
 # atuinの元ファイル消せなかった…なぜ……
 # ln -s "$HOME/src/dotfiles/atuin/config.toml" "$HOME/.config/atuin/config.toml"
@@ -18,8 +19,6 @@ ln -s "$HOME/src/dotfiles/nvim" "$HOME/.config/nvim"
 
 ln -s "$HOME/src/dotfiles/vscode/keybindings.json" "/Users/[user name]/Library/Application Support/Code/User/keybindings.json"
 ln -s "$HOME/src/dotfiles/vscode/settings.json" "/Users/[user name]/Library/Application Support/Code/User/settings.json"
-ln -s "$HOME/src/dotfiles/yabai/.yabairc" "$HOME/.yabairc"
-ln -s "$HOME/src/dotfiles/skhdrc/.skhdrc" "$HOME/.skhdrc"
 ```
 
 ```zsh
