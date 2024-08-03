@@ -7,7 +7,3 @@
 # プレビューで表示される見た目の設定です。好みに合わせて設定してください。
 [alias]
 	lg = log --graph --decorate --abbrev-commit --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)\n  %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-
-[url "github:"]
-    InsteadOf = https://github.com/
-    InsteadOf = git@github.com:
