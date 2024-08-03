@@ -1,9 +1,0 @@
-# This is Git's per-user configuration file.
-[user]
-    name = yosuke7040
-    email = yosuke.bad4@gmail.com
-[ghq]
-	root = ~/src
-# プレビューで表示される見た目の設定です。好みに合わせて設定してください。
-[alias]
-	lg = log --graph --decorate --abbrev-commit --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)\n  %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
