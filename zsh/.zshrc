@@ -9,10 +9,11 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # エイリアス
-alias l='eza --icons -l'
+alias l='eza --icons -l -a'
 alias ls='eza --icons'
 alias la='eza --icons -l -a -s name'
 alias ll='eza --icons -l -s time'
+# alias lt='exa --icons -l -s time --reverse'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -28,14 +29,17 @@ alias gco='git checkout'
 alias gf='git fetch'
 alias gc='git commit'
 alias gr='open "$(git config remote.origin.url)"'
+#alias gr='open "$(git config remote.origin.url | sed 's!//.*@!//!')"'
 alias cp='cp -i'
 alias mv='mv -i'
+# alias rm='rm -i'
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 alias tf='terraform'
 alias tfmt='terraform fmt -recursive'
 alias tg='terragrunt'
+# alias cat='bat'
 alias batp='bat -p'
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -63,9 +67,17 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
 
+# goのパスとバージョン管理
+# # export PATH="$PATH:$(go env GOPATH)/bin"
+# # ↓2つは~/.zshenvに書き込む
+# eval "$(goenv init -)"
+# export GOENV_ROOT="$HOME/.goenv"
+# export PATH="$GOENV_ROOT/bin:$PATH"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # starship
 eval "$(starship init zsh)"
@@ -96,7 +108,6 @@ setopt hist_ignore_space
 setopt share_history
 ## zsh の開始, 終了時刻をヒストリファイルに書き込む
 setopt extended_history
-
 ## The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 ## 補完候補を一覧表示
@@ -179,7 +190,7 @@ export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
 # fabric-samples
 # itn用に作った(https://hyperledger-fabric.readthedocs.io/en/release-2.2/install.html)
-# export PATH="$PATH:/Users/abe/src/job/itn/fabric-samples/bin"
+export PATH="$PATH:/Users/abe/src/job/itn/fabric-samples/bin"
 
 # ghqとの連携。ghqの管理化にあるリポジトリを一覧表示する。ctrl - ]にバインド。
 function peco-src () {
@@ -192,6 +203,18 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+# # commandの履歴検索。ctrl - rにバインド
+# function select-history() {
+#   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+#   CURSOR=$#BUFFER
+# }
+# zle -N select-history
+# bindkey '^r' select-history
+# setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
+# setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
+# setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
+# setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
 
 function select-git-switch() {
   target_br=$(
@@ -218,7 +241,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   autoload -Uz compinit
   compinit
 # fi
-
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # zsh-completions入れた時に実行する
 # chmod go-w '/opt/homebrew/share'
 # chmod -R go-w '/opt/homebrew/share/zsh'
@@ -269,6 +292,17 @@ eval "$(zoxide init zsh)"
 # 矢印キーが上の挙動は下のほうが好みなので無効化
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# pythonバージョン管理
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# nodeバージョン管理
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init - --no-rehash)"
+export PATH="$HOME/.nodenv/versions/20.0.0/bin:$PATH"
+
+export GOPRIVATE=github.com/handy-inc
+
+# aws-mfaがpip3ではなく、pipを参照している？っぽいのでそのためのパス
+export PATH="/Users/abe/Library/Python/3.9/bin:$PATH"
