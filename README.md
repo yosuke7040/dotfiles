@@ -9,6 +9,7 @@ ln -s "$HOME/src/dotfiles/vim/.vimrc" "$HOME/.vimrc"
 
 ln -s "$HOME/src/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 ln -s "$HOME/src/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+ln -s "$HOME/src/dotfiles/git/.gitignore_blobal" "$HOME/.gitignore_global"
 ln -s "$HOME/src/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$HOME/src/dotfiles/wezterm" "$HOME/.config/wezterm"
 ln -s "$HOME/src/dotfiles/jetbrains/.ideavimrc" "$HOME/.ideavimrc"
