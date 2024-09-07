@@ -41,6 +41,7 @@ alias tfmt='terraform fmt -recursive'
 alias tg='terragrunt'
 # alias cat='bat'
 alias batp='bat -p'
+alias grep='rg'
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"

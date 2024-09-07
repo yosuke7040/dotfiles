@@ -74,6 +74,21 @@ set clipboard+=unnamed
 " インタフェースの実装に移動は、「I」マークを押した時の動作。 go to implementation から
 nnoremap gi :action GotoImplementation<CR>
 
+" Insert modeでTabキーを押すとインデントを下げる
+inoremap <Tab> <Esc>v><Esc>i
+
+" Insert modeでShift + Tabキーを押すとインデントを上げる
+inoremap <S-Tab> <Esc>v<<Esc>i
+
+" ノーマルモードおよびビジュアルモードでTabキーを押すとインデントを下げる
+nnoremap <Tab> >>
+vnoremap <Tab> >
+
+" ノーマルモードおよびビジュアルモードでShift + Tabキーを押すとインデントを上げる
+nnoremap <S-Tab> <<
+vnoremap <S-Tab> <
+
+
 " ---------- plugins ----------
 " easy motion
 set easymotion
