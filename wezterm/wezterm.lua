@@ -13,6 +13,8 @@ local keys = {
   -- { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane "Close" },
   { key = "LeftArrow",  mods = "ALT", action = wezterm.action.SendKey { key = "b", mods = "META" } },
   { key = "RightArrow", mods = "ALT", action = wezterm.action.SendKey { key = "f", mods = "META" } },
+  -- Add the new keybinding for clear command
+  { key = "r",          mods = "CMD", action = wezterm.action.SendString("\x0c") },
 }
 
 for i = 1, 9 do
