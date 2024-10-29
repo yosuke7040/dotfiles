@@ -88,6 +88,21 @@ vnoremap <Tab> >
 nnoremap <S-Tab> <<
 vnoremap <S-Tab> <
 
+" 行末までヤンク
+nnoremap Y y$
+
+" 括弧ジャンプ
+noremap M %
+
+" Visual コピー時にカーソル位置を保存
+xnoremap y mzy`z
+
+" Visual ペースト時にレジスタの変更を防止
+xnoremap p P
+
+" Visual <, >で連続してインデントを操作
+xnoremap < <gv
+xnoremap > >gv
 
 " ---------- plugins ----------
 " easy motion
