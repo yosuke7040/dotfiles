@@ -41,7 +41,8 @@ alias tfmt='terraform fmt -recursive'
 alias tg='terragrunt'
 # alias cat='bat'
 alias batp='bat -p'
-alias grep='rg'
+# alias grep='rg'
+alias lg='lazygit'
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
@@ -305,5 +306,12 @@ export PATH="$HOME/.nodenv/versions/20.0.0/bin:$PATH"
 
 export GOPRIVATE=github.com/handy-inc
 
+# asdf
+# 最後に持ってきた方が良い。brewでインストールしたパスより先にasdfのパス見てくれる
+# 整理をめんどくさがるな！！
+export PATH="$HOME/.asdf/shims:$PATH"
+
+
 # aws-mfaがpip3ではなく、pipを参照している？っぽいのでそのためのパス
 export PATH="/Users/abe/Library/Python/3.9/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
