@@ -50,11 +50,18 @@ nnoremap K {
 nnoremap sv :action SplitVertically<CR>
 nnoremap ss :action SplitHorizontally<CR>
 nnoremap sm :action MoveEditorToOppositeTabGroup<CR>
+nnoremap so :action OpenEditorInOppositeTabGroup<CR>
 
 nnoremap sh <c-w>h
 nnoremap sl <c-w>l
 nnoremap sj <c-w>j
 nnoremap sk <c-w>k
+
+" 赤線、なければ黄色線にカーソル移動する
+nnoremap cn :action GotoNextError<CR>
+nnoremap cp :action GotoPreviousError<CR>
+" 赤線、黄色線出てるところで使うとそのコードに対して行える操作一覧が出る
+nnoremap <C-CR> :action ShowIntentionActions<CR>
 
 " code interactions
 nnoremap <leader>c :action CommentByLineComment<CR>
@@ -63,8 +70,8 @@ nnoremap <leader>r :action RenameElement<CR>
 nnoremap <leader>f :action ReformatCode<CR>
 
 " code information
-nnoremap <leader>d :action ShowHoverInfo
-nnoremap <leader>e :action ShowErrorDescription
+nnoremap <leader>d :action ShowHoverInfo<CR>
+nnoremap <leader>e :action ShowErrorDescription<CR>
 
 inoremap jk <ESC>
 
