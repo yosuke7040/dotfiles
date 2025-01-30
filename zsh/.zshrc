@@ -43,6 +43,7 @@ alias tg='terragrunt'
 alias batp='bat -p'
 # alias grep='rg'
 alias lg='lazygit'
+alias qrcode='(){qrencode $1 -o - | viu -}'
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
