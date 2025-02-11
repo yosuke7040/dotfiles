@@ -9,16 +9,179 @@
     "command": "workbench.action.navigateForward",
     "when": "canNavigateForward"
   },
+  //----------------------------------------------------------
+  // 何も開いていない時の設定
+  //----------------------------------------------------------
+  // ファイル検索
   {
-    // rでファイルのリネーム
+    "key": "space f f",
+    "command": "multiCommand.findFiles",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // 全体検索
+  {
+    "key": "space f w",
+    "command": "multiCommand.findWithinFiles",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // サイドバーを表示
+  {
+    "key": "space e",
+    "command": "workbench.action.focusSideBar",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // サイドバーへのフォーカス
+  {
+    "key": "space o",
+    "command": "workbench.action.focusSideBar",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  //----------------------------------------------------------
+  // サイドバーにフォーカスしている時の設定
+  //----------------------------------------------------------
+  // リスト内で下へ移動
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で上へ移動
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で折りたたみ
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で選択
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  // エディタグループへのフォーカス
+  {
+    "key": "space o",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "listFocus && !inputFocus"
+  },
+  // サイドバーの表示切替
+  {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "listFocus && !inputFocus"
+  },
+  // 新しいファイルの作成
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "listFocus && !inputFocus"
+  },
+  // 新しいフォルダの作成
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "listFocus && !inputFocus"
+  },
+  // ファイル・ディレクトリのリネーム
+  {
     "key": "r",
     "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "when": "listFocus && !inputFocus"
   },
+  // ファイル・ディレクトリの削除
   {
-    // dでファイルを削除
     "key": "d",
     "command": "deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    "when": "listFocus && !inputFocus"
+  },
+  // 隠しファイル・ディレクトリの表示切替
+  {
+    "key": "shift+h",
+    "command": "toggleexcludedfiles.toggle",
+    "when": "listFocus && !inputFocus"
+  },
+  // エディタへの移動
+  {
+    "key": "ctrl+t l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "listFocus && !inputFocus"
+  },
+  //----------------------------------------------------------
+  // ターミナルにフォーカスしている時の設定
+  //----------------------------------------------------------
+  {
+    "key": "ctrl+t p",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.togglePanel"
+      ]
+    },
+    // "when": "terminalFocus && panelMaximized"
+    "when": "terminalFocus"
+  },
+  // ターミナルの分割
+  {
+    "key": "ctrl+t shift+\\",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  // 新しいターミナルの作成
+  {
+    "key": "ctrl+t c",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // ターミナル間での移動（左へ）
+  {
+    "key": "ctrl+t h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  // ターミナル間での移動（右へ）
+  {
+    "key": "ctrl+t l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  // ターミナルへのインデックス別フォーカス
+  {
+    "key": "ctrl+t 1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
+    "key": "ctrl+t 2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "ctrl+t 3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
+    "key": "ctrl+t 4",
+    "command": "workbench.action.terminal.focusAtIndex4"
+  },
+  {
+    "key": "ctrl+t 5",
+    "command": "workbench.action.terminal.focusAtIndex5"
+  },
+  // ターミナルの最大化
+  {
+    "key": "ctrl+t z",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  // ターミナルの閉鎖
+  {
+    "key": "ctrl+t x",
+    "command": "workbench.action.terminal.detachSession",
+    "when": "terminalFocus"
   }
 ]

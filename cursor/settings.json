@@ -89,30 +89,30 @@
     // ターミナルのキャレットアニメーション
     "terminal.integrated.cursorBlinking": true,
     // テーマカラーの配色を上書きする
-    "workbench.colorCustomizations": {
-        // エディタのキャレットカラー
-        "editorCursor.foreground": "#f00058",
-        // ターミナルのキャレットカラー
-        "terminalCursor.foreground": "#efff0b",
-        "editor.background": "#000000",
-        "terminal.background": "#000000",
-        // カーソル行の背景色
-        // "editor.lineHighlightBackground": "#1a1a1a",
-        "editor.lineHighlightBackground": "#000000",
-        // "editorLineNumber.activeForeground": "#ff9d00",
-        "editor.lineHighlightBorder": "#555555",
-        // サイドバーの色
-        "sideBar.background": "#0d0d0d",
-        "sideBarTitle.foreground": "#a0a0a0",
-        "sideBarSectionHeader.background": "#0d0d0d",
-        "sideBarSectionHeader.foreground": "#a0a0a0"
-        // "[High Contrast Dark]": {
-        //   "editor.background": "#1e1e1e",
-        //   "editor.foreground": "#d4d4d4",
-        //   "activityBarBadge.background": "#007acc",
-        //   "sideBarTitle.foreground": "#bbbbbb"
-        // }
-    },
+    // "workbench.colorCustomizations": {
+    //     // エディタのキャレットカラー
+    //     "editorCursor.foreground": "#f00058",
+    //     // ターミナルのキャレットカラー
+    //     "terminalCursor.foreground": "#efff0b",
+    //     "editor.background": "#000000",
+    //     "terminal.background": "#000000",
+    //     // カーソル行の背景色
+    //     // "editor.lineHighlightBackground": "#1a1a1a",
+    //     "editor.lineHighlightBackground": "#000000",
+    //     // "editorLineNumber.activeForeground": "#ff9d00",
+    //     "editor.lineHighlightBorder": "#555555",
+    //     // サイドバーの色
+    //     "sideBar.background": "#0d0d0d",
+    //     "sideBarTitle.foreground": "#a0a0a0",
+    //     "sideBarSectionHeader.background": "#0d0d0d",
+    //     "sideBarSectionHeader.foreground": "#a0a0a0"
+    //     // "[High Contrast Dark]": {
+    //     //   "editor.background": "#1e1e1e",
+    //     //   "editor.foreground": "#d4d4d4",
+    //     //   "activityBarBadge.background": "#007acc",
+    //     //   "sideBarTitle.foreground": "#bbbbbb"
+    //     // }
+    // },
     // ====================================
     // 拡張機能の個別設定
     // ====================================
@@ -126,8 +126,37 @@
         "rgba(30, 115, 102, 0.24)",
         "rgba(85, 30, 115, 0.24)"
     ],
-    "vscode_custom_css.imports": [
-        "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    // "vscode_custom_css.imports": [
+    // "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    // ],
+    //
+    "animations.Scrolling": "Fade",
+    "apc.imports": [
+        "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
+    ],
+    // ====================================
+    // find it faster
+    // ====================================
+    "find-it-faster.general.showMaximizedTerminal": false,
+    "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
+    "find-it-faster.general.killTerminalAfterUse": true,
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.findFiles",
+            "interval": 220,
+            "sequence": [
+                "workbench.action.toggleMaximizedPanel",
+                "find-it-faster.findFiles"
+            ]
+        },
+        {
+            "command": "multiCommand.findWithinFiles",
+            "interval": 220,
+            "sequence": [
+                "workbench.action.toggleMaximizedPanel",
+                "find-it-faster.findWithinFiles"
+            ]
+        }
     ],
     // ====================================
     // vim
@@ -320,15 +349,15 @@
         //         "editor.action.showHover"
         //     ]
         // },
-        {
-            "before": [
-                "<leader>",
-                "e"
-            ],
-            "commands": [
-                "workbench.action.problems.focus"
-            ]
-        }
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "e"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.problems.focus"
+        //     ]
+        // },
         // {
         //     "before": [
         //         "<leader>",
@@ -347,6 +376,48 @@
         //         "editor.action.goToDefinition"
         //     ]
         // }
+        // ファイル検索
+        {
+            "before": [
+                "<Leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "multiCommand.findFiles"
+            ],
+            "when": [
+                "editorFocus && vim.mode == 'Normal'"
+            ]
+        },
+        // 全体検索
+        {
+            "before": [
+                "<Leader>",
+                "f",
+                "w"
+            ],
+            "commands": [
+                "multiCommand.findWithinFiles"
+            ],
+            "when": [
+                "editorFocus && vim.mode == 'Normal'"
+            ]
+        },
+        // ファイル内検索
+        {
+            "before": [
+                "<Leader>",
+                "f",
+                "/"
+            ],
+            "commands": [
+                "multiCommand.findCurrentFile"
+            ],
+            "when": [
+                "editorFocus && vim.mode == 'Normal'"
+            ]
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -416,5 +487,8 @@
             ]
         }
     ],
-    "editor.cursorSurroundingLines": 5
+    "editor.cursorSurroundingLines": 5,
+    "animations.CursorAnimation": true,
+    "animations.Custom-CSS": false,
+    "animations.Install-Method": "Apc Customize UI++"
 }
