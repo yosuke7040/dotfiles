@@ -298,32 +298,6 @@
         },
         {
             "before": [
-                "c",
-                "n"
-            ],
-            "commands": [
-                "editor.action.marker.next"
-            ]
-        },
-        {
-            "before": [
-                "c",
-                "p"
-            ],
-            "commands": [
-                "editor.action.marker.prev"
-            ]
-        },
-        {
-            "before": [
-                "<C-CR>"
-            ],
-            "commands": [
-                "editor.action.quickFix"
-            ]
-        },
-        {
-            "before": [
                 "<leader>",
                 "r"
             ],
@@ -340,42 +314,25 @@
                 "editor.action.formatDocument"
             ]
         },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "d"
-        //     ],
-        //     "commands": [
-        //         "editor.action.showHover"
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "e"
-        //     ],
-        //     "commands": [
-        //         "workbench.action.problems.focus"
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "i"
-        //     ],
-        //     "commands": [
-        //         "editor.action.goToImplementation"
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "d"
-        //     ],
-        //     "commands": [
-        //         "editor.action.goToDefinition"
-        //     ]
-        // }
+        // タブ間での移動
+        {
+            "before": [
+                "s",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "s",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
         // ファイル検索
         {
             "before": [
