@@ -33,6 +33,7 @@ Plug 'tpope/vim-commentary'
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
+" 参考：https://zenn.dev/vim_jp/articles/43d021f461f3a4
 
 " the leader key
 let mapleader=" "
@@ -110,6 +111,21 @@ xnoremap p P
 " Visual <, >で連続してインデントを操作
 xnoremap < <gv
 xnoremap > >gv
+
+" レジスタに入れずにカット（削除）
+nnoremap x "_x
+" 行全体削除（dd）を黒洞レジスタにマッピング
+nnoremap dd "_dd
+" カーソル位置から行末まで削除（D）を黒洞レジスタにマッピング
+nnoremap D "_D
+
+" WORD選択
+onoremap i<space> iW
+xnoremap i<space> iW
+
+" カーソル下のキーワードをサクッと置換
+nnoremap S :%s/\V\<<C-r><C-w>\>//g<Left><Left>
+xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
 
 " ---------- plugins ----------
 " easy motion

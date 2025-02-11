@@ -20,6 +20,7 @@ ln -s "$HOME/src/dotfiles/nvim" "$HOME/.config/nvim"
 
 ln -s "$HOME/src/dotfiles/vscode/keybindings.json" "/Users/[user name]/Library/Application Support/Code/User/keybindings.json"
 ln -s "$HOME/src/dotfiles/vscode/settings.json" "/Users/[user name]/Library/Application Support/Code/User/settings.json"
+ln -s "$HOME/src/dotfiles/cursor/settings.json" "/Users/[user name]/Library/Application Support/Cursor/User/settings.json"
 ```
 
 ```zsh

@@ -319,3 +319,7 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # sqnoflake使うなら
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/abe/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
