@@ -9,6 +9,14 @@
     "command": "workbench.action.navigateForward",
     "when": "canNavigateForward"
   },
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "cmd+shift+]",
+    "command": "workbench.action.nextEditor"
+  },
   //----------------------------------------------------------
   // 何も開いていない時の設定
   //----------------------------------------------------------

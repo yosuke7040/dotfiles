@@ -25,7 +25,7 @@
     // エディタ全体のUIに関する設定
     // ====================================
     // テーマカラー
-    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.colorTheme": "Jetbrains Dark Theme",
     // ミニマップを表示する
     "editor.minimap.enabled": false,
     // ファイルのパンくずリストを表示する
@@ -67,11 +67,11 @@
     // // フォント
     // "editor.fontFamily": "\"Source Han Code JP\", monospace",
     // 文字サイズ
-    "editor.fontSize": 13.5,
+    "editor.fontSize": 15,
     // 文字間隔
     "editor.letterSpacing": 0,
     // 行間
-    "editor.lineHeight": 1.35,
+    "editor.lineHeight": 1.4,
     // ====================================
     // キャレットの設定
     // ====================================
@@ -321,7 +321,7 @@
                 "h"
             ],
             "commands": [
-                "workbench.action.previousEditor"
+                "workbench.action.focusPreviousGroup"
             ]
         },
         {
@@ -330,7 +330,7 @@
                 "l"
             ],
             "commands": [
-                "workbench.action.nextEditor"
+                "workbench.action.focusNextGroup"
             ]
         },
         // ファイル検索
