@@ -67,11 +67,13 @@
     // // フォント
     // "editor.fontFamily": "\"Source Han Code JP\", monospace",
     // 文字サイズ
-    "editor.fontSize": 15,
+    "editor.fontSize": 13,
     // 文字間隔
     "editor.letterSpacing": 0,
     // 行間
     "editor.lineHeight": 1.4,
+    // エクスプローラーのフォントサイズ
+    "window.zoomLevel": 0.8,
     // ====================================
     // キャレットの設定
     // ====================================
@@ -375,6 +377,45 @@
                 "editorFocus && vim.mode == 'Normal'"
             ]
         },
+        // 定義へ移動
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.goToDeclaration"
+            ],
+            "when": [
+                "editorFocus && vim.mode == 'Normal'"
+            ]
+        },
+        // 実装へ移動
+        {
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ],
+            "when": [
+                "editorFocus && vim.mode == 'Normal'"
+            ]
+        },
+        // ホバー表示
+        {
+            "before": [
+                "g",
+                "h"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ],
+            "when": [
+                "editorFocus && vim.mode == 'Normal'"
+            ]
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -447,5 +488,8 @@
     "editor.cursorSurroundingLines": 5,
     "animations.CursorAnimation": true,
     "animations.Custom-CSS": false,
-    "animations.Install-Method": "Apc Customize UI++"
+    "custom-ui-style.external.imports": [],
+    "vscode_custom_css.imports": [
+        "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    ]
 }
