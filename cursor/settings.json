@@ -61,6 +61,10 @@
     "workbench.tree.renderIndentGuides": "always",
     // アニメーションを減らす
     "workbench.reduceMotion": "on",
+    // 選択しているタブの背景色を変更する
+    "workbench.colorCustomizations": {
+        "tab.activeBackground": "#666666cc",
+    },
     // ====================================
     // エディタのタイポグラフィーに関する設定
     // ====================================
@@ -491,5 +495,6 @@
     "custom-ui-style.external.imports": [],
     "vscode_custom_css.imports": [
         "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-    ]
+    ],
+    "redhat.telemetry.enabled": true
 }

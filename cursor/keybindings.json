@@ -54,6 +54,24 @@
   //   "command": "workbench.action.focusSideBar",
   //   "when": "editorFocus"
   // },
+  // 置換（デフォルトの「シンボルへ移動」が上書きされます）
+  {
+    "key": "cmd+r",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorTextFocus"
+  },
+  // // 単語単位での検索を切り替える
+  // {
+  //   "key": "ctrl+shift+w",
+  //   "command": "editor.action.toggleWholeWord",
+  //   "when": "inSearchEditor && searchInputBoxFocus"
+  // },
+  // // 検索ウィジェットが表示されているときに、ctrl+c で大文字小文字を区別する（マッチケースの切り替え）
+  // {
+  //   "key": "ctrl+shift+c",
+  //   "command": "editor.action.toggleCaseSensitive",
+  //   "when": "inSearchEditor && searchInputBoxFocus"
+  // },
   //----------------------------------------------------------
   // サイドバーにフォーカスしている時の設定
   //----------------------------------------------------------
