@@ -1,500 +1,352 @@
 {
-    "workbench.activityBar.orientation": "vertical",
-    "terminal.integrated.scrollback": 30000,
-    "debug.allowBreakpointsEverywhere": true,
-    "emmet.variables": {
-        "lang": "ja"
+  "workbench.activityBar.orientation": "vertical",
+  "terminal.integrated.scrollback": 30000,
+  "debug.allowBreakpointsEverywhere": true,
+  "emmet.variables": {
+    "lang": "ja"
+  },
+  // ====================================
+  // ファイル保存時に行われるアクション
+  // ====================================
+  // ファイル保存時、コードを整形する
+  "editor.formatOnSave": true,
+  // Prettier をフォーマッタとして利用する
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // ファイル保存時、同時に行われるアクション
+  "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ファイル保存時、最終行に改行を挿入する
+  "files.insertFinalNewline": true,
+  // ファイル保存時、最終行以降の空行を削除する
+  "files.trimFinalNewlines": true,
+  // ファイル保存時、末尾の空白をトリミングする
+  "files.trimTrailingWhitespace": true,
+  // エラーや警告のステータスを常に表示したい場合:
+  "eslint.alwaysShowStatus": true,
+  // ====================================
+  // エディタ全体のUIに関する設定
+  // ====================================
+  // テーマカラー
+  "workbench.colorTheme": "Ayu Mirage Bordered",
+  // ミニマップを表示する
+  "editor.minimap.enabled": false,
+  // ファイルのパンくずリストを表示する
+  "breadcrumbs.enabled": false,
+  // メニューバーを表示する (toggle: Altキーで上部に表示する)
+  "window.menuBarVisibility": "toggle",
+  // ====================================
+  // エディタのUIに関する詳細設定
+  // ====================================
+  // タブサイズ
+  "editor.tabSize": 2,
+  // インデントガイドを表示する
+  "editor.guides.indentation": false,
+  // 括弧（ブラケット）のペアガイドを表示する
+  "editor.guides.bracketPairs": true,
+  // 括弧（ブラケット）の水平方向のペアガイドを表示する
+  "editor.guides.bracketPairsHorizontal": true,
+  // 括弧（ブラケット）のペアごとに色を分ける
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  // 選択範囲のハイライトに角丸を適用する
+  "editor.roundedSelection": false,
+  // 左端の行番号にカーソル位置からの距離を表示
+  // "editor.lineNumbers": "relative",
+  // ====================================
+  // ワークベンチの設定
+  // ====================================
+  // アイコンテーマ
+  // "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
+  // ツリーのインデント
+  "workbench.tree.indent": 12,
+  // ツリーのインデントガイドを表示する
+  "workbench.tree.renderIndentGuides": "always",
+  // アニメーションを減らす
+  "workbench.reduceMotion": "on",
+  // 選択しているタブの背景色を変更する
+  "workbench.colorCustomizations": {
+    "tab.activeBackground": "#666666cc"
+  },
+  // ====================================
+  // エディタのタイポグラフィーに関する設定
+  // ====================================
+  // // フォント
+  // "editor.fontFamily": "\"Source Han Code JP\", monospace",
+  // 文字サイズ
+  "editor.fontSize": 12,
+  // 文字間隔
+  "editor.letterSpacing": 0,
+  // 行間
+  "editor.lineHeight": 1.4,
+  // エクスプローラーのフォントサイズ
+  "window.zoomLevel": 0.8,
+  // ====================================
+  // キャレットの設定
+  // ====================================
+  // エディタのキャレットの幅
+  "editor.cursorWidth": 3,
+  // エディタのキャレットアニメーション
+  "editor.cursorBlinking": "phase",
+  // ターミナルのキャレットのスタイル
+  "terminal.integrated.cursorStyle": "block",
+  //ターミナルのフォント
+  // "terminal.integrated.fontFamily": "monospace",
+  // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
+  // ターミナルの文字サイズ
+  "terminal.integrated.fontSize": 13.5,
+  // ターミナルのキャレットアニメーション
+  "terminal.integrated.cursorBlinking": true,
+  // テーマカラーの配色を上書きする
+  // "workbench.colorCustomizations": {
+  //     // エディタのキャレットカラー
+  //     "editorCursor.foreground": "#f00058",
+  //     // ターミナルのキャレットカラー
+  //     "terminalCursor.foreground": "#efff0b",
+  //     "editor.background": "#000000",
+  //     "terminal.background": "#000000",
+  //     // カーソル行の背景色
+  //     // "editor.lineHighlightBackground": "#1a1a1a",
+  //     "editor.lineHighlightBackground": "#000000",
+  //     // "editorLineNumber.activeForeground": "#ff9d00",
+  //     "editor.lineHighlightBorder": "#555555",
+  //     // サイドバーの色
+  //     "sideBar.background": "#0d0d0d",
+  //     "sideBarTitle.foreground": "#a0a0a0",
+  //     "sideBarSectionHeader.background": "#0d0d0d",
+  //     "sideBarSectionHeader.foreground": "#a0a0a0"
+  //     // "[High Contrast Dark]": {
+  //     //   "editor.background": "#1e1e1e",
+  //     //   "editor.foreground": "#d4d4d4",
+  //     //   "activityBarBadge.background": "#007acc",
+  //     //   "sideBarTitle.foreground": "#bbbbbb"
+  //     // }
+  // },
+  // ====================================
+  // 拡張機能の個別設定
+  // ====================================
+  // ------------------------------------
+  // indent-rainbow
+  // ------------------------------------
+  // インデントカラー
+  "indentRainbow.colors": [
+    "rgba(153, 40, 57, 0.24)",
+    "rgba(111, 115, 30, 0.24)",
+    "rgba(30, 115, 102, 0.24)",
+    "rgba(85, 30, 115, 0.24)"
+  ],
+  // "vscode_custom_css.imports": [
+  // "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  // ],
+  //
+  "animations.Scrolling": "Fade",
+  "apc.imports": [
+    "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
+  ],
+  // ====================================
+  // find it faster
+  // ====================================
+  "find-it-faster.general.showMaximizedTerminal": false,
+  "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
+  "find-it-faster.general.killTerminalAfterUse": true,
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.findFiles",
+      "interval": 220,
+      "sequence": [
+        "workbench.action.toggleMaximizedPanel",
+        "find-it-faster.findFiles"
+      ]
     },
-    // ====================================
-    // ファイル保存時に行われるアクション
-    // ====================================
-    // ファイル保存時、コードを整形する
-    "editor.formatOnSave": true,
-    // // ファイル保存時、同時に行われるアクション
-    // "editor.codeActionsOnSave": {
-    //   // 拡張機能Prettierのチェックを走らせる
-    //   "source.fixAll.prettier": true
-    // },
-    // ファイル保存時、最終行に改行を挿入する
-    "files.insertFinalNewline": true,
-    // ファイル保存時、最終行以降の空行を削除する
-    "files.trimFinalNewlines": true,
-    // ファイル保存時、末尾の空白をトリミングする
-    "files.trimTrailingWhitespace": true,
-    // ====================================
-    // エディタ全体のUIに関する設定
-    // ====================================
-    // テーマカラー
-    "workbench.colorTheme": "Jetbrains Dark Theme",
-    // ミニマップを表示する
-    "editor.minimap.enabled": false,
-    // ファイルのパンくずリストを表示する
-    "breadcrumbs.enabled": false,
-    // メニューバーを表示する (toggle: Altキーで上部に表示する)
-    "window.menuBarVisibility": "toggle",
-    // ====================================
-    // エディタのUIに関する詳細設定
-    // ====================================
-    // タブサイズ
-    "editor.tabSize": 2,
-    // インデントガイドを表示する
-    "editor.guides.indentation": false,
-    // 括弧（ブラケット）のペアガイドを表示する
-    "editor.guides.bracketPairs": true,
-    // 括弧（ブラケット）の水平方向のペアガイドを表示する
-    "editor.guides.bracketPairsHorizontal": true,
-    // 括弧（ブラケット）のペアごとに色を分ける
-    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-    // 選択範囲のハイライトに角丸を適用する
-    "editor.roundedSelection": false,
-    // 左端の行番号にカーソル位置からの距離を表示
-    // "editor.lineNumbers": "relative",
-    // ====================================
-    // ワークベンチの設定
-    // ====================================
-    // アイコンテーマ
-    // "workbench.iconTheme": "material-icon-theme",
-    "workbench.iconTheme": "vscode-icons",
-    // ツリーのインデント
-    "workbench.tree.indent": 12,
-    // ツリーのインデントガイドを表示する
-    "workbench.tree.renderIndentGuides": "always",
-    // アニメーションを減らす
-    "workbench.reduceMotion": "on",
-    // 選択しているタブの背景色を変更する
-    "workbench.colorCustomizations": {
-        "tab.activeBackground": "#666666cc",
+    {
+      "command": "multiCommand.findWithinFiles",
+      "interval": 220,
+      "sequence": [
+        "workbench.action.toggleMaximizedPanel",
+        "find-it-faster.findWithinFiles"
+      ]
+    }
+  ],
+  // ====================================
+  // vim
+  // ====================================
+  "vim.scrolloff": 5,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["Q"],
+      "after": ["g", "q"]
     },
-    // ====================================
-    // エディタのタイポグラフィーに関する設定
-    // ====================================
-    // // フォント
-    // "editor.fontFamily": "\"Source Han Code JP\", monospace",
-    // 文字サイズ
-    "editor.fontSize": 13,
-    // 文字間隔
-    "editor.letterSpacing": 0,
-    // 行間
-    "editor.lineHeight": 1.4,
-    // エクスプローラーのフォントサイズ
-    "window.zoomLevel": 0.8,
-    // ====================================
-    // キャレットの設定
-    // ====================================
-    // エディタのキャレットの幅
-    "editor.cursorWidth": 3,
-    // エディタのキャレットアニメーション
-    "editor.cursorBlinking": "phase",
-    // ターミナルのキャレットのスタイル
-    "terminal.integrated.cursorStyle": "block",
-    //ターミナルのフォント
-    // "terminal.integrated.fontFamily": "monospace",
-    // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
-    // ターミナルの文字サイズ
-    "terminal.integrated.fontSize": 13.5,
-    // ターミナルのキャレットアニメーション
-    "terminal.integrated.cursorBlinking": true,
-    // テーマカラーの配色を上書きする
-    // "workbench.colorCustomizations": {
-    //     // エディタのキャレットカラー
-    //     "editorCursor.foreground": "#f00058",
-    //     // ターミナルのキャレットカラー
-    //     "terminalCursor.foreground": "#efff0b",
-    //     "editor.background": "#000000",
-    //     "terminal.background": "#000000",
-    //     // カーソル行の背景色
-    //     // "editor.lineHighlightBackground": "#1a1a1a",
-    //     "editor.lineHighlightBackground": "#000000",
-    //     // "editorLineNumber.activeForeground": "#ff9d00",
-    //     "editor.lineHighlightBorder": "#555555",
-    //     // サイドバーの色
-    //     "sideBar.background": "#0d0d0d",
-    //     "sideBarTitle.foreground": "#a0a0a0",
-    //     "sideBarSectionHeader.background": "#0d0d0d",
-    //     "sideBarSectionHeader.foreground": "#a0a0a0"
-    //     // "[High Contrast Dark]": {
-    //     //   "editor.background": "#1e1e1e",
-    //     //   "editor.foreground": "#d4d4d4",
-    //     //   "activityBarBadge.background": "#007acc",
-    //     //   "sideBarTitle.foreground": "#bbbbbb"
-    //     // }
-    // },
-    // ====================================
-    // 拡張機能の個別設定
-    // ====================================
-    // ------------------------------------
-    // indent-rainbow
-    // ------------------------------------
-    // インデントカラー
-    "indentRainbow.colors": [
-        "rgba(153, 40, 57, 0.24)",
-        "rgba(111, 115, 30, 0.24)",
-        "rgba(30, 115, 102, 0.24)",
-        "rgba(85, 30, 115, 0.24)"
-    ],
-    // "vscode_custom_css.imports": [
-    // "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-    // ],
-    //
-    "animations.Scrolling": "Fade",
-    "apc.imports": [
-        "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
-    ],
-    // ====================================
-    // find it faster
-    // ====================================
-    "find-it-faster.general.showMaximizedTerminal": false,
-    "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
-    "find-it-faster.general.killTerminalAfterUse": true,
-    "multiCommand.commands": [
-        {
-            "command": "multiCommand.findFiles",
-            "interval": 220,
-            "sequence": [
-                "workbench.action.toggleMaximizedPanel",
-                "find-it-faster.findFiles"
-            ]
-        },
-        {
-            "command": "multiCommand.findWithinFiles",
-            "interval": 220,
-            "sequence": [
-                "workbench.action.toggleMaximizedPanel",
-                "find-it-faster.findWithinFiles"
-            ]
-        }
-    ],
-    // ====================================
-    // vim
-    // ====================================
-    "vim.scrolloff": 5,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.easymotion": true,
-    "vim.leader": "<space>",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "Q"
-            ],
-            "after": [
-                "g",
-                "q"
-            ]
-        },
-        {
-            "before": [
-                "<C-c>"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
-                "U"
-            ],
-            "after": [
-                "<C-r>"
-            ]
-        },
-        {
-            "before": [
-                "J"
-            ],
-            "after": [
-                "}"
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "after": [
-                "{"
-            ]
-        },
-        {
-            "before": [
-                "Y"
-            ],
-            "after": [
-                "y",
-                "$"
-            ]
-        },
-        {
-            "before": [
-                "M"
-            ],
-            "after": [
-                "%"
-            ]
-        },
-        {
-            "before": [
-                "d",
-                "d"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "d",
-                "d"
-            ]
-        },
-        {
-            "before": [
-                "D"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "D"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "v"
-            ],
-            "commands": [
-                "workbench.action.splitEditorRight"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "s"
-            ],
-            "commands": [
-                "workbench.action.splitEditorDown"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "m"
-            ],
-            "commands": [
-                "workbench.action.moveEditorToNextGroup"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "o"
-            ],
-            "commands": [
-                "workbench.action.focusNextGroup"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "r"
-            ],
-            "commands": [
-                "editor.action.rename"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f"
-            ],
-            "commands": [
-                "editor.action.formatDocument"
-            ]
-        },
-        // タブ間での移動
-        {
-            "before": [
-                "s",
-                "h"
-            ],
-            "commands": [
-                "workbench.action.focusPreviousGroup"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "l"
-            ],
-            "commands": [
-                "workbench.action.focusNextGroup"
-            ]
-        },
-        // ファイル検索
-        {
-            "before": [
-                "<Leader>",
-                "f",
-                "f"
-            ],
-            "commands": [
-                "multiCommand.findFiles"
-            ],
-            "when": [
-                "editorFocus && vim.mode == 'Normal'"
-            ]
-        },
-        // 全体検索
-        {
-            "before": [
-                "<Leader>",
-                "f",
-                "w"
-            ],
-            "commands": [
-                "multiCommand.findWithinFiles"
-            ],
-            "when": [
-                "editorFocus && vim.mode == 'Normal'"
-            ]
-        },
-        // ファイル内検索
-        {
-            "before": [
-                "<Leader>",
-                "f",
-                "/"
-            ],
-            "commands": [
-                "multiCommand.findCurrentFile"
-            ],
-            "when": [
-                "editorFocus && vim.mode == 'Normal'"
-            ]
-        },
-        // 定義へ移動
-        {
-            "before": [
-                "g",
-                "d"
-            ],
-            "commands": [
-                "editor.action.goToDeclaration"
-            ],
-            "when": [
-                "editorFocus && vim.mode == 'Normal'"
-            ]
-        },
-        // 実装へ移動
-        {
-            "before": [
-                "g",
-                "i"
-            ],
-            "commands": [
-                "editor.action.goToImplementation"
-            ],
-            "when": [
-                "editorFocus && vim.mode == 'Normal'"
-            ]
-        },
-        // ホバー表示
-        {
-            "before": [
-                "g",
-                "h"
-            ],
-            "commands": [
-                "editor.action.showHover"
-            ],
-            "when": [
-                "editorFocus && vim.mode == 'Normal'"
-            ]
-        }
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<Tab>"
-            ],
-            "after": [
-                ">"
-            ]
-        },
-        {
-            "before": [
-                "<S-Tab>"
-            ],
-            "after": [
-                "<"
-            ]
-        },
-        {
-            "before": [
-                "p"
-            ],
-            "after": [
-                "P"
-            ]
-        },
-        {
-            "before": [
-                "<"
-            ],
-            "after": [
-                "<",
-                "g",
-                "v"
-            ]
-        },
-        {
-            "before": [
-                ">"
-            ],
-            "after": [
-                ">",
-                "g",
-                "v"
-            ]
-        },
-        {
-            "before": [
-                "i",
-                " "
-            ],
-            "after": [
-                "i",
-                "W"
-            ]
-        }
-    ],
-    "vim.operatorPendingModeKeyBindings": [
-        {
-            "before": [
-                "i",
-                " "
-            ],
-            "after": [
-                "i",
-                "W"
-            ]
-        }
-    ],
-    "editor.cursorSurroundingLines": 5,
-    "animations.CursorAnimation": true,
-    "animations.Custom-CSS": false,
-    "custom-ui-style.external.imports": [],
-    "vscode_custom_css.imports": [
-        "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-    ],
-    "redhat.telemetry.enabled": true
+    {
+      "before": ["<C-c>"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["U"],
+      "after": ["<C-r>"]
+    },
+    {
+      "before": ["J"],
+      "after": ["}"]
+    },
+    {
+      "before": ["K"],
+      "after": ["{"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["M"],
+      "after": ["%"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["s", "v"],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
+    {
+      "before": ["s", "s"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    {
+      "before": ["s", "m"],
+      "commands": ["workbench.action.moveEditorToNextGroup"]
+    },
+    {
+      "before": ["s", "o"],
+      "commands": ["workbench.action.focusNextGroup"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    // タブ間での移動
+    {
+      "before": ["s", "h"],
+      "commands": ["workbench.action.focusPreviousGroup"]
+    },
+    {
+      "before": ["s", "l"],
+      "commands": ["workbench.action.focusNextGroup"]
+    },
+    // ファイル検索
+    {
+      "before": ["<Leader>", "f", "f"],
+      "commands": ["multiCommand.findFiles"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // 全体検索
+    {
+      "before": ["<Leader>", "f", "w"],
+      "commands": ["multiCommand.findWithinFiles"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // ファイル内検索
+    {
+      "before": ["<Leader>", "f", "/"],
+      "commands": ["multiCommand.findCurrentFile"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // 定義へ移動
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.goToDeclaration"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // 実装へ移動
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    },
+    // ホバー表示
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showHover"],
+      "when": ["editorFocus && vim.mode == 'Normal'"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Tab>"],
+      "after": [">"]
+    },
+    {
+      "before": ["<S-Tab>"],
+      "after": ["<"]
+    },
+    {
+      "before": ["p"],
+      "after": ["P"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "g", "v"]
+    },
+    {
+      "before": [">"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["i", " "],
+      "after": ["i", "W"]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["i", " "],
+      "after": ["i", "W"]
+    }
+  ],
+  "editor.cursorSurroundingLines": 5,
+  "animations.CursorAnimation": true,
+  "animations.Custom-CSS": false,
+  "custom-ui-style.external.imports": [],
+  "vscode_custom_css.imports": [
+    "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "redhat.telemetry.enabled": true,
+  "cursor.cpp.enablePartialAccepts": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "gitlens.remotes": [
+    {
+      "domain": "git.***.com",
+      "type": "GitHub"
+    }
+  ],
+  "editor.accessibilitySupport": "off"
 }
