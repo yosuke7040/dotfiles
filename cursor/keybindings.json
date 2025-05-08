@@ -219,5 +219,9 @@
     "key": "ctrl+t x",
     "command": "workbench.action.terminal.detachSession",
     "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

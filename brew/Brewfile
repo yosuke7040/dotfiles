@@ -24,6 +24,10 @@ brew "ynqa/tap/jnv"
 brew "yq"
 brew "fzf"
 
+# linux
+# gdate
+brew install coreutils
+
 brew "go-to-k/tap/cls3"
 brew "fujiwara/tap/tracer"
 # 移動コマンド

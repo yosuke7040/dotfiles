@@ -8,42 +8,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-# エイリアス
-alias l='eza --icons -l -a'
-alias ls='eza --icons'
-alias la='eza --icons -l -a -s name'
-alias ll='eza --icons -l -s time'
-# alias lt='exa --icons -l -s time --reverse'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias g='git'
-alias ga='git add'
-alias gd='git diff'
-alias gs='git status'
-alias gp='git push'
-alias gb='git branch'
-alias gst='git status'
-alias gsw='git switch'
-alias gco='git checkout'
-alias gf='git fetch'
-alias gc='git commit'
-alias gr='open "$(git config remote.origin.url)"'
-#alias gr='open "$(git config remote.origin.url | sed 's!//.*@!//!')"'
-alias cp='cp -i'
-alias mv='mv -i'
-# alias rm='rm -i'
-alias k='kubectl'
-alias kg='kubectl get'
-alias kd='kubectl describe'
-alias tf='terraform'
-alias tfmt='terraform fmt -recursive'
-alias tg='terragrunt'
-# alias cat='bat'
-alias batp='bat -p'
-# alias grep='rg'
-alias lg='lazygit'
-alias qrcode='(){qrencode $1 -o - | viu -}'
+# --> alias
+source $HOME/.aliases
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
@@ -76,11 +42,11 @@ export NODE_PATH=/usr/local/lib/node_modules
 # eval "$(goenv init -)"
 # export GOENV_ROOT="$HOME/.goenv"
 # export PATH="$GOENV_ROOT/bin:$PATH"
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
+# export GOENV_ROOT="$HOME/.goenv"
+# export PATH="$GOENV_ROOT/bin:$PATH"
+# eval "$(goenv init -)"
+# export PATH="$GOROOT/bin:$PATH"
+# export PATH="$PATH:$GOPATH/bin"
 
 # starship
 eval "$(starship init zsh)"
@@ -219,7 +185,7 @@ bindkey '^]' peco-src
 # setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
 # setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
 
-function select-git-switch() {
+function select-git-branch() {
   target_br=$(
     git branch -a |
       fzf --exit-0 --layout=reverse --info=hidden --no-multi --preview-window="right,65%" --prompt="CHECKOUT BRANCH > " --preview="echo {} | tr -d ' *' | xargs git lg --color=always" |
@@ -227,12 +193,14 @@ function select-git-switch() {
       perl -pe "s/\s//g; s/\*//g; s/remotes\/origin\///g"
   )
   if [ -n "$target_br" ]; then
-    BUFFER="git switch $target_br"
-    zle accept-line
+    BUFFER+="$target_br"
+    zle redisplay
+    # BUFFER="git switch $target_br"
+    # zle accept-line
   fi
 }
-zle -N select-git-switch
-bindkey "^g" select-git-switch # 「control + G」で実行
+zle -N select-git-branch
+bindkey "^g" select-git-branch # 「control + G」で実行
 
 eval "$(rbenv init - zsh)"
 
@@ -259,6 +227,20 @@ function find_cd() {
 }
 zle -N find_cd
 bindkey '^X' find_cd
+
+# git logをpecoで選択してコミットハッシュを入力
+# git restore まで入力してcontrol + iでコミットハッシュを選択して入力
+function peco-git-log() {
+    local selected_commit=$(git log --oneline -n 20 | peco | awk '{print $1}')
+    if [ -n "$selected_commit" ]; then
+      BUFFER+="$selected_commit"
+      CURSOR=$#BUFFER
+      zle redisplay
+    fi
+    zle clear-screen
+}
+zle -N peco-git-log
+bindkey '^i' peco-git-log
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -320,6 +302,16 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 # sqnoflake使うなら
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/abe/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# mise
+# インストール方法：curl https://mise.run | sh
+# echo "eval \"\$(/Users/abe/.local/bin/mise activate zsh)\"" >> "/Users/abe/.zshrc"
+eval "$(/Users/abe/.local/bin/mise activate zsh)"
+# ❯ go env GOPATH
+# /Users/abe/.local/share/mise/installs/go/1.23.3/bin
+# export GOPATH="$HOME/.local/share/mise/installs/go/1.23.3/bin"
+export GOPATH="$HOME/go"
+# ❯ go env GOROOT
+# /Users/abe/.local/share/mise/installs/go/1.23.3
+export GOROOT="$HOME/.local/share/mise/installs/go/1.23.3"
+export PATH="$GOROOT/bin:$PATH"
+# export PATH="$PATH:$GOPATH/bin"

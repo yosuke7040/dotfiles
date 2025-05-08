@@ -1,0 +1,52 @@
+# エイリアス
+alias l='eza --icons -l -a'
+alias ls='eza --icons'
+alias la='eza --icons -l -a -s name'
+alias ll='eza --icons -l -s time'
+# alias lt='exa --icons -l -s time --reverse'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias g='git'
+alias ga='git add'
+alias gd='git diff'
+alias gs='git stash'
+alias gst='git status'
+alias gps='git push'
+alias gpl='git pull'
+alias gb='git branch'
+alias gsw='git switch'
+alias gco='git checkout'
+alias grb='git rebase'
+alias grs='git restore'
+alias gf='git fetch'
+alias gcm='git commit -m'
+alias gca='git commit --amend --no-edit'
+alias gr='open "$(git config remote.origin.url)"'
+#alias gr='open "$(git config remote.origin.url | sed 's!//.*@!//!')"'
+
+alias cp='cp -i'
+alias mv='mv -i'
+# alias rm='rm -i'
+
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias k9s='k9s --readonly'
+
+alias tf='terraform'
+alias tfmt='terraform fmt -recursive'
+alias tg='terragrunt'
+
+# alias cat='bat'
+alias batp='bat -p'
+
+# alias grep='rg'
+alias lg='lazygit'
+
+alias qrcode='(){qrencode $1 -o - | viu -}'
+
+# mac <--> linux
+alias date='gdate'

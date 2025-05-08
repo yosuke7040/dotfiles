@@ -1,4 +1,6 @@
 {
+  "go.goroot": "/Users/abe/.local/share/mise/installs/go/1.23.3",
+  // "go.gopath": "/Users/abe/go",
   "workbench.activityBar.orientation": "vertical",
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
@@ -348,5 +350,15 @@
       "type": "GitHub"
     }
   ],
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "git.openRepositoryInParentFolders": "never",
+  "helm-ls.path": "/opt/homebrew/Cellar/helm-ls/0.2.0/bin",
+  "cursorStats.enableAlerts": false,
+  "projectManager.git.baseFolders": [
+    "/Users/abe/src"
+  ],
+  "helm-intellisense.customValueFileNames": [
+    
+    "/Users/abe/src/k8s-manifests"
+  ]
 }
