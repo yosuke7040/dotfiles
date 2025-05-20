@@ -228,19 +228,19 @@ function find_cd() {
 zle -N find_cd
 bindkey '^X' find_cd
 
-# git logをpecoで選択してコミットハッシュを入力
-# git restore まで入力してcontrol + iでコミットハッシュを選択して入力
-function peco-git-log() {
-    local selected_commit=$(git log --oneline -n 20 | peco | awk '{print $1}')
-    if [ -n "$selected_commit" ]; then
-      BUFFER+="$selected_commit"
-      CURSOR=$#BUFFER
-      zle redisplay
-    fi
-    zle clear-screen
-}
-zle -N peco-git-log
-bindkey '^i' peco-git-log
+# # git logをpecoで選択してコミットハッシュを入力
+# # git restore まで入力してcontrol + iでコミットハッシュを選択して入力
+# function peco-git-log() {
+#     local selected_commit=$(git log --oneline -n 20 | peco | awk '{print $1}')
+#     if [ -n "$selected_commit" ]; then
+#       BUFFER+="$selected_commit"
+#       CURSOR=$#BUFFER
+#       zle redisplay
+#     fi
+#     zle clear-screen
+# }
+# zle -N peco-git-log
+# bindkey '^i' peco-git-log  ^iがTabと同じキーコードらしく不便
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
