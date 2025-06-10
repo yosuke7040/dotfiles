@@ -354,11 +354,16 @@
   "git.openRepositoryInParentFolders": "never",
   "helm-ls.path": "/opt/homebrew/Cellar/helm-ls/0.2.0/bin",
   "cursorStats.enableAlerts": false,
-  "projectManager.git.baseFolders": [
-    "/Users/abe/src"
-  ],
-  "helm-intellisense.customValueFileNames": [
-    
-    "/Users/abe/src/k8s-manifests"
-  ]
+  "projectManager.git.baseFolders": ["/Users/abe/src"],
+  "helm-intellisense.customValueFileNames": ["/Users/abe/src/k8s-manifests"],
+  "animations.Enabled": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    ".env": "*.env, .env.*, .envrc, env.d.ts, .mise.toml, .tool-versions",
+    "go.mod": ".air*, go.sum",
+    "*.go": "${capture}_test.go, ${capture}_mock.go, ${capture}_gen.go, ${capture}.pb.go",
+    "config.development.yml": "config_*development.yml",
+    "package.json": ".commitlint*, .editorconfig, .eslint*, .node-version, .prettier*, .stylelint*, .textlint*, package-lock.json"
+  }
 }
