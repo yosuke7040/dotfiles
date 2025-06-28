@@ -43,6 +43,8 @@
   "breadcrumbs.enabled": false,
   // メニューバーを表示する (toggle: Altキーで上部に表示する)
   "window.menuBarVisibility": "toggle",
+  // リストの水平スクロールを有効にする
+  "workbench.list.horizontalScrolling": true,
   // ====================================
   // エディタのUIに関する詳細設定
   // ====================================
@@ -72,9 +74,13 @@
   "workbench.tree.renderIndentGuides": "always",
   // アニメーションを減らす
   "workbench.reduceMotion": "on",
-  // 選択しているタブの背景色を変更する
   "workbench.colorCustomizations": {
-    "tab.activeBackground": "#666666cc"
+    // 選択しているタブの背景色を変更する
+    "tab.activeBackground": "#666666cc",
+    "tab.activeForeground": "#ffffff", // アクティブタブの文字色の変更
+    "tab.inactiveForeground": "#ffffff", // 非アクティブタブの文字色の変更
+    // 選択した行のハイライト
+    "editor.lineHighlightBackground": "#2D2C57"
   },
   // ====================================
   // エディタのタイポグラフィーに関する設定
@@ -353,7 +359,6 @@
   "editor.accessibilitySupport": "off",
   "git.openRepositoryInParentFolders": "never",
   "helm-ls.path": "/opt/homebrew/Cellar/helm-ls/0.2.0/bin",
-  "cursorStats.enableAlerts": false,
   "projectManager.git.baseFolders": ["/Users/abe/src"],
   "helm-intellisense.customValueFileNames": ["/Users/abe/src/k8s-manifests"],
   "animations.Enabled": false,
@@ -365,5 +370,8 @@
     "*.go": "${capture}_test.go, ${capture}_mock.go, ${capture}_gen.go, ${capture}.pb.go",
     "config.development.yml": "config_*development.yml",
     "package.json": ".commitlint*, .editorconfig, .eslint*, .node-version, .prettier*, .stylelint*, .textlint*, package-lock.json"
-  }
+  },
+  "cursorStats.currency": "USD",
+  "cursorStats.enableAlerts": false,
+  "editor.fontFamily": "UDEV Gothic JPDOC"
 }
