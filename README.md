@@ -29,6 +29,12 @@ sudo chmod -R 755 /opt/homebrew/share
 
 この管理だと、ファイル修正後に source で何故か反映されないのでログインしなおすこと
 
+シンボリックリンクの削除
+
+```shell
+unlink ./hoge.json
+```
+
 ### goenv
 
 ```bash

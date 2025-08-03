@@ -88,7 +88,7 @@
   // // フォント
   // "editor.fontFamily": "\"Source Han Code JP\", monospace",
   // 文字サイズ
-  "editor.fontSize": 12,
+  "editor.fontSize": 13,
   // 文字間隔
   "editor.letterSpacing": 0,
   // 行間
@@ -362,16 +362,19 @@
   "projectManager.git.baseFolders": ["/Users/abe/src"],
   "helm-intellisense.customValueFileNames": ["/Users/abe/src/k8s-manifests"],
   "animations.Enabled": false,
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.patterns": {
-    ".env": "*.env, .env.*, .envrc, env.d.ts, .mise.toml, .tool-versions",
-    "go.mod": ".air*, go.sum",
-    "*.go": "${capture}_test.go, ${capture}_mock.go, ${capture}_gen.go, ${capture}.pb.go",
-    "config.development.yml": "config_*development.yml",
-    "package.json": ".commitlint*, .editorconfig, .eslint*, .node-version, .prettier*, .stylelint*, .textlint*, package-lock.json"
-  },
+  // "explorer.fileNesting.enabled": true,
+  // "explorer.fileNesting.expand": false,
+  // "explorer.fileNesting.patterns": {
+  //   ".env": "*.env, .env.*, .envrc, env.d.ts, .mise.toml, .tool-versions",
+  //   "go.mod": ".air*, go.sum",
+  //   "*.go": "${capture}_test.go, ${capture}_mock.go, ${capture}_gen.go, ${capture}.pb.go",
+  //   "config.development.yml": "config_*development.yml",
+  //   "package.json": ".commitlint*, .editorconfig, .eslint*, .node-version, .prettier*, .stylelint*, .textlint*, package-lock.json"
+  // },
   "cursorStats.currency": "USD",
   "cursorStats.enableAlerts": false,
-  "editor.fontFamily": "UDEV Gothic JPDOC"
+  "editor.fontFamily": "UDEV Gothic JPDOC",
+  // vim プラグインの挙動が変問題に対応
+  "editor.editContext": false,
+  "cSpell.userWords": ["Mcpjson"]
 }

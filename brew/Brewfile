@@ -24,6 +24,9 @@ brew "ynqa/tap/jnv"
 brew "yq"
 brew "fzf"
 
+brew "peak/tap/s5cmd"
+brew "terminal-notifier"
+
 # linux
 # gdate
 brew install coreutils
