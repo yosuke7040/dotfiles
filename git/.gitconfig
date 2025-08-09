@@ -7,14 +7,16 @@
 # プレビューで表示される見た目の設定です。好みに合わせて設定してください。
 [alias]
 	lg = log --graph --decorate --abbrev-commit --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)\n  %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    a  = add
     ck = checkout
+    sw = switch
     ss = status
     df = diff
-    co = commit -s -a
+    co = commit -a
     br = branch
-    p = push
-    ph = push origin head
-    phf = push -f origin head
+    ps = push
+    psh = push origin head
+    pshf = push -f origin head
     pl = pull
     plr = !"git pull --rebase origin $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
     graph = log --pretty=format:'%Cgreen[%cd] %Cblue%h %Cred<%cn> %Creset%s' --date=short  --decorate --graph --branches --tags --remotes
