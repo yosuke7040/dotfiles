@@ -13,17 +13,17 @@
   // ファイル保存時、コードを整形する
   "editor.formatOnSave": true,
   // Prettier をフォーマッタとして利用する
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   // ファイル保存時、同時に行われるアクション
   "editor.codeActionsOnSave": {
     "source.fixAll.prettier": "explicit"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
   // ファイル保存時、最終行に改行を挿入する
   "files.insertFinalNewline": true,
   // ファイル保存時、最終行以降の空行を削除する
@@ -247,12 +247,12 @@
       "commands": ["workbench.action.splitEditorDown"]
     },
     {
-      "before": ["s", "m"],
-      "commands": ["workbench.action.moveEditorToNextGroup"]
+      "before": ["s", "d"],
+      "commands": ["workbench.action.moveEditorToRightGroup"]
     },
     {
-      "before": ["s", "o"],
-      "commands": ["workbench.action.focusNextGroup"]
+      "before": ["s", "a"],
+      "commands": ["workbench.action.moveEditorToLeftGroup"]
     },
     {
       "before": ["<leader>", "r"],
@@ -376,5 +376,34 @@
   "editor.fontFamily": "UDEV Gothic JPDOC",
   // vim プラグインの挙動が変問題に対応
   "editor.editContext": false,
-  "cSpell.userWords": ["Mcpjson"]
+  "cSpell.userWords": ["Mcpjson"],
+  "git.blame.editorDecoration.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // ====================================
+  // Terraform設定
+  // ====================================
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
+  // Terraformファイルでシングルクォートを使用
+  "terraform.format.enable": true,
+  "terraform.format.ignoreExtensionsOnCompletion": [
+    ".tfvars",
+    ".tf"
+  ],
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
