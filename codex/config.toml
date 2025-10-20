@@ -1,0 +1,59 @@
+model = "gpt-5-codex"
+model_reasoning_effort = "medium"
+
+# ドキュメント検索用
+[mcp_servers.Context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp@latest"]
+
+# ファイルシステム操作用
+[mcp_servers.filesystem]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem"]
+
+# # Terraform 関連
+# [mcp_servers."awslabs.terraform-mcp-server"]
+# command = "uvx"
+# args = ["awslabs.terraform-mcp-server@latest"]
+# env = { FASTMCP_LOG_LEVEL = "ERROR" }
+# disabled = false
+# autoApprove = []
+#
+# # AWS ドキュメント検索
+# [mcp_servers."awslabs.aws-documentation-mcp-server"]
+# command = "uvx"
+# args = ["awslabs.aws-documentation-mcp-server@latest"]
+# env = { FASTMCP_LOG_LEVEL = "ERROR", AWS_DOCUMENTATION_PARTITION = "aws" }
+# disabled = false
+# autoApprove = []
+
+# Serena MCP サーバー
+[mcp_servers.serena]
+command = "uvx"
+args = [
+  "--from",
+  "git+https://github.com/oraios/serena",
+  "serena",
+  "start-mcp-server",
+  # "serena-mcp-server",
+  "--context",
+  "codex",
+  # "ide-assistant",
+  # "--project",
+  # "/Users/abe/src/handy",
+  # "--port",
+  # "32000"
+  "--enable-web-dashboard=false"
+]
+
+# chrome developer tool - 新しいブラウザインスタンスを起動
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest", "--isolated=true"]
+startup_timeout_ms = 60000
+
+# 既存のブラウザに接続したい場合は以下をコメントアウト
+# [mcp_servers.chrome-devtools-existing]
+# command = "npx"
+# args = ["-y", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222"]
+# startup_timeout_ms = 60000

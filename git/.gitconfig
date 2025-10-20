@@ -18,6 +18,7 @@
     psh = push origin head
     pshf = push -f origin head
     pl = pull
+    plh = !"git pull origin $(git rev-parse --abbrev-ref HEAD)"
     plr = !"git pull --rebase origin $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
     graph = log --pretty=format:'%Cgreen[%cd] %Cblue%h %Cred<%cn> %Creset%s' --date=short  --decorate --graph --branches --tags --remotes
     ucat = !"git ls-files --others --exclude-standard | xargs bat"

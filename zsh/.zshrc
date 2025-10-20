@@ -292,7 +292,7 @@ export GOPRIVATE=github.com/handy-inc
 # asdf
 # 最後に持ってきた方が良い。brewでインストールしたパスより先にasdfのパス見てくれる
 # 整理をめんどくさがるな！！
-export PATH="$HOME/.asdf/shims:$PATH"
+# export PATH="$HOME/.asdf/shims:$PATH"
 
 
 # # aws-mfaがpip3ではなく、pipを参照している？っぽいのでそのためのパス
@@ -306,12 +306,15 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 # インストール方法：curl https://mise.run | sh
 # echo "eval \"\$(/Users/abe/.local/bin/mise activate zsh)\"" >> "/Users/abe/.zshrc"
 eval "$(/Users/abe/.local/bin/mise activate zsh)"
-# ❯ go env GOPATH
-# /Users/abe/.local/share/mise/installs/go/1.23.3/bin
-# export GOPATH="$HOME/.local/share/mise/installs/go/1.23.3/bin"
-export GOPATH="$HOME/go"
-# ❯ go env GOROOT
-# /Users/abe/.local/share/mise/installs/go/1.23.3
-export GOROOT="$HOME/.local/share/mise/installs/go/1.23.3"
-export PATH="$GOROOT/bin:$PATH"
-# export PATH="$PATH:$GOPATH/bin"
+# # ❯ go env GOPATH
+# # /Users/abe/.local/share/mise/installs/go/1.23.3/bin
+# # export GOPATH="$HOME/.local/share/mise/installs/go/1.23.3/bin"
+# export GOPATH="$HOME/go"
+# # ❯ go env GOROOT
+# # /Users/abe/.local/share/mise/installs/go/1.23.3
+# export GOROOT="$HOME/.local/share/mise/installs/go/1.23.3"
+# export PATH="$GOROOT/bin:$PATH"
+# # export PATH="$PATH:$GOPATH/bin"
+
+# docker mcp gateway
+export PAHT="~/.docker/cli-plugins:$PATH"

@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "WebFetch",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git rev-parse:*)",
+      "Bash(git fetch:*)",
+      "Bash(git symbolic-ref:*)"
     ],
     "deny": [
       "Bash(sudo:*)",
