@@ -282,10 +282,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# nodeバージョン管理
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init - --no-rehash)"
-export PATH="$HOME/.nodenv/versions/20.0.0/bin:$PATH"
+# # nodeバージョン管理
+# export PATH="$HOME/.nodenv/bin:$PATH"
+# eval "$(nodenv init - --no-rehash)"
+# export PATH="$HOME/.nodenv/versions/20.0.0/bin:$PATH"
 
 export GOPRIVATE=github.com/handy-inc
 
