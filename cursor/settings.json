@@ -1,6 +1,6 @@
 {
-  "go.goroot": "/Users/abe/.local/share/mise/installs/go/1.23.3",
-  // "go.gopath": "/Users/abe/go",
+  "go.goroot": "${userHome}/.local/share/mise/installs/go/1.23.3",
+  // "go.gopath": "${userHome}/go",
   "workbench.activityBar.orientation": "vertical",
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
@@ -150,7 +150,7 @@
     "rgba(85, 30, 115, 0.24)"
   ],
   // "vscode_custom_css.imports": [
-  // "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  // "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
   // ],
   //
   "animations.Scrolling": "Fade",
@@ -345,7 +345,7 @@
   "animations.Custom-CSS": false,
   "custom-ui-style.external.imports": [],
   "vscode_custom_css.imports": [
-    "file:///Users/abe/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
   ],
   "redhat.telemetry.enabled": true,
   "cursor.cpp.enablePartialAccepts": true,
@@ -359,8 +359,8 @@
   "editor.accessibilitySupport": "off",
   "git.openRepositoryInParentFolders": "never",
   "helm-ls.path": "/opt/homebrew/Cellar/helm-ls/0.2.0/bin",
-  "projectManager.git.baseFolders": ["/Users/abe/src"],
-  "helm-intellisense.customValueFileNames": ["/Users/abe/src/k8s-manifests"],
+  "projectManager.git.baseFolders": ["${userHome}/src"],
+  "helm-intellisense.customValueFileNames": ["${userHome}/src/k8s-manifests"],
   "animations.Enabled": false,
   // "explorer.fileNesting.enabled": true,
   // "explorer.fileNesting.expand": false,

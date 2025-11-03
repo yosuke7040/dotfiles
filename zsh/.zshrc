@@ -30,7 +30,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # kubelogin
-# export KUBECONFIG=/Users/abe/.kube/config
+# export KUBECONFIG=$HOME/.kube/config
 
 # express
 export PATH=/usr/local/share/npm/bin:$PATH
@@ -159,7 +159,7 @@ export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
 # fabric-samples
 # itn用に作った(https://hyperledger-fabric.readthedocs.io/en/release-2.2/install.html)
-export PATH="$PATH:/Users/abe/src/job/itn/fabric-samples/bin"
+export PATH="$PATH:$HOME/src/job/itn/fabric-samples/bin"
 
 # ghqとの連携。ghqの管理化にあるリポジトリを一覧表示する。ctrl - ]にバインド。
 function peco-src () {
@@ -296,7 +296,7 @@ export GOPRIVATE=github.com/handy-inc
 
 
 # # aws-mfaがpip3ではなく、pipを参照している？っぽいのでそのためのパス
-# export PATH="/Users/abe/Library/Python/3.9/bin:$PATH"
+# export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # sqnoflake使うなら
@@ -304,14 +304,14 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 
 # mise
 # インストール方法：curl https://mise.run | sh
-# echo "eval \"\$(/Users/abe/.local/bin/mise activate zsh)\"" >> "/Users/abe/.zshrc"
-eval "$(/Users/abe/.local/bin/mise activate zsh)"
+# echo "eval \"\$($HOME/.local/bin/mise activate zsh)\"" >> "$HOME/.zshrc"
+eval "$($HOME/.local/bin/mise activate zsh)"
 # # ❯ go env GOPATH
-# # /Users/abe/.local/share/mise/installs/go/1.23.3/bin
+# # $HOME/.local/share/mise/installs/go/1.23.3/bin
 # # export GOPATH="$HOME/.local/share/mise/installs/go/1.23.3/bin"
 # export GOPATH="$HOME/go"
 # # ❯ go env GOROOT
-# # /Users/abe/.local/share/mise/installs/go/1.23.3
+# # $HOME/.local/share/mise/installs/go/1.23.3
 # export GOROOT="$HOME/.local/share/mise/installs/go/1.23.3"
 # export PATH="$GOROOT/bin:$PATH"
 # # export PATH="$PATH:$GOPATH/bin"

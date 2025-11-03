@@ -82,6 +82,10 @@
         ]
       }
     }
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
   // {
   //   // 定義ジャンプ

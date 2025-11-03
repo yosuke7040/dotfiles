@@ -40,10 +40,10 @@ args = [
   "codex",
   # "ide-assistant",
   # "--project",
-  # "/Users/abe/src/handy",
+  # "$HOME/src/handy",
   # "--port",
   # "32000"
-  "--enable-web-dashboard=false"
+  "--enable-web-dashboard=false",
 ]
 
 # chrome developer tool - 新しいブラウザインスタンスを起動
