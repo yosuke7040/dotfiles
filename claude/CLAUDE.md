@@ -34,6 +34,7 @@
 - When using plan mode to design or determine requirements, output the work as ADRs (Architecture Decision Records) or design documents.
 - Store all design documentation in the directory: `repository_root/.claude/doc/`.
 - Ensure the documentation directory exists before creating documents.
+- Use the naming format: `yyyymmdd_{documentName}.md` (e.g., `20250114_authentication_design.md`).
 
 ## Problem-Solving Approach
 

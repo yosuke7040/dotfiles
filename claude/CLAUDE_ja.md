@@ -34,6 +34,7 @@
 - plan mode を使用して設計や要件定義を行う場合、作業内容を ADR（Architecture Decision Records）またはデザインドキュメントとして出力する
 - すべてのデザインドキュメントは `リポジトリのルート/.claude/doc/` ディレクトリに保管する
 - ドキュメントを作成する前に、ドキュメントディレクトリが存在することを確認する
+- 命名形式は `yyyymmdd_{documentName}.md` を使用する（例：`20250114_authentication_design.md`）
 
 ## 問題解決アプローチ
 
