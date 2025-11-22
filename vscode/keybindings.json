@@ -1,142 +1,235 @@
-// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
 [
   {
-    "key": "cmd+w cmd+r",
-    "command": "workbench.action.splitEditorToRightGroup"
+    "key": "cmd+[",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
   },
   {
-    "key": "cmd+w cmd+l",
-    "command": "workbench.action.splitEditorToLeftGroup"
+    "key": "cmd+]",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
   },
   {
-    // 右のtabに移動
-    "key": "ctrl+d",
-    "command": "workbench.action.nextEditor"
-  },
-  {
-    // 左のtabに移動
-    "key": "ctrl+a",
+    "key": "cmd+shift+[",
     "command": "workbench.action.previousEditor"
   },
   {
-    // dでファイルを削除
-    "key": "d",
-    "command": "deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    "key": "cmd+shift+]",
+    "command": "workbench.action.nextEditor"
   },
+  //----------------------------------------------------------
+  // 何も開いていない時の設定
+  //----------------------------------------------------------
+  // ファイル検索
   {
-    // rでファイルのリネーム
+    "key": "space f f",
+    "command": "multiCommand.findFiles",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // 全体検索
+  {
+    "key": "space f w",
+    "command": "multiCommand.findWithinFiles",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // サイドバーを表示
+  {
+    "key": "space e",
+    "command": "workbench.action.focusSideBar",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  // サイドバーへのフォーカス
+  {
+    "key": "space o",
+    "command": "workbench.action.focusSideBar",
+    "when": "!editorFocus && !terminalFocus && !inputFocus"
+  },
+  //----------------------------------------------------------
+  // エディタにフォーカスしている時の設定
+  //----------------------------------------------------------
+  // find-it-fasterが動かなくなるのでコメントアウト
+  // // サイドバーを表示
+  // {
+  //   "key": "space e",
+  //   "command": "workbench.action.focusSideBar",
+  //   "when": "editorFocus"
+  // },
+  // 置換（デフォルトの「シンボルへ移動」が上書きされます）
+  {
+    "key": "cmd+r",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorTextFocus"
+  },
+  // // 単語単位での検索を切り替える
+  // {
+  //   "key": "ctrl+shift+w",
+  //   "command": "editor.action.toggleWholeWord",
+  //   "when": "inSearchEditor && searchInputBoxFocus"
+  // },
+  // // 検索ウィジェットが表示されているときに、ctrl+c で大文字小文字を区別する（マッチケースの切り替え）
+  // {
+  //   "key": "ctrl+shift+c",
+  //   "command": "editor.action.toggleCaseSensitive",
+  //   "when": "inSearchEditor && searchInputBoxFocus"
+  // },
+  //----------------------------------------------------------
+  // サイドバーにフォーカスしている時の設定
+  //----------------------------------------------------------
+  // リスト内で下へ移動
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で上へ移動
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で折りたたみ
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
+  },
+  // リスト内で選択
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  // エディタグループへのフォーカス
+  {
+    "key": "space o",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "listFocus && !inputFocus"
+  },
+  // サイドバーの表示切替
+  {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "listFocus && !inputFocus"
+  },
+  // 新しいファイルの作成
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "listFocus && !inputFocus"
+  },
+  // 新しいフォルダの作成
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "listFocus && !inputFocus"
+  },
+  // ファイル・ディレクトリのリネーム
+  {
     "key": "r",
     "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "when": "listFocus && !inputFocus"
+  },
+  // ファイル・ディレクトリの削除
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "listFocus && !inputFocus"
+  },
+  // 隠しファイル・ディレクトリの表示切替
+  {
+    "key": "shift+h",
+    "command": "toggleexcludedfiles.toggle",
+    "when": "listFocus && !inputFocus"
+  },
+  // エディタへの移動
+  {
+    "key": "ctrl+t l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "listFocus && !inputFocus"
+  },
+  //----------------------------------------------------------
+  // ターミナルにフォーカスしている時の設定
+  //----------------------------------------------------------
+  {
+    "key": "ctrl+t p",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.togglePanel"
+      ]
+    },
+    // "when": "terminalFocus && panelMaximized"
+    "when": "terminalFocus"
+  },
+  // ターミナルの分割
+  {
+    "key": "ctrl+t shift+\\",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  // 新しいターミナルの作成
+  {
+    "key": "ctrl+t c",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // ターミナル間での移動（左へ）
+  {
+    "key": "ctrl+t h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  // ターミナル間での移動（右へ）
+  {
+    "key": "ctrl+t l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  // ターミナルへのインデックス別フォーカス
+  {
+    "key": "ctrl+t 1",
+    "command": "workbench.action.terminal.focusAtIndex1"
   },
   {
-    "key": "enter",
-    "command": "-renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "ctrl+t 2",
+    "command": "workbench.action.terminal.focusAtIndex2"
   },
   {
-    // vで分割して開く
-    "key": "v",
-    "command": "explorer.openToSide",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "ctrl+t 3",
+    "command": "workbench.action.terminal.focusAtIndex3"
   },
   {
-    // ファイルのコピー
-    "key": "y",
-    "command": "filesExplorer.copy",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "ctrl+t 4",
+    "command": "workbench.action.terminal.focusAtIndex4"
   },
   {
-    // ファイルのペースト
-    "key": "p",
-    "command": "filesExplorer.paste",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "ctrl+t 5",
+    "command": "workbench.action.terminal.focusAtIndex5"
   },
+  // ターミナルの最大化
   {
-    // ファイルを閉じる
-    "key": "cmd+w",
-    "command": "workbench.action.closeActiveEditor"
+    "key": "ctrl+t z",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
   },
-  // neovim関連！！！！！
+  // ターミナルの閉鎖
   {
-    // vim escape用キーバインド
-    // "command": "vscode-neovim.compositeEscape1",
-    "vscode-neovim.compositeKeys": {
-      "jj": {
-        "command": "vscode-neovim.escape"
-      }
-    }
-  },
-  {
-    "vscode-neovim.compositeKeys": {
-      "jk": {
-        // Use lua to execute any logic
-        "command": "vscode-neovim.lua",
-        "args": [
-          [
-            "local code = require('vscode-neovim')",
-            "code.action('vscode-neovim.escape')",
-            "code.action('workbench.action.files.save')"
-          ]
-        ]
-      }
-    }
+    "key": "ctrl+t x",
+    "command": "workbench.action.terminal.detachSession",
+    "when": "terminalFocus"
   },
   {
     "key": "cmd+i",
     "command": "composerMode.agent"
-  }
-  // {
-  //   // 定義ジャンプ
-  //   "key": "space d",
-  //   "command": "editor.action.goToDeclaration",
-  //   "when": "neovim.mode == normal && editorTextFocus"
-  // },
-  // {
-  //   // 戻る
-  //   "key": "space b",
-  //   "command": "workbench.action.navigateBack",
-  //   "when": "neovim.mode == normal && editorTextFocus"
-  // },
-  // {
-  //   // 進む
-  //   "key": "space f",
-  //   "command": "workbench.action.navigateForward",
-  //   "when": "neovim.mode == normal && editorTextFocus"
-  // },
-  // {
-  //   // ホバー
-  //   "key": "space h",
-  //   "command": "editor.action.showHover",
-  //   "when": "neovim.mode == normal && editorTextFocus"
-  // },
-  // {
-  //   // ターミナルにフォーカス
-  //   "key": "space t",
-  //   "command": "terminal.focus",
-  //   "when": "neovim.mode == normal && editorTextFocus"
-  // },
-  // // explorer: toggle
-  // {
-  //   "key": "space o",
-  //   "command": "workbench.explorer.fileView.focus",
-  //   "when": "neovim.mode == normal && !filesExplorerFocus"
-  // },
-  // {
-  //   "key": "space o",
-  //   "command": "workbench.action.toggleSidebarVisibility",
-  //   "when": "neovim.mode == normal && filesExplorerFocus"
-  // },
-  // {
-  //   "key": "shift+cmd+space",
-  //   "command": "github.copilot.generate",
-  //   "when": "neovim.mode == insert && editorTextFocus"
-  //   // "when": "neovim.mode == insert && editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
-  // }
-  // // {
-  // //   "key": "ctrl+enter",
-  // //   "command": "-github.copilot.generate",
-  // //   "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
-  // // }
+  },
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
+}
 ]

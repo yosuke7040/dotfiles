@@ -1,7 +1,9 @@
 {
   "recommendations": [
     "vscode-icons-team.vscode-icons",
+    // mac 本体にもneovimをインストールしておくこと
     "vscode-neovim.neovim",
+    // "vscodevim.vim",
     "skattyadz.vscode-quick-scope",
     "dprint.dprint"
   ],
@@ -75,11 +77,6 @@
   "files.trimFinalNewlines": true,
   // ファイル保存時、末尾の空白をトリミングする
   "files.trimTrailingWhitespace": true,
-  // ====================================
-  // エディタ全体のUIに関する設定
-  // ====================================
-  // テーマカラー
-  "workbench.colorTheme": "GitHub Dark Default",
   // ミニマップを表示する
   "editor.minimap.enabled": false,
   // ファイルのパンくずリストを表示する
@@ -108,7 +105,7 @@
   // ====================================
   // アイコンテーマ
   // "workbench.iconTheme": "material-icon-theme",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "ayu-mirage-zed",
   // ツリーのインデント
   "workbench.tree.indent": 12,
   // ツリーのインデントガイドを表示する
@@ -126,6 +123,8 @@
   "editor.letterSpacing": 0,
   // 行間
   "editor.lineHeight": 1.35,
+  // エクスプローラーのフォントサイズ
+  "window.zoomLevel": 0.8,
   // ====================================
   // キャレットの設定
   // ====================================
@@ -167,6 +166,365 @@
     //   "sideBarTitle.foreground": "#bbbbbb"
     // }
   },
+    // ====================================
+  // find it faster
+  // ====================================
+  "find-it-faster.general.showMaximizedTerminal": false,
+  "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
+  "find-it-faster.general.killTerminalAfterUse": true,
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.findFiles",
+      "interval": 220,
+      "sequence": [
+        "workbench.action.toggleMaximizedPanel",
+        "find-it-faster.findFiles"
+      ]
+    },
+    {
+      "command": "multiCommand.findWithinFiles",
+      "interval": 220,
+      "sequence": [
+        "workbench.action.toggleMaximizedPanel",
+        "find-it-faster.findWithinFiles"
+      ]
+    }
+  ],
+  // ====================================
+  // vim
+  // ====================================
+  "vim.scrolloff": 5,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "Q"
+      ],
+      "after": [
+        "g",
+        "q"
+      ]
+    },
+    {
+      "before": [
+        "<C-c>"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "U"
+      ],
+      "after": [
+        "<C-r>"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "}"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "{"
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "M"
+      ],
+      "after": [
+        "%"
+      ]
+    },
+    {
+      "before": [
+        "x"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "x"
+      ]
+    },
+    {
+      "before": [
+        "d",
+        "y"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "D"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "D"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "v"
+      ],
+      "commands": [
+        "workbench.action.splitEditorRight"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.splitEditorDown"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToRightGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToLeftGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    // タブ間での移動
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.focusPreviousGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.focusNextGroup"
+      ]
+    },
+    // ファイル検索
+    {
+      "before": [
+        "<Leader>",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "multiCommand.findFiles"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
+    },
+    // 全体検索
+    {
+      "before": [
+        "<Leader>",
+        "f",
+        "w"
+      ],
+      "commands": [
+        "multiCommand.findWithinFiles"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
+    },
+    // ファイル内検索
+    {
+      "before": [
+        "<Leader>",
+        "f",
+        "/"
+      ],
+      "commands": [
+        "multiCommand.findCurrentFile"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
+    },
+    // 定義へ移動
+    {
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        "editor.action.goToDeclaration"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
+    },
+    // 実装へ移動
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
+    },
+    // ホバー表示
+    {
+      "before": [
+        "g",
+        "h"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<Tab>"
+      ],
+      "after": [
+        ">"
+      ]
+    },
+    {
+      "before": [
+        "<S-Tab>"
+      ],
+      "after": [
+        "<"
+      ]
+    },
+    {
+      "before": [
+        "p"
+      ],
+      "after": [
+        "P"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "after": [
+        "<",
+        "g",
+        "v"
+      ]
+    },
+    {
+      "before": [
+        ">"
+      ],
+      "after": [
+        ">",
+        "g",
+        "v"
+      ]
+    },
+    {
+      "before": [
+        "i",
+        " "
+      ],
+      "after": [
+        "i",
+        "W"
+      ]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": [
+        "i",
+        " "
+      ],
+      "after": [
+        "i",
+        "W"
+      ]
+    }
+  ],
   // ====================================
   // 拡張機能の個別設定
   // ====================================
@@ -256,81 +614,81 @@
   // "prettier.printWidth": 80,
   // "editor.defaultFormatter": "esbenp.prettier-vscode",
   // "editor.defaultFormatter": "dprint.dprint",
-  "[javascript]": {
-    // "editor.defaultFormatter": "dprint.dprint",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[json]": {
-    // "editor.defaultFormatter": "dprint.dprint",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true
-  },
-  "[yaml]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "yaml.format.printWidth": 120
-  },
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSaveMode": "file",
-    "editor.tabSize": 2,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.codeActionsOnSave": {
-      "source.formatAll.terraform": "explicit"
-    }
-  },
-  "[terraform-vars]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file",
-    "editor.tabSize": 2,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.codeActionsOnSave": {
-      "source.formatAll.terraform": "explicit"
-    }
-  },
+  // "[javascript]": {
+  //   // "editor.defaultFormatter": "dprint.dprint",
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.tabSize": 2,
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnPaste": true,
+  //   "editor.formatOnType": true,
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll.eslint": "explicit"
+  //   }
+  // },
+  // "[json]": {
+  //   // "editor.defaultFormatter": "dprint.dprint",
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.tabSize": 2,
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnPaste": true,
+  //   "editor.formatOnType": true
+  // },
+  // "[yaml]": {
+  //   "editor.insertSpaces": true,
+  //   "editor.tabSize": 2,
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnPaste": true,
+  //   "editor.formatOnType": true,
+  //   "yaml.format.printWidth": 120
+  // },
+  // "[terraform]": {
+  //   "editor.defaultFormatter": "hashicorp.terraform",
+  //   "editor.formatOnSaveMode": "file",
+  //   "editor.tabSize": 2,
+  //   "editor.formatOnPaste": true,
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnType": true,
+  //   "editor.codeActionsOnSave": {
+  //     "source.formatAll.terraform": "explicit"
+  //   }
+  // },
+  // "[terraform-vars]": {
+  //   "editor.defaultFormatter": "hashicorp.terraform",
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnSaveMode": "file",
+  //   "editor.tabSize": 2,
+  //   "editor.formatOnPaste": true,
+  //   "editor.formatOnType": true,
+  //   "editor.codeActionsOnSave": {
+  //     "source.formatAll.terraform": "explicit"
+  //   }
+  // },
   // "files.exclude": {
   //   "**/_provider.tf": true,
   //   "**/_version.tf": true,
   //   "**/_backend.tf": true
   //   //   "**/.terraform": true
   // },
-  "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit",
-      "source.organizeImports": "explicit"
-    }
-  },
+  // "[python]": {
+  //   "editor.defaultFormatter": "charliermarsh.ruff",
+  //   "editor.formatOnSave": true,
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll": "explicit",
+  //     "source.organizeImports": "explicit"
+  //   }
+  // },
   "gitlens.hovers.currentLine.over": "line",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "[go]": {
-    "editor.defaultFormatter": "golang.go",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
+  // "[go]": {
+  //   "editor.defaultFormatter": "golang.go",
+  //   "editor.formatOnPaste": true,
+  //   "editor.formatOnSave": true,
+  //   "editor.formatOnType": true,
+  //   "editor.insertSpaces": true,
+  //   "editor.tabSize": 2
+  // },
   "vs-kubernetes": {
     "vs-kubernetes.minikube-show-information-expiration": "2024-07-10T11:05:38.328Z"
   },
@@ -338,12 +696,11 @@
     ".skhdrc": "plaintext"
   },
   "vsicons.dontShowNewVersionMessage": true,
-  "[terraform][terraform-vars]": {
-    "editor.codeActionsOnSave": {
-      "source.formatAll.terraform": "explicit"
-    }
-  },
-  "window.zoomLevel": -1,
+  // "[terraform][terraform-vars]": {
+  //   "editor.codeActionsOnSave": {
+  //     "source.formatAll.terraform": "explicit"
+  //   }
+  // },
   "github.copilot.advanced": {},
   "git.openRepositoryInParentFolders": "never",
   "leetcode.workspaceFolder": "/Users/abe/src/private/leetcode/easy",
@@ -360,5 +717,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.venvPath": "/Users/abe/.pyenv",
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.colorTheme": "Ayu Mirage Zed",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "apc.imports": [],
+  "vscode_custom_css.imports": [
+    "file:///Users/yyyy/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "editor.cursorSurroundingLines": 5
 }

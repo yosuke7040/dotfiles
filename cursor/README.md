@@ -13,3 +13,9 @@
 
 > All commands can be found by pressing cmd + shift + p or ctrl + shift + p and searching for Animations.
 > Animations: Install Animations
+
+## keybindings, settingsの配置箇所
+
+```shell
+/Users/yyyy/Library/Application Support/Cursor/User
+```

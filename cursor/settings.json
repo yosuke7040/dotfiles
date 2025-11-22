@@ -66,8 +66,9 @@
   // ワークベンチの設定
   // ====================================
   // アイコンテーマ
+  "workbench.iconTheme": "ayu-mirage-zed",
   // "workbench.iconTheme": "material-icon-theme",
-  "workbench.iconTheme": "vscode-icons",
+  // "workbench.iconTheme": "ayu-mirage-zed",
   // ツリーのインデント
   "workbench.tree.indent": 12,
   // ツリーのインデントガイドを表示する
@@ -193,156 +194,332 @@
   "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["Q"],
-      "after": ["g", "q"]
+      "before": [
+        "Q"
+      ],
+      "after": [
+        "g",
+        "q"
+      ]
     },
     {
-      "before": ["<C-c>"],
-      "after": ["<Esc>"]
+      "before": [
+        "<C-c>"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     },
     {
-      "before": ["U"],
-      "after": ["<C-r>"]
+      "before": [
+        "U"
+      ],
+      "after": [
+        "<C-r>"
+      ]
     },
     {
-      "before": ["J"],
-      "after": ["}"]
+      "before": [
+        "J"
+      ],
+      "after": [
+        "}"
+      ]
     },
     {
-      "before": ["K"],
-      "after": ["{"]
+      "before": [
+        "K"
+      ],
+      "after": [
+        "{"
+      ]
     },
     {
-      "before": ["Y"],
-      "after": ["y", "$"]
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
     },
     {
-      "before": ["M"],
-      "after": ["%"]
+      "before": [
+        "M"
+      ],
+      "after": [
+        "%"
+      ]
     },
     {
-      "before": ["x"],
-      "after": ["\"", "_", "x"]
+      "before": [
+        "x"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "x"
+      ]
     },
     {
-      "before": ["d", "y"],
-      "after": ["\"", "_", "d", "d"]
+      "before": [
+        "d",
+        "y"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d",
+        "d"
+      ]
     },
     {
-      "before": ["D"],
-      "after": ["\"", "_", "D"]
+      "before": [
+        "D"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "D"
+      ]
     },
     {
-      "before": ["s", "v"],
-      "commands": ["workbench.action.splitEditorRight"]
+      "before": [
+        "s",
+        "v"
+      ],
+      "commands": [
+        "workbench.action.splitEditorRight"
+      ]
     },
     {
-      "before": ["s", "s"],
-      "commands": ["workbench.action.splitEditorDown"]
+      "before": [
+        "s",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.splitEditorDown"
+      ]
     },
     {
-      "before": ["s", "d"],
-      "commands": ["workbench.action.moveEditorToRightGroup"]
+      "before": [
+        "s",
+        "d"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToRightGroup"
+      ]
     },
     {
-      "before": ["s", "a"],
-      "commands": ["workbench.action.moveEditorToLeftGroup"]
+      "before": [
+        "s",
+        "a"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToLeftGroup"
+      ]
     },
     {
-      "before": ["<leader>", "r"],
-      "commands": ["editor.action.rename"]
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
     },
     {
-      "before": ["<leader>", "f"],
-      "commands": ["editor.action.formatDocument"]
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
     },
     // タブ間での移動
     {
-      "before": ["s", "h"],
-      "commands": ["workbench.action.focusPreviousGroup"]
+      "before": [
+        "s",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.focusPreviousGroup"
+      ]
     },
     {
-      "before": ["s", "l"],
-      "commands": ["workbench.action.focusNextGroup"]
+      "before": [
+        "s",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.focusNextGroup"
+      ]
     },
     // ファイル検索
     {
-      "before": ["<Leader>", "f", "f"],
-      "commands": ["multiCommand.findFiles"],
-      "when": ["editorFocus && vim.mode == 'Normal'"]
+      "before": [
+        "<Leader>",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "multiCommand.findFiles"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
     },
     // 全体検索
     {
-      "before": ["<Leader>", "f", "w"],
-      "commands": ["multiCommand.findWithinFiles"],
-      "when": ["editorFocus && vim.mode == 'Normal'"]
+      "before": [
+        "<Leader>",
+        "f",
+        "w"
+      ],
+      "commands": [
+        "multiCommand.findWithinFiles"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
     },
     // ファイル内検索
     {
-      "before": ["<Leader>", "f", "/"],
-      "commands": ["multiCommand.findCurrentFile"],
-      "when": ["editorFocus && vim.mode == 'Normal'"]
+      "before": [
+        "<Leader>",
+        "f",
+        "/"
+      ],
+      "commands": [
+        "multiCommand.findCurrentFile"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
     },
     // 定義へ移動
     {
-      "before": ["g", "d"],
-      "commands": ["editor.action.goToDeclaration"],
-      "when": ["editorFocus && vim.mode == 'Normal'"]
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        "editor.action.goToDeclaration"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
     },
     // 実装へ移動
     {
-      "before": ["g", "i"],
-      "commands": ["editor.action.goToImplementation"],
-      "when": ["editorFocus && vim.mode == 'Normal'"]
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
     },
     // ホバー表示
     {
-      "before": ["g", "h"],
-      "commands": ["editor.action.showHover"],
-      "when": ["editorFocus && vim.mode == 'Normal'"]
+      "before": [
+        "g",
+        "h"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ],
+      "when": [
+        "editorFocus && vim.mode == 'Normal'"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": ["<Tab>"],
-      "after": [">"]
+      "before": [
+        "<Tab>"
+      ],
+      "after": [
+        ">"
+      ]
     },
     {
-      "before": ["<S-Tab>"],
-      "after": ["<"]
+      "before": [
+        "<S-Tab>"
+      ],
+      "after": [
+        "<"
+      ]
     },
     {
-      "before": ["p"],
-      "after": ["P"]
+      "before": [
+        "p"
+      ],
+      "after": [
+        "P"
+      ]
     },
     {
-      "before": ["<"],
-      "after": ["<", "g", "v"]
+      "before": [
+        "<"
+      ],
+      "after": [
+        "<",
+        "g",
+        "v"
+      ]
     },
     {
-      "before": [">"],
-      "after": [">", "g", "v"]
+      "before": [
+        ">"
+      ],
+      "after": [
+        ">",
+        "g",
+        "v"
+      ]
     },
     {
-      "before": ["i", " "],
-      "after": ["i", "W"]
+      "before": [
+        "i",
+        " "
+      ],
+      "after": [
+        "i",
+        "W"
+      ]
     }
   ],
   "vim.operatorPendingModeKeyBindings": [
     {
-      "before": ["i", " "],
-      "after": ["i", "W"]
+      "before": [
+        "i",
+        " "
+      ],
+      "after": [
+        "i",
+        "W"
+      ]
     }
   ],
   "editor.cursorSurroundingLines": 5,
   "animations.CursorAnimation": true,
-  "animations.Custom-CSS": false,
+  // "animations.Custom-CSS": false,
   "custom-ui-style.external.imports": [],
   "vscode_custom_css.imports": [
     "file://${userHome}/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
@@ -359,9 +536,13 @@
   "editor.accessibilitySupport": "off",
   "git.openRepositoryInParentFolders": "never",
   "helm-ls.path": "/opt/homebrew/Cellar/helm-ls/0.2.0/bin",
-  "projectManager.git.baseFolders": ["${userHome}/src"],
-  "helm-intellisense.customValueFileNames": ["${userHome}/src/k8s-manifests"],
-  "animations.Enabled": false,
+  "projectManager.git.baseFolders": [
+    "${userHome}/src"
+  ],
+  "helm-intellisense.customValueFileNames": [
+    "${userHome}/src/k8s-manifests"
+  ],
+  "animations.Enabled": true,
   // "explorer.fileNesting.enabled": true,
   // "explorer.fileNesting.expand": false,
   // "explorer.fileNesting.patterns": {
@@ -376,7 +557,9 @@
   "editor.fontFamily": "UDEV Gothic JPDOC",
   // vim プラグインの挙動が変問題に対応
   "editor.editContext": false,
-  "cSpell.userWords": ["Mcpjson"],
+  "cSpell.userWords": [
+    "Mcpjson"
+  ],
   "git.blame.editorDecoration.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   // ====================================
@@ -406,5 +589,9 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "githubPullRequests.pullBranch": "never"
+  "githubPullRequests.pullBranch": "never",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "animations.Install-Method": "Apc Customize UI++"
 }
