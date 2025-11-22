@@ -14,7 +14,6 @@ source $HOME/.aliases
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-export CR_PAT="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"
 
 # direnv
 export EDITOR=vim
@@ -48,8 +47,16 @@ export NODE_PATH=/usr/local/lib/node_modules
 # export PATH="$GOROOT/bin:$PATH"
 # export PATH="$PATH:$GOPATH/bin"
 
+# terminalでviモードにする（starshipの前に設定して競合を回避）
+bindkey -v
+
 # starship
-eval "$(starship init zsh)"
+# starship を二重初期化しないためのガード
+# terminalのviモード設定と合わさって再帰ループになるのを防ぐ
+if [[ -z "${__STARSHIP_INIT_DONE-}" ]]; then
+  __STARSHIP_INIT_DONE=1
+  eval "$(starship init zsh)"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -274,8 +281,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'0'; zinit light zsh-users/zsh-completions
 
 eval "$(zoxide init zsh)"
-# 矢印キーが上の挙動は下のほうが好みなので無効化
-eval "$(atuin init zsh --disable-up-arrow)"
 
 # pythonバージョン管理
 export PYENV_ROOT="$HOME/.pyenv"
@@ -318,3 +323,7 @@ eval "$($HOME/.local/bin/mise activate zsh)"
 
 # docker mcp gateway
 export PAHT="~/.docker/cli-plugins:$PATH"
+
+# atuin初期化（ファイル末尾で初期化してキーバインドを保持）
+# 矢印キーが上の挙動は下のほうが好みなので無効化
+eval "$(atuin init zsh --disable-up-arrow)"
