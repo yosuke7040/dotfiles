@@ -5,6 +5,10 @@
     "vscode-neovim.neovim",
     "enhancedjax.vscode-ayu-zed",
     "BrandonKirbyson.vscode-animations",
+    "ryuta46.multi-command",
+    "TomRijndorp.find-it-faster",
+    "Gxl.git-graph-3",
+    "mechatroner.rainbow-csv",
     // "iuyoy.highlight-string-code",
     "dprint.dprint"
   ],
