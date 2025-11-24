@@ -70,8 +70,8 @@
   "workbench.tree.indent": 12,
   // ツリーのインデントガイドを表示する
   "workbench.tree.renderIndentGuides": "always",
-  // アニメーションを減らす
-  "workbench.reduceMotion": "on",
+  // アニメーションを減らす(VSCode Animationsを使う場合はoffにする)
+  "workbench.reduceMotion": "off",
   // パラメータヒントを自動表示（オフの場合はCtrl+Shift+Spaceで表示）
   "editor.parameterHints.enabled": true,
   // ====================================
@@ -141,7 +141,6 @@
       "command": "multiCommand.findFiles",
       "interval": 220,
       "sequence": [
-        "workbench.action.toggleMaximizedPanel",
         "find-it-faster.findFiles"
       ]
     },
@@ -149,7 +148,6 @@
       "command": "multiCommand.findWithinFiles",
       "interval": 220,
       "sequence": [
-        "workbench.action.toggleMaximizedPanel",
         "find-it-faster.findWithinFiles"
       ]
     }
@@ -273,10 +271,12 @@
   "workbench.colorTheme": "Ayu Mirage Zed",
   "github.copilot.nextEditSuggestions.enabled": true,
   "apc.imports": [],
-  "vscode_custom_css.imports": [
-    "file:///Users/yyyy/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-  ],
+  "vscode_custom_css.imports": [],
   "editor.cursorSurroundingLines": 5,
   "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "custom-ui-style.external.imports": [
+    "file:///Users/yyyy/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "animations.Install-Method": "Custom UI Style"
 }
