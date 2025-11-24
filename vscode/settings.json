@@ -3,58 +3,18 @@
     "vscode-icons-team.vscode-icons",
     // mac 本体にもneovimをインストールしておくこと
     "vscode-neovim.neovim",
-    // "vscodevim.vim",
-    "skattyadz.vscode-quick-scope",
+    "enhancedjax.vscode-ayu-zed",
+    "BrandonKirbyson.vscode-animations",
+    // "iuyoy.highlight-string-code",
     "dprint.dprint"
   ],
-  // "vim.vimrc.enable": true,
-  // "vim.vimrc.path": "$HOME/.vimrc",
-  // "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.vimrc",
-  // "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.vimrc",
-  // "vscode-neovim.neovimExecutablePaths.linux": "$HOME/.config/nvim/init.lua",
-  // "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.lua",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.lua",
+  "vscode-neovim.useCtrlKeys": true,
+  "vscode-neovim.compositor": false,
   // "workbench.list.automaticKeyboardNavigation": false,
-  // "vscode-neovim.highlightGroups.highlights": "QuickScopePrimary",
-  // "vscode-neovim.highlightGroups.highlights": "Visual",
-  // quick-scope の設定
-  // "vim.enbleNeovim": true,
-  // !!! 全然有効化されない！！こまった !!!
-  "vscode-neovim.highlightGroups.highlights": {
-    "QuickScopePrimary": [
-      {
-        "foreground": "#ff9d00",
-        "background": "",
-        "bold": true,
-        "italic": false,
-        "underline": true
-      },
-      {
-        "foreground": "#af87d7",
-        "background": "",
-        "bold": true,
-        "italic": false,
-        "underline": true
-      }
-    ],
-    "QuickScopeSecondary": [
-      {
-        "foreground": "#ffff87",
-        "background": "",
-        "bold": true,
-        "italic": false,
-        "underline": false
-      },
-      {
-        "foreground": "#87d7ff",
-        "background": "",
-        "bold": true,
-        "italic": false,
-        "underline": false
-      }
-    ]
-  },
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -112,11 +72,15 @@
   "workbench.tree.renderIndentGuides": "always",
   // アニメーションを減らす
   "workbench.reduceMotion": "on",
+  // パラメータヒントを自動表示（オフの場合はCtrl+Shift+Spaceで表示）
+  "editor.parameterHints.enabled": true,
   // ====================================
   // エディタのタイポグラフィーに関する設定
   // ====================================
-  // // フォント
-  // "editor.fontFamily": "\"Source Han Code JP\", monospace",
+  // フォント
+  "editor.fontFamily": "JetBrains Mono",
+  // フォントの合字機能
+  "editor.fontLigatures": true,
   // 文字サイズ
   "editor.fontSize": 13.5,
   // 文字間隔
@@ -135,7 +99,7 @@
   // ターミナルのキャレットのスタイル
   "terminal.integrated.cursorStyle": "block",
   //ターミナルのフォント
-  // "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.fontFamily": "monospace",
   // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
   // ターミナルの文字サイズ
   "terminal.integrated.fontSize": 13.5,
@@ -191,341 +155,6 @@
     }
   ],
   // ====================================
-  // vim
-  // ====================================
-  "vim.scrolloff": 5,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.easymotion": true,
-  "vim.leader": "<space>",
-  "vim.insertModeKeyBindings": [
-    {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "Q"
-      ],
-      "after": [
-        "g",
-        "q"
-      ]
-    },
-    {
-      "before": [
-        "<C-c>"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    },
-    {
-      "before": [
-        "U"
-      ],
-      "after": [
-        "<C-r>"
-      ]
-    },
-    {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "}"
-      ]
-    },
-    {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "{"
-      ]
-    },
-    {
-      "before": [
-        "Y"
-      ],
-      "after": [
-        "y",
-        "$"
-      ]
-    },
-    {
-      "before": [
-        "M"
-      ],
-      "after": [
-        "%"
-      ]
-    },
-    {
-      "before": [
-        "x"
-      ],
-      "after": [
-        "\"",
-        "_",
-        "x"
-      ]
-    },
-    {
-      "before": [
-        "d",
-        "y"
-      ],
-      "after": [
-        "\"",
-        "_",
-        "d",
-        "d"
-      ]
-    },
-    {
-      "before": [
-        "D"
-      ],
-      "after": [
-        "\"",
-        "_",
-        "D"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "v"
-      ],
-      "commands": [
-        "workbench.action.splitEditorRight"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.splitEditorDown"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "commands": [
-        "workbench.action.moveEditorToRightGroup"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a"
-      ],
-      "commands": [
-        "workbench.action.moveEditorToLeftGroup"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "editor.action.formatDocument"
-      ]
-    },
-    // タブ間での移動
-    {
-      "before": [
-        "<leader>",
-        "h"
-      ],
-      "commands": [
-        "workbench.action.focusPreviousGroup"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "l"
-      ],
-      "commands": [
-        "workbench.action.focusNextGroup"
-      ]
-    },
-    // ファイル検索
-    {
-      "before": [
-        "<Leader>",
-        "f",
-        "f"
-      ],
-      "commands": [
-        "multiCommand.findFiles"
-      ],
-      "when": [
-        "editorFocus && vim.mode == 'Normal'"
-      ]
-    },
-    // 全体検索
-    {
-      "before": [
-        "<Leader>",
-        "f",
-        "w"
-      ],
-      "commands": [
-        "multiCommand.findWithinFiles"
-      ],
-      "when": [
-        "editorFocus && vim.mode == 'Normal'"
-      ]
-    },
-    // ファイル内検索
-    {
-      "before": [
-        "<Leader>",
-        "f",
-        "/"
-      ],
-      "commands": [
-        "multiCommand.findCurrentFile"
-      ],
-      "when": [
-        "editorFocus && vim.mode == 'Normal'"
-      ]
-    },
-    // 定義へ移動
-    {
-      "before": [
-        "g",
-        "d"
-      ],
-      "commands": [
-        "editor.action.goToDeclaration"
-      ],
-      "when": [
-        "editorFocus && vim.mode == 'Normal'"
-      ]
-    },
-    // 実装へ移動
-    {
-      "before": [
-        "g",
-        "i"
-      ],
-      "commands": [
-        "editor.action.goToImplementation"
-      ],
-      "when": [
-        "editorFocus && vim.mode == 'Normal'"
-      ]
-    },
-    // ホバー表示
-    {
-      "before": [
-        "g",
-        "h"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ],
-      "when": [
-        "editorFocus && vim.mode == 'Normal'"
-      ]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<Tab>"
-      ],
-      "after": [
-        ">"
-      ]
-    },
-    {
-      "before": [
-        "<S-Tab>"
-      ],
-      "after": [
-        "<"
-      ]
-    },
-    {
-      "before": [
-        "p"
-      ],
-      "after": [
-        "P"
-      ]
-    },
-    {
-      "before": [
-        "<"
-      ],
-      "after": [
-        "<",
-        "g",
-        "v"
-      ]
-    },
-    {
-      "before": [
-        ">"
-      ],
-      "after": [
-        ">",
-        "g",
-        "v"
-      ]
-    },
-    {
-      "before": [
-        "i",
-        " "
-      ],
-      "after": [
-        "i",
-        "W"
-      ]
-    }
-  ],
-  "vim.operatorPendingModeKeyBindings": [
-    {
-      "before": [
-        "i",
-        " "
-      ],
-      "after": [
-        "i",
-        "W"
-      ]
-    }
-  ],
-  // ====================================
   // 拡張機能の個別設定
   // ====================================
   // ------------------------------------
@@ -547,6 +176,8 @@
   "codesnap.boxShadow": "rgba(0, 0, 0, 0.2) 0px 20px 100px",
   // エディタの行番号表示
   "codesnap.showLineNumbers": false,
+  // blameをエディタ内に表示
+  "git.blame.editorDecoration.enabled": true,
   // https://help.gitkraken.com/gitlens/gitlens-settings/
   "gitlens.codeLens.codeLens.enabled": false,
   "gitlens.codeLens.currentLine.enabled": false,
@@ -611,84 +242,10 @@
       "italic": false
     }
   ],
-  // "prettier.printWidth": 80,
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // "editor.defaultFormatter": "dprint.dprint",
-  // "[javascript]": {
-  //   // "editor.defaultFormatter": "dprint.dprint",
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  //   "editor.tabSize": 2,
-  //   "editor.formatOnSave": true,
-  //   "editor.formatOnPaste": true,
-  //   "editor.formatOnType": true,
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.eslint": "explicit"
-  //   }
-  // },
-  // "[json]": {
-  //   // "editor.defaultFormatter": "dprint.dprint",
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  //   "editor.tabSize": 2,
-  //   "editor.formatOnSave": true,
-  //   "editor.formatOnPaste": true,
-  //   "editor.formatOnType": true
-  // },
-  // "[yaml]": {
-  //   "editor.insertSpaces": true,
-  //   "editor.tabSize": 2,
-  //   "editor.formatOnSave": true,
-  //   "editor.formatOnPaste": true,
-  //   "editor.formatOnType": true,
-  //   "yaml.format.printWidth": 120
-  // },
-  // "[terraform]": {
-  //   "editor.defaultFormatter": "hashicorp.terraform",
-  //   "editor.formatOnSaveMode": "file",
-  //   "editor.tabSize": 2,
-  //   "editor.formatOnPaste": true,
-  //   "editor.formatOnSave": true,
-  //   "editor.formatOnType": true,
-  //   "editor.codeActionsOnSave": {
-  //     "source.formatAll.terraform": "explicit"
-  //   }
-  // },
-  // "[terraform-vars]": {
-  //   "editor.defaultFormatter": "hashicorp.terraform",
-  //   "editor.formatOnSave": true,
-  //   "editor.formatOnSaveMode": "file",
-  //   "editor.tabSize": 2,
-  //   "editor.formatOnPaste": true,
-  //   "editor.formatOnType": true,
-  //   "editor.codeActionsOnSave": {
-  //     "source.formatAll.terraform": "explicit"
-  //   }
-  // },
-  // "files.exclude": {
-  //   "**/_provider.tf": true,
-  //   "**/_version.tf": true,
-  //   "**/_backend.tf": true
-  //   //   "**/.terraform": true
-  // },
-  // "[python]": {
-  //   "editor.defaultFormatter": "charliermarsh.ruff",
-  //   "editor.formatOnSave": true,
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll": "explicit",
-  //     "source.organizeImports": "explicit"
-  //   }
-  // },
   "gitlens.hovers.currentLine.over": "line",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  // "[go]": {
-  //   "editor.defaultFormatter": "golang.go",
-  //   "editor.formatOnPaste": true,
-  //   "editor.formatOnSave": true,
-  //   "editor.formatOnType": true,
-  //   "editor.insertSpaces": true,
-  //   "editor.tabSize": 2
-  // },
   "vs-kubernetes": {
     "vs-kubernetes.minikube-show-information-expiration": "2024-07-10T11:05:38.328Z"
   },
@@ -696,11 +253,6 @@
     ".skhdrc": "plaintext"
   },
   "vsicons.dontShowNewVersionMessage": true,
-  // "[terraform][terraform-vars]": {
-  //   "editor.codeActionsOnSave": {
-  //     "source.formatAll.terraform": "explicit"
-  //   }
-  // },
   "github.copilot.advanced": {},
   "git.openRepositoryInParentFolders": "never",
   "leetcode.workspaceFolder": "/Users/abe/src/private/leetcode/easy",
@@ -724,5 +276,7 @@
   "vscode_custom_css.imports": [
     "file:///Users/yyyy/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
   ],
-  "editor.cursorSurroundingLines": 5
+  "editor.cursorSurroundingLines": 5,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
 }
