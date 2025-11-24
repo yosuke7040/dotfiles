@@ -51,3 +51,7 @@ brew "terragrunt"
 # protocol buffers
 brew "bufbuild/buf/buf"
 brew tap "yoheimuta/protolint"
+
+
+brew "zsh-vi-mode"
+brew "macism"
