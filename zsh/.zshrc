@@ -327,3 +327,6 @@ export PAHT="~/.docker/cli-plugins:$PATH"
 # atuin初期化（ファイル末尾で初期化してキーバインドを保持）
 # 矢印キーが上の挙動は下のほうが好みなので無効化
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# cargo
+export PAHT="~/.cargo/bin:$PATH"
