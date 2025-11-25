@@ -284,5 +284,7 @@
   "custom-ui-style.external.imports": [
     "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
   ],
-  "animations.Install-Method": "Custom UI Style"
+  "animations.Install-Method": "Custom UI Style",
+  "redhat.telemetry.enabled": false,
+  "workbench.secondarySideBar.defaultVisibility": "visible"
 }

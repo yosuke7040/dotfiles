@@ -129,10 +129,10 @@ vim.keymap.set('n', 'gi', function()
   vscode.call('editor.action.goToImplementation')
 end, { noremap = true, silent = true })
 
--- -- gh でホバー表示
--- vim.keymap.set('n', 'gh', function()
---   vscode.call('editor.action.showHover')
--- end, { noremap = true, silent = true })
+-- gh でホバー表示
+vim.keymap.set('n', 'gh', function()
+  vscode.call('editor.action.showHover')
+end, { noremap = true, silent = true })
 
 -- ===========================================
 -- ビジュアルモードのキーバインド
