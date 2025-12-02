@@ -17,7 +17,9 @@ vim.g.maplocalleader = " "
 -- インサートモードのキーバインド
 -- ===========================================
 -- jk で Esc
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+-- vscode側で設定しているためコメントアウト
+-- vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+-- vim.keymap.set('i', 'jj', '<Esc>', { noremap = true, silent = true })
 
 -- ===========================================
 -- ノーマルモードのキーバインド
