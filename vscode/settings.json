@@ -20,6 +20,15 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.lua",
   "vscode-neovim.useCtrlKeys": true,
   "vscode-neovim.compositor": false,
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    },
+    "jk": {
+      "command": "vscode-neovim.lua",
+      "args": ["vim.api.nvim_input('<ESC>')\nrequire('vscode-neovim').action('workbench.action.files.save')"]
+    }
+  },
   // "workbench.list.automaticKeyboardNavigation": false,
   "terminal.integrated.scrollback": 30000,
   "debug.allowBreakpointsEverywhere": true,
@@ -88,7 +97,7 @@
   // フォントの合字機能
   "editor.fontLigatures": true,
   // 文字サイズ
-  "editor.fontSize": 13.5,
+  "editor.fontSize": 14,
   // 文字間隔
   "editor.letterSpacing": 0,
   // 行間
@@ -104,9 +113,9 @@
   "editor.cursorBlinking": "phase",
   // ターミナルのキャレットのスタイル
   "terminal.integrated.cursorStyle": "block",
-  //ターミナルのフォント
-  "terminal.integrated.fontFamily": "monospace",
-  // "terminal.integrated.fontFamily": "Hack, 'Noto Sans JP', monospace",
+  // //ターミナルのフォント
+  // brew install font-jetbrains-mono-nerd-fontしてね
+  "terminal.integrated.fontFamily": "'Hack Nerd Font Mono', 'Noto Sans JP', monospace",
   // ターミナルの文字サイズ
   "terminal.integrated.fontSize": 13.5,
   // ターミナルのキャレットアニメーション
@@ -286,5 +295,6 @@
   ],
   "animations.Install-Method": "Custom UI Style",
   "redhat.telemetry.enabled": false,
-  "workbench.secondarySideBar.defaultVisibility": "visible"
+  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "claudeCode.preferredLocation": "panel"
 }
