@@ -55,3 +55,8 @@ brew tap "yoheimuta/protolint"
 
 brew "zsh-vi-mode"
 brew "macism"
+
+brew "idoavrah/homebrew/tftui"
+brew "ni"
+
+brew "font-jetbrains-mono-nerd-font"
