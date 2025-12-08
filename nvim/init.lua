@@ -1,3 +1,6 @@
+-- システムクリップボードと連携（yy等でコピーした内容をCtrl+Vで貼り付け可能に）
+vim.opt.clipboard = "unnamedplus"
+
 if vim.g.vscode then
   -- VSCode Neovim
 
