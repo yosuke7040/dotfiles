@@ -300,8 +300,6 @@ export GOPRIVATE=github.com/handy-inc
 # export PATH="$HOME/.asdf/shims:$PATH"
 
 
-# # aws-mfaがpip3ではなく、pipを参照している？っぽいのでそのためのパス
-# export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # sqnoflake使うなら
