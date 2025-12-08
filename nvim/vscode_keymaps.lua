@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 -- ===========================================
 -- jk で Esc
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('i', 'jk', '<Esc><Cmd>w<CR>', { noremap = true, silent = true }))
+vim.keymap.set('i', 'jk', '<Esc><Cmd>w<CR>', { noremap = true, silent = true })
 
 -- ===========================================
 -- ノーマルモードのキーバインド
