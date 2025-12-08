@@ -74,7 +74,7 @@
   // 選択範囲のハイライトに角丸を適用する
   "editor.roundedSelection": false,
   // 左端の行番号にカーソル位置からの距離を表示
-  // "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "relative",
   // ====================================
   // ワークベンチの設定
   // ====================================
