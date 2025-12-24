@@ -12,6 +12,7 @@
     "streetsidesoftware.code-spell-checker",
     "alefragnani.project-manager",
     // "iuyoy.highlight-string-code",
+    "waderyan.gitblame",
     "dprint.dprint"
   ],
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
@@ -296,5 +297,6 @@
   "animations.Install-Method": "Custom UI Style",
   "redhat.telemetry.enabled": false,
   "workbench.secondarySideBar.defaultVisibility": "visible",
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.preferredLocation": "panel",
+  "python.defaultInterpreterPath": "/Users/yyyy/.local/bin/python3.14"
 }
