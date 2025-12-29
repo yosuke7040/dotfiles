@@ -121,6 +121,8 @@
   "terminal.integrated.fontSize": 13.5,
   // ターミナルのキャレットアニメーション
   "terminal.integrated.cursorBlinking": true,
+  // ターミナル起動時に自動で隠す
+  "terminal.integrated.hideOnStartup": "always",
   // テーマカラーの配色を上書きする
   "workbench.colorCustomizations": {
     // エディタのキャレットカラー
