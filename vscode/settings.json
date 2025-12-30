@@ -13,6 +13,7 @@
     "alefragnani.project-manager",
     // "iuyoy.highlight-string-code",
     "waderyan.gitblame",
+    "rebornix.toggle",
     "dprint.dprint"
   ],
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
