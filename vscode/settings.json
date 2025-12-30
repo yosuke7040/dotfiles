@@ -140,7 +140,10 @@
     "sideBar.background": "#0d0d0d",
     "sideBarTitle.foreground": "#a0a0a0",
     "sideBarSectionHeader.background": "#0d0d0d",
-    "sideBarSectionHeader.foreground": "#a0a0a0"
+    "sideBarSectionHeader.foreground": "#a0a0a0",
+    // ドラッグの設定
+    "editor.selectionBackground": "#ff005840",
+    "editor.selectionHighlightBackground": "#264f7855"
     // "[High Contrast Dark]": {
     //   "editor.background": "#1e1e1e",
     //   "editor.foreground": "#d4d4d4",
@@ -258,6 +261,15 @@
       "italic": false
     }
   ],
+  // inlay設定
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.constantValues": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.assignVariableTypes": true,
+  // GitLensのホバー設定
   "gitlens.hovers.currentLine.over": "line",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -300,5 +312,6 @@
   "redhat.telemetry.enabled": false,
   "workbench.secondarySideBar.defaultVisibility": "visible",
   "claudeCode.preferredLocation": "panel",
-  "python.defaultInterpreterPath": "/Users/yyyy/.local/bin/python3.14"
+  "python.defaultInterpreterPath": "/Users/yyyy/.local/bin/python3.14",
+  "editor.inlayHints.enabled": "offUnlessPressed"
 }
