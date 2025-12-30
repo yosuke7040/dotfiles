@@ -38,6 +38,7 @@ alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 alias k9s='LC_CTYPE=en_US.UTF-8 k9s --readonly'
+alias kx='kubectx'
 
 alias tf='terraform'
 alias tfmt='terraform fmt -recursive'
