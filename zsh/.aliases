@@ -54,3 +54,6 @@ alias qrcode='(){qrencode $1 -o - | viu -}'
 
 # mac <--> linux
 alias date='gdate'
+
+# claude code
+alias cc='claude'
