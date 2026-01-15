@@ -60,3 +60,6 @@ brew "idoavrah/homebrew/tftui"
 brew "ni"
 
 brew "font-jetbrains-mono-nerd-font"
+
+# 日本語の入力を快適にするやつ
+brew "azooKey"
