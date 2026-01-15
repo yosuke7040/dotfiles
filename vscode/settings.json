@@ -15,6 +15,7 @@
     "waderyan.gitblame",
     "rebornix.toggle",
     "github.vscode-github-actions",
+    "intellsmi.comment-translate",
     "dprint.dprint"
   ],
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
