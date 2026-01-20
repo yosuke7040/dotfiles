@@ -1,0 +1,3 @@
+- https://zenn.dev/ichigoooo/articles/5111e8a96a4c19#3.-%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%8B%E3%82%89%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%83%BC%E3%82%92%E8%B5%B7%E5%8B%95
+
+git reposという拡張機能が良い
