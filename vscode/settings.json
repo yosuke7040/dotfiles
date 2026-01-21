@@ -16,6 +16,7 @@
     "rebornix.toggle",
     "github.vscode-github-actions",
     "intellsmi.comment-translate",
+    "bierner.markdown-mermaid",
     "dprint.dprint"
   ],
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
