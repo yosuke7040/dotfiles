@@ -1,6 +1,9 @@
 if vim.g.vscode then
   -- VSCode Neovim
 
+  -- システムクリップボードを使用（yiw等がMacの履歴に残る）
+  vim.opt.clipboard = "unnamedplus"
+
   local config_path = vim.fn.stdpath('config')
 
   -- プラグインの読み込み
