@@ -17,6 +17,7 @@
     "github.vscode-github-actions",
     "intellsmi.comment-translate",
     "bierner.markdown-mermaid",
+    "jackiotyu.git-worktree-manager",
     "dprint.dprint"
   ],
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",

@@ -65,7 +65,8 @@
       "mcp__supabase__execute_sql",
       "Bash(terraform apply:*)",
       "Bash(tf apply:*)"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "statusLine": {
     "type": "command",
@@ -74,5 +75,6 @@
   "language": "Japanese",
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
-  }
+  },
+  "plansDirectory": ".claude/plans"
 }
