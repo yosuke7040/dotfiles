@@ -70,7 +70,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "npx ccusage@latest statusline"
+    "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
