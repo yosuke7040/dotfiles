@@ -27,6 +27,7 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit --amend --no-edit'
 alias gr='gh repo view --web'
+alias gw='git worktree'
 # alias gr='open "$(git config remote.origin.url)"'
 #alias gr='open "$(git config remote.origin.url | sed 's!//.*@!//!')"'
 
