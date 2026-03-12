@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-    name = yosuke7040
+    name = bea
     email = yosuke.bad4@gmail.com
 [ghq]
 	root = ~/src

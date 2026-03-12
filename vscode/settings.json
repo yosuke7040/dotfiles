@@ -280,7 +280,8 @@
     "asvetliakov.vscode-neovim": 1
   },
   "vs-kubernetes": {
-    "vs-kubernetes.minikube-show-information-expiration": "2024-07-10T11:05:38.328Z"
+    "vs-kubernetes.minikube-show-information-expiration": "2024-07-10T11:05:38.328Z",
+    "vs-kubernetes.crd-code-completion": "enabled"
   },
   "files.associations": {
     ".skhdrc": "plaintext"
