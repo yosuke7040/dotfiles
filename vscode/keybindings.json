@@ -1,5 +1,9 @@
 [
   {
+    "key": "ctrl+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  {
     "key": "cmd+[",
     "command": "workbench.action.navigateBack",
     "when": "canNavigateBack"
@@ -193,7 +197,15 @@
     "command": "workbench.action.terminal.focusAtIndex1"
   },
   {
+    "key": "ctrl+t numpad1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
     "key": "ctrl+t 2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "ctrl+t numpad2",
     "command": "workbench.action.terminal.focusAtIndex2"
   },
   {
@@ -201,11 +213,23 @@
     "command": "workbench.action.terminal.focusAtIndex3"
   },
   {
+    "key": "ctrl+t numpad3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
     "key": "ctrl+t 4",
     "command": "workbench.action.terminal.focusAtIndex4"
   },
   {
+    "key": "ctrl+t numpad4",
+    "command": "workbench.action.terminal.focusAtIndex4"
+  },
+  {
     "key": "ctrl+t 5",
+    "command": "workbench.action.terminal.focusAtIndex5"
+  },
+  {
+    "key": "ctrl+t numpad5",
     "command": "workbench.action.terminal.focusAtIndex5"
   },
   // ターミナルの最大化
