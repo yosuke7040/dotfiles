@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Pattern 4: Fine-grained progress bar with true color gradient"""
 # https://nyosegawa.com/posts/claude-code-statusline-rate-limits/
-import json, sys
+import json, subprocess, sys
 
 data = json.load(sys.stdin)
 
@@ -34,6 +34,16 @@ def fmt(label, pct):
 
 model = data.get('model', {}).get('display_name', 'Claude')
 parts = [model]
+
+try:
+    branch = subprocess.run(
+        ['git', 'branch', '--show-current'],
+        capture_output=True, text=True, timeout=2
+    ).stdout.strip()
+except Exception:
+    branch = ''
+if branch:
+    parts.append(branch)
 
 ctx = data.get('context_window', {}).get('used_percentage')
 if ctx is not None:
