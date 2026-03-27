@@ -1,5 +1,5 @@
 ---
-name: multi-agent-review
+name: multi-agent-review-and-fix
 description: ハーネスエンジニアリングに基づくマルチエージェントコードレビュー＆自動修正。Codexがレビュー、Claudeがトリアージ・修正・バリデーションを担当し、ループを最大6回実行してコード品質を段階的に改善する。
 argument-hint: [ベースブランチ or PR URL（省略時はmainとの差分）]
 allowed-tools: Read, Grep, Glob, Write, Edit, Bash(git:*), Bash(gh:*), Bash(cat:*), Bash(date:*), Bash(mkdir:*), Bash(ls:*), Bash(rm:*), Bash(codex:*), Agent
