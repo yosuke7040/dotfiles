@@ -287,7 +287,6 @@
     ".skhdrc": "plaintext"
   },
   "vsicons.dontShowNewVersionMessage": true,
-  "github.copilot.advanced": {},
   "git.openRepositoryInParentFolders": "never",
   "leetcode.workspaceFolder": "/Users/abe/src/private/leetcode/easy",
   "leetcode.defaultLanguage": "python3",
@@ -319,5 +318,6 @@
   "workbench.secondarySideBar.defaultVisibility": "visible",
   "claudeCode.preferredLocation": "panel",
   "python.defaultInterpreterPath": "/Users/yyyy/.local/bin/python3.14",
-  "editor.inlayHints.enabled": "offUnlessPressed"
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "window.autoDetectColorScheme": true
 }
