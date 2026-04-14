@@ -118,8 +118,8 @@ Codex 実行前に、`/dev-journal` へ少なくとも以下を記録する:
 ## Step 3: Codex の実行
 
 ### モデル指定について
-- **デフォルト（推奨）**: `~/.codex/config.toml` の設定（通常 `gpt-5.4` + `medium` reasoning）をそのまま使う。`-m` オプションなしで実行。
-- ユーザーが特定モデルを指定した場合: `-m <model-id>` を付ける（例: `-m gpt-5.4`）。
+- **デフォルト**: `gpt-5.4` + `xhigh` reasoning。全コマンドに `-m gpt-5.4 -c model_reasoning_effort="xhigh"` を明示指定する。
+- ユーザーが別モデルを指定した場合: `-m <model-id>` を差し替える。
 - `gpt-5.4-medium` のような複合指定は存在しない。モデルと reasoning effort は別設定。
 
 ### 実行コマンド
@@ -127,7 +127,7 @@ Codex 実行前に、`/dev-journal` へ少なくとも以下を記録する:
 `-o` オプションで最後のメッセージだけをファイルに書き出す。これにより出力量に関わらず確実に最終回答を取得できる。
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -o /tmp/codex_result.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -o /tmp/codex_result.txt -
 {依頼文の内容}
 PROMPT
 cat /tmp/codex_result.txt
@@ -226,7 +226,7 @@ Please evaluate Claude's position directly. State clearly where you agree and wh
 以下のコマンドで Codex を実行し、回答を取得する。ラウンドごとに出力ファイルを上書きしてよい:
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -o /tmp/codex_debate_r1.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r1.txt -
 {依頼文 + Claude の立場を付加した内容}
 PROMPT
 cat /tmp/codex_debate_r1.txt
@@ -279,7 +279,7 @@ Codex の回答を読み、各論点を評価する:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -o /tmp/codex_debate_r2.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r2.txt -
 {前ラウンドまでの会話履歴 + Claude の反論}
 PROMPT
 cat /tmp/codex_debate_r2.txt

@@ -106,7 +106,7 @@ Codexには以下を渡してください:
 - タスクコンテキスト: /tmp/task_context.md
 - 差分ファイル（存在する場合）: /tmp/review_diff.patch
 
-cat << 'PROMPT' | codex exec --ephemeral -s read-only -o /tmp/codex_requirements.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -s read-only -o /tmp/codex_requirements.txt -
 あなたは要件整理担当です。実装やコード変更は行わないでください。
 
 入力コンテキスト:
@@ -157,7 +157,7 @@ Phase 1 の `requirements_summary` をもとに、再度Agentツールで `gener
 - 必要なら関連コードや既存パターンを読むこと
 - 合意済み要件に沿って、既存コードベースと整合する設計を優先すること
 
-cat << 'PROMPT' | codex exec --ephemeral -s read-only -o /tmp/codex_design.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -s read-only -o /tmp/codex_design.txt -
 あなたは設計検討担当です。実装やコード変更は行わないでください。
 
 入力:
@@ -248,7 +248,7 @@ git diff {ベースブランチ}...HEAD > /tmp/review_diff.patch
 
 次に以下のコマンドでCodexを実行してください（timeout: 600000）:
 
-cat << 'PROMPT' | codex exec --ephemeral -s read-only -o /tmp/codex_review.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -s read-only -o /tmp/codex_review.txt -
 以下のgit差分をレビューし、バグや設計上の問題、潜在的問題を見つけてください。
 
 差分ファイル: /tmp/review_diff.patch
