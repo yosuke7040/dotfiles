@@ -330,3 +330,9 @@ eval "$(atuin init zsh --disable-up-arrow)"
 
 # cargo
 export PAHT="~/.cargo/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/abe/src/terraform-resources/gcp/state_storage/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/abe/src/terraform-resources/gcp/state_storage/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/abe/src/terraform-resources/gcp/state_storage/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/abe/src/terraform-resources/gcp/state_storage/google-cloud-sdk/completion.zsh.inc'; fi
