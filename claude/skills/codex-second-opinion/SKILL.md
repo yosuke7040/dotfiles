@@ -118,9 +118,9 @@ Codex 実行前に、`/dev-journal` へ少なくとも以下を記録する:
 ## Step 3: Codex の実行
 
 ### モデル指定について
-- **デフォルト**: `gpt-5.4` + `xhigh` reasoning。全コマンドに `-m gpt-5.4 -c model_reasoning_effort="xhigh"` を明示指定する。
+- **デフォルト**: `gpt-5.5` + `xhigh` reasoning。全コマンドに `-m gpt-5.5 -c model_reasoning_effort="xhigh"` を明示指定する。
 - ユーザーが別モデルを指定した場合: `-m <model-id>` を差し替える。
-- `gpt-5.4-medium` のような複合指定は存在しない。モデルと reasoning effort は別設定。
+- `gpt-5.5-medium` のような複合指定は存在しない。モデルと reasoning effort は別設定。
 
 ### 実行コマンド
 
@@ -132,7 +132,7 @@ bash
 CODEX_SID=$(uuidgen | tr '[:upper:]' '[:lower:]' | head -c 8)
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -o /tmp/codex_result_${CODEX_SID}.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -o /tmp/codex_result_${CODEX_SID}.txt -
 {依頼文の内容}
 PROMPT
 cat /tmp/codex_result_${CODEX_SID}.txt
@@ -234,7 +234,7 @@ Please evaluate Claude's position directly. State clearly where you agree and wh
 以下のコマンドで Codex を実行し、回答を取得する（`CODEX_SID` は Step 3 冒頭で生成済み）:
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r1_${CODEX_SID}.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r1_${CODEX_SID}.txt -
 {依頼文 + Claude の立場を付加した内容}
 PROMPT
 cat /tmp/codex_debate_r1_${CODEX_SID}.txt
@@ -289,7 +289,7 @@ Codex の回答を読み、各論点を評価する:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.4 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r2_${CODEX_SID}.txt -
+cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r2_${CODEX_SID}.txt -
 {前ラウンドまでの会話履歴 + Claude の反論}
 PROMPT
 cat /tmp/codex_debate_r2_${CODEX_SID}.txt
