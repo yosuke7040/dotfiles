@@ -33,3 +33,5 @@
     prune = true
 [branch]
     sort = -authordate
+[wt]
+	basedir = .worktrees

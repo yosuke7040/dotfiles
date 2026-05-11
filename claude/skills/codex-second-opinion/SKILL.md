@@ -101,6 +101,8 @@ Return your answer in this structure:
 6. Recommended Actions
 7. Suggested Direction Back to Claude Code
 
+No confirmations or questions are needed. Proactively provide concrete proposals, fixes, and code examples.
+
 ### 送信前のジャーナル追記
 
 Codex 実行前に、`/dev-journal` へ少なくとも以下を記録する:
@@ -126,20 +128,25 @@ Codex 実行前に、`/dev-journal` へ少なくとも以下を記録する:
 
 `-o` オプションで最後のメッセージだけをファイルに書き出す。これにより出力量に関わらず確実に最終回答を取得できる。
 
-並列実行時のファイル衝突を防ぐため、最初にセッションIDを生成する:
+並列実行時のファイル衝突を防ぐため、最初にセッションIDとリポジトリルートを取得する:
 
 bash
 CODEX_SID=$(uuidgen | tr '[:upper:]' '[:lower:]' | head -c 8)
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+次に Codex を **`run_in_background: true` で起動**し、`BashOutput` で完了を待つ。background 起動なら Bash ツール呼び出しは起動直後に return するため、Bash ツールの `timeout` パラメータは実プロセスには効かない（デフォルトのままで問題ない）。実プロセスの時間上限は shell 側 `timeout 1200`（= 最大20分）で明示している:
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -o /tmp/codex_result_${CODEX_SID}.txt -
+cat << 'PROMPT' | timeout 1200 codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -C "$REPO_ROOT" -o /tmp/codex_result_${CODEX_SID}.txt -
 {依頼文の内容}
 PROMPT
-cat /tmp/codex_result_${CODEX_SID}.txt
+
+`BashOutput` で `[exit_code=0]` を確認したら、Read で `/tmp/codex_result_${CODEX_SID}.txt` の内容を取得する。
 
 - `--ephemeral`: セッションファイルを `~/.codex/sessions/` に保存しない（ファイル蓄積防止）
+- `-C "$REPO_ROOT"`: Codex の作業ルートをリポジトリルートに固定（サブエージェント経由でも CWD が揺らがない）
+- `timeout 1200`: shell 側で最大20分の上限を明示。プロセス暴走時のセーフティ
 - `-o /tmp/codex_result_${CODEX_SID}.txt`: 最終回答のみをこのファイルに書き出す（セッションIDで一意化）
-- Codex がコードを実際に読んで調査するため、カレントディレクトリはプロジェクトルートであること
 - **一時ファイルの削除**: ユーザーへの報告と dev-journal への記録が完了した後、`rm /tmp/codex_result_${CODEX_SID}.txt` で削除すること
 
 ---
@@ -231,13 +238,16 @@ Claude has the following view on this topic:
 
 Please evaluate Claude's position directly. State clearly where you agree and where you disagree, with specific reasons. Do not be diplomatic — be direct.
 
-以下のコマンドで Codex を実行し、回答を取得する（`CODEX_SID` は Step 3 冒頭で生成済み）:
+No confirmations or questions are needed. Proactively provide concrete proposals, fixes, and code examples.
+
+以下のコマンドで Codex を実行し、回答を取得する（`CODEX_SID` / `REPO_ROOT` は Step 3 冒頭で生成済み）。Bash ツールは **`run_in_background: true` で起動**し、`BashOutput` で完了を待つ（最大20分）:
 
 bash
-cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r1_${CODEX_SID}.txt -
+cat << 'PROMPT' | timeout 1200 codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -C "$REPO_ROOT" -o /tmp/codex_debate_r1_${CODEX_SID}.txt -
 {依頼文 + Claude の立場を付加した内容}
 PROMPT
-cat /tmp/codex_debate_r1_${CODEX_SID}.txt
+
+`BashOutput` で `[exit_code=0]` を確認したら、Read で `/tmp/codex_debate_r1_${CODEX_SID}.txt` の内容を取得する。
 
 取得した回答を**一切要約せずそのまま**表示する。長くても分割して全文出力すること:
 
@@ -288,11 +298,14 @@ Codex の回答を読み、各論点を評価する:
 【Round 2: Claude の反論を Codex へ送信中...】
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+Bash ツールは **`run_in_background: true` で起動**し、`BashOutput` で完了を待つ（最大20分）:
+
 bash
-cat << 'PROMPT' | codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -o /tmp/codex_debate_r2_${CODEX_SID}.txt -
+cat << 'PROMPT' | timeout 1200 codex exec --ephemeral -m gpt-5.5 -c model_reasoning_effort="xhigh" -C "$REPO_ROOT" -o /tmp/codex_debate_r2_${CODEX_SID}.txt -
 {前ラウンドまでの会話履歴 + Claude の反論}
 PROMPT
-cat /tmp/codex_debate_r2_${CODEX_SID}.txt
+
+`BashOutput` で `[exit_code=0]` を確認したら、Read で `/tmp/codex_debate_r2_${CODEX_SID}.txt` の内容を取得する。
 
 Round 2 の送信内容:
 
