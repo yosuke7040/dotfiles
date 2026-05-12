@@ -410,10 +410,10 @@ Step 4.5 で融合した 1本のテキストをここに出す。Claude / Codex 
 skill 終端で必ず実行:
 
 ```bash
-rm -f /tmp/review_branch_diff_${SID}.patch \
-      /tmp/review_branch_stat_${SID}.txt \
-      /tmp/review_branch_files_${SID}.txt \
-      /tmp/review_branch_codex_${SID}.txt
+rm /tmp/review_branch_diff_${SID}.patch \
+   /tmp/review_branch_stat_${SID}.txt \
+   /tmp/review_branch_files_${SID}.txt \
+   /tmp/review_branch_codex_${SID}.txt
 ```
 
 `SID` ごとに一意なので、並列実行や途中失敗で衝突しない。
