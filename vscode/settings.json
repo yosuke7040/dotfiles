@@ -319,5 +319,6 @@
   "claudeCode.preferredLocation": "panel",
   "python.defaultInterpreterPath": "/Users/yyyy/.local/bin/python3.14",
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "window.autoDetectColorScheme": true
+  "window.autoDetectColorScheme": true,
+  "extensions.ignoreRecommendations": true
 }
