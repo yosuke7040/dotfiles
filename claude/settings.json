@@ -34,7 +34,7 @@
       "Bash(terraform apply:*)",
       "Bash(tf apply:*)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",

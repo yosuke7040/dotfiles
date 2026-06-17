@@ -1,0 +1,19 @@
+{
+  "name": "abe-personal",
+  "interface": {
+    "displayName": "abe personal marketplace"
+  },
+  "plugins": [
+    {
+      "name": "agent-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Engineering"
+    }
+  ]
+}
