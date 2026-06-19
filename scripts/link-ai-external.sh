@@ -20,12 +20,21 @@
 #   する挙動のため、symlink では skill が見えない。
 #   → Codex 用 plugin の skills/ だけは rsync -L で実体コピーして同期する。
 #
+# commands だけは追加の事情がある
+#   Codex は .toml 形式のスラッシュコマンドを認識するが、Claude Code は .md だけ。
+#   したがって ai-external/commands/*.toml を一次ソースとし、Claude 向けには
+#   claude/commands/<name>.md を生成する。生成 .md は frontmatter に
+#   `generated_from:` を持たせ、手書き .md (commit.md / pr.md / explainer.md など) を
+#   再実行時に誤って上書きしないようにする。
+#
 # やること
-#   1. dotfiles/claude/{skills,commands,agents}/<name> → ai-external/ への symlink
-#   2. ~/.claude/{commands,agents}/<name>             → dotfiles/claude/{commands,agents}/<name>
+#   1. dotfiles/claude/{skills,agents}/<name> → ai-external/ への symlink
+#   2. dotfiles/claude/commands/<name>.md     ← ai-external/commands/<name>.toml から生成
+#   3. ~/.claude/{commands,agents}/<name>     → dotfiles/claude/{commands,agents}/<name>
 #      (~/.claude/skills は既にディレクトリ全体の symlink)
-#   3. dotfiles/codex-plugin-agent-skills/skills/      ← ai-external/skills/ を rsync で同期
-#   4. codex plugin remove → add で Codex 側 cache を再生成
+#   4. dotfiles/codex-plugin-agent-skills/skills/ ← ai-external/skills/ を rsync で同期
+#   5. 古い .toml symlink を claude/commands/ と ~/.claude/commands/ から掃除
+#   6. codex plugin remove → add で Codex 側 cache を再生成
 #
 # 使うタイミング
 #   - ai-external/ を編集した、または upstream から pull した後
@@ -60,6 +69,44 @@ link_one() {
   echo "linked: $dst -> $src"
 }
 
+# ai-external/commands/<name>.toml -> claude/commands/<name>.md
+# Claude Code は .toml を読まないため、Codex 用 .toml を一次ソースに .md を生成する。
+# 既存ファイルが手書き .md (frontmatter に generated_from: を持たない) のときは保護する。
+generate_md_from_toml() {
+  local src="$1"  # .toml file
+  local dst="$2"  # .md file path to write
+
+  if [[ -L "$dst" ]]; then
+    rm "$dst"
+  elif [[ -e "$dst" ]] && ! grep -q "^generated_from:" "$dst" 2>/dev/null; then
+    echo "skip (hand-written .md exists): $dst" >&2
+    return 0
+  fi
+
+  python3 - "$src" "$dst" <<'PY'
+import json, re, sys
+src, dst = sys.argv[1], sys.argv[2]
+text = open(src, encoding="utf-8").read()
+
+m_desc = re.search(r'^description\s*=\s*"((?:[^"\\]|\\.)*)"', text, re.M)
+desc = m_desc.group(1) if m_desc else ""
+
+m_prompt = re.search(r'^prompt\s*=\s*"""\n(.*?)\n"""\s*$', text, re.M | re.S)
+body = m_prompt.group(1).strip() if m_prompt else ""
+
+# 一次ソース相対パス（claude/commands/ から再生成元を辿れるように）
+marker = "ai-external/" + src.rsplit("/ai-external/", 1)[-1]
+
+out  = "---\n"
+out += f"description: {json.dumps(desc, ensure_ascii=False)}\n"
+out += f"generated_from: {marker}\n"
+out += "---\n\n"
+out += body + "\n"
+open(dst, "w", encoding="utf-8").write(out)
+PY
+  echo "generated: $dst"
+}
+
 mkdir -p "$CLAUDE_DOT/skills" "$CLAUDE_DOT/commands" "$CLAUDE_DOT/agents"
 mkdir -p "$CLAUDE_HOME/commands" "$CLAUDE_HOME/agents"
 
@@ -70,17 +117,29 @@ for d in "$AI_EXT/skills"/*/; do
 done
 
 echo
-echo "=== commands (dotfiles/claude/commands/) ==="
+echo "=== commands (dotfiles/claude/commands/, .toml → .md generation) ==="
 for f in "$AI_EXT/commands"/*.toml; do
-  name=$(basename "$f")
-  link_one "../../ai-external/commands/$name" "$CLAUDE_DOT/commands/$name"
+  base=$(basename "$f" .toml)
+  generate_md_from_toml "$f" "$CLAUDE_DOT/commands/$base.md"
+done
+# 古い .toml symlink (旧方式の残骸) を掃除する
+for old in "$CLAUDE_DOT/commands"/*.toml; do
+  [[ -L "$old" ]] || continue
+  rm "$old"
+  echo "removed stale: $old"
 done
 
 echo
 echo "=== commands (~/.claude/commands/) ==="
 for f in "$AI_EXT/commands"/*.toml; do
-  name=$(basename "$f")
-  link_one "$CLAUDE_DOT/commands/$name" "$CLAUDE_HOME/commands/$name"
+  base=$(basename "$f" .toml)
+  link_one "$CLAUDE_DOT/commands/$base.md" "$CLAUDE_HOME/commands/$base.md"
+done
+# 古い .toml symlink を掃除
+for old in "$CLAUDE_HOME/commands"/*.toml; do
+  [[ -L "$old" ]] || continue
+  rm "$old"
+  echo "removed stale: $old"
 done
 
 echo

@@ -1,0 +1,33 @@
+---
+description: "性能監査を web-performance-auditor ペルソナで実行する。"
+generated_from: ai-external/commands/webperf.toml
+---
+
+/webperf は Web アプリケーション専用である。ユーティリティライブラリ、CLI、ブラウザ向け出力を持たないサーバー専用コードには使わない。
+
+## モードを決める
+
+Deep モード: 次のいずれかが利用できる場合に有効にする:
+- Lighthouse JSON レポートファイル（例: `npx lighthouse <url> --output json --output-path ./report.json`、または Chrome DevTools MCP CLI から `npx -p chrome-devtools-mcp chrome-devtools lighthouse_audit --output-format=json`）
+- PageSpeed Insights JSON レスポンス（Lighthouse + CrUX を含む）
+- CrUX API レスポンス（CRUX_API_KEY または GOOGLE_API_KEY が必要）
+- DevTools 性能トレース
+- ライブ URL と、ハーネスに設定済みの chrome-devtools MCP サーバー（lighthouse_audit と performance_* ツールで直接メトリクスを取得する）
+- ローカルで起動した Chrome DevTools MCP CLI（`npx -p chrome-devtools-mcp chrome-devtools <tool>`）の JSON 出力をエージェントに渡せる場合
+
+Quick モード: 上記のどれも利用できない場合の既定。ソースコードを走査して構造的なアンチパターンを探し、すべての指摘に `potential impact` とラベル付けする。
+
+## 監査を実行する
+
+`web-performance-auditor` サブエージェントを起動する（CLI は `agents/` 内の各カスタムサブエージェントを同名のツールとして公開する）。次を明示的に渡す:
+
+- レビュー対象のファイル、コンポーネント、または差分
+- 成果物パス（Lighthouse JSON、PSI JSON、CrUX レスポンス、trace）または貼り付けられた JSON 内容
+- 既知であれば対象 URL またはページ名
+- 想定しているモード（Quick または Deep）のメモ。Deep のつもりなのに入力が不足している場合、エージェントがそれを表面化できるようにする
+
+サブエージェントは、スコアカード（根拠のある値だけを記入する。未測定項目は `not measured` とし、メトリクスを捏造しない）、優先順位付きの指摘一覧、良い観察結果、先回りした推奨事項を返す。
+
+## 出力
+
+監査レポート全文をユーザーへ返す。これは単一ペルソナのコマンドなので、統合やマージ手順は不要である。
