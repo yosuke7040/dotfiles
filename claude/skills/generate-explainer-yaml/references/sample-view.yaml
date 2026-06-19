@@ -1,0 +1,55 @@
+version: view/v1
+
+# この読み手が一番早く理解するために、どう見せるか。
+# これは HTML 生成 AI への戦略であって、レンダラーへの命令ではない。
+audience:
+  role: engineer
+  familiarity: intermediate
+  stated_preferences:
+    - worktree
+    - reading_order
+    - review_checklist
+  dislikes:
+    - dense_table
+
+intent:
+  primary_goal: "短時間で自信を持ってこの PR をレビューする。"
+  secondary_goals:
+    - "どのファイルから読むべきか分かる。"
+    - "approve する前にリスクの強い箇所を見つける。"
+
+presentation:
+  preferred_forms:
+    - worktree
+    - reading_path
+    - review_checklist
+  avoid_forms:
+    - dense_table
+  density: medium
+  tone: technical
+  visual_style: "clean, readable, structural; not decorative"
+  interaction_level: medium
+
+focus:
+  emphasize:
+    - dependencies
+    - reading_order
+    - impact
+    - risks
+  de_emphasize:
+    - minor_details
+
+html_generation_policy:
+  allow_creative_layout: true
+  must_include:
+    - overview
+    - source_references
+    - prompt_templates
+  should_include:
+    - progressive_disclosure
+    - visual_grouping
+    - next_questions
+  must_not_include:
+    - external_script
+    - remote_css
+    - network_request

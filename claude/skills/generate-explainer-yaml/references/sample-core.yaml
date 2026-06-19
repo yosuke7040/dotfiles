@@ -1,0 +1,147 @@
+version: core/v1
+
+# 理解対象の意味構造。
+# これは UI 仕様ではない — 意味・重要度・難易度・根拠を捕まえるためのもの。
+target:
+  type: pull_request
+  title: "公開 API にレート制限を追加"
+  summary: >
+    公開 API ミドルウェアとしてトークンバケットによるレート制限を導入する。
+    上限はルートごとに設定可能で、ハンドラ実行前に強制される。
+  source_label: "PR #482 (feature/api-rate-limit)"
+
+concepts:
+  - id: c_middleware
+    label: "RateLimitMiddleware"
+    kind: module
+    summary: "リクエストを受け取り、上限超過なら拒否する。"
+    detail: >
+      公開ルートをラップする。クライアントからキーを読み、ストアにトークンが残っているか
+      問い合わせ、バケットが空なら 429 を返す。
+    importance: high
+    difficulty: medium
+    confidence: 0.9
+    source_refs:
+      - id: r_mw
+        path: "src/api/middleware/rate_limit.py"
+        excerpt: "class RateLimitMiddleware: def __call__(self, request, call_next): ..."
+        lines:
+          start: 14
+          end: 76
+
+  - id: c_store
+    label: "TokenBucketStore"
+    kind: module
+    summary: "クライアント＋ルートをキーにしたインメモリのトークンバケット。"
+    detail: >
+      バケットの状態を保持し、経過時間に応じてトークンを補充する。
+      リクエストを許可するかどうかの単一の真実。
+    importance: high
+    difficulty: high
+    confidence: 0.85
+    source_refs:
+      - id: r_store
+        path: "src/api/middleware/token_bucket.py"
+        excerpt: "def take(self, key): refill(); return self.tokens[key] > 0"
+        lines:
+          start: 1
+          end: 120
+
+  - id: c_config
+    label: "ルート別の上限設定"
+    kind: concept
+    summary: "ルートごとに requests-per-minute を宣言する。"
+    detail: "起動時に読み込むルート → 上限のマップ。未知のルートは既定値にフォールバックする。"
+    importance: medium
+    difficulty: low
+    confidence: 0.95
+    source_refs:
+      - id: r_cfg
+        path: "config/rate_limits.yaml"
+        excerpt: "default: 60\nroutes:\n  /search: 20"
+        lines:
+          start: 1
+          end: 12
+
+  - id: c_tests
+    label: "レート制限のテスト"
+    kind: file
+    summary: "許可・拒否・経過時間による補充の振る舞いをカバーする。"
+    detail: "ミドルウェアに fake clock を渡して、補充タイミングを決定論的にする。"
+    importance: medium
+    difficulty: medium
+    confidence: 0.9
+    source_refs:
+      - id: r_tests
+        path: "tests/api/test_rate_limit.py"
+        excerpt: "def test_rejects_when_bucket_empty(): ..."
+        lines:
+          start: 1
+          end: 140
+
+relations:
+  - id: rel_mw_store
+    from: c_middleware
+    to: c_store
+    type: depends_on
+    label: "トークンを問い合わせる"
+    reason: "ミドルウェアはストアに聞いて許可/拒否を判定する。"
+    confidence: 0.95
+  - id: rel_mw_config
+    from: c_middleware
+    to: c_config
+    type: depends_on
+    label: "上限を読む"
+    reason: "ルート別上限はリクエスト時に参照される。"
+    confidence: 0.9
+  - id: rel_tests_mw
+    from: c_tests
+    to: c_middleware
+    type: explains
+    label: "動作を例示する"
+    reason: "テストが意図した振る舞いの最も明確な仕様になっている。"
+    confidence: 0.8
+
+questions:
+  - id: q_distributed
+    question: "複数インスタンスで動かしたとき、上限はどうなるか?"
+    why_it_matters: "インメモリのバケットはプロセスごとなので、実効上限はインスタンス数倍になる。"
+    related_concept_ids: [c_store]
+  - id: q_key
+    question: "クライアントキーはどう導出されるか? 偽装可能か?"
+    why_it_matters: "キーが弱いと、呼び出し側に上限を回避されうる。"
+    related_concept_ids: [c_middleware]
+
+risks:
+  - id: risk_memory
+    label: "バケットの無制限な成長"
+    description: "バケットは evict されないので、キーが多様だとメモリが膨らみうる。"
+    severity: medium
+    related_concept_ids: [c_store]
+  - id: risk_distributed
+    label: "プロセス別の上限"
+    description: "実効上限はインスタンス数倍にスケールする。グローバル保証ではない。"
+    severity: high
+    related_concept_ids: [c_store, c_middleware]
+
+source_refs:
+  - id: r_mw
+    title: "rate_limit.py"
+    type: file
+    path: "src/api/middleware/rate_limit.py"
+    excerpt: "class RateLimitMiddleware ..."
+  - id: r_store
+    title: "token_bucket.py"
+    type: file
+    path: "src/api/middleware/token_bucket.py"
+    excerpt: "class TokenBucketStore ..."
+  - id: r_cfg
+    title: "rate_limits.yaml"
+    type: file
+    path: "config/rate_limits.yaml"
+    excerpt: "default: 60 ..."
+  - id: r_pr
+    title: "PR description"
+    type: diff
+    path: "PR #482"
+    excerpt: "公開 API にレート制限を追加 ..."
