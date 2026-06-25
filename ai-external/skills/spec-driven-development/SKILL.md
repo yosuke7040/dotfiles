@@ -162,14 +162,28 @@ SPECIFY ──→ PLAN ──→ TASKS ──→ IMPLEMENT
 
 `skills/incremental-implementation/SKILL.md`（`incremental-implementation`）と `skills/test-driven-development/SKILL.md`（`test-driven-development`）に従い、タスクを 1 つずつ実行する。毎ステップで仕様全体をエージェントに流し込むのではなく、`skills/context-engineering/SKILL.md`（`context-engineering`）を使って、適切な仕様セクションとソースファイルを読み込む。
 
+## 保存場所
+
+仕様は作業中リポジトリの `.tmp/<作業ディレクトリ>/SPEC.md` として保存する。作業ディレクトリ命名規則:
+
+```
+.tmp/<YYYY-MM-DD>-<日本語スラッグ>[-<LINEAR-KEY>]/
+```
+
+- `<YYYY-MM-DD>`: 仕様作成日
+- `<日本語スラッグ>`: 修正改修内容を 10〜20 文字程度で表す日本語名。空白・記号はハイフン置換（例: `ユーザー認証追加`）
+- `<LINEAR-KEY>`: Linear issue がある場合のみ末尾に付与（例: `-ENG-123`）
+- 同日同名衝突時は `-2`, `-3` をサフィックス
+
+`.tmp/` は通常 gitignore 対象である前提で、SPEC.md は履歴に残らない作業用ドキュメントとして扱う。下流の `/plan` `/build` は同じディレクトリ配下に `PLAN.md` `TODO.md` を置く。
+
 ## 仕様を生かし続ける
 
 仕様は一度きりの成果物ではなく、生きた文書である:
 
 - **判断が変わったら更新する**: データモデル変更が必要だと分かったら、先に仕様を更新してから実装する。
 - **スコープが変わったら更新する**: 追加または削除された機能は仕様に反映する。
-- **仕様をコミットする**: 仕様はコードと同じくバージョン管理に属する。
-- **PR で仕様を参照する**: 各 PR が実装する仕様セクションへリンクする。
+- **作業中は手元で更新し続ける**: `.tmp/` 配下にあり gitignore されているため履歴は残らないが、作業中は信頼できる情報源として更新し続ける。PR を作る際は、必要に応じて要点を PR description や ADR に転記する。
 
 ## よくある正当化
 
@@ -197,4 +211,4 @@ SPECIFY ──→ PLAN ──→ TASKS ──→ IMPLEMENT
 - [ ] 人間が仕様をレビューし、承認している
 - [ ] 成功条件が具体的でテスト可能である
 - [ ] 境界（Always / Ask First / Never）が定義されている
-- [ ] 仕様がリポジトリ内のファイルに保存されている
+- [ ] 仕様が `.tmp/<作業ディレクトリ>/SPEC.md` に保存されている
